@@ -1,0 +1,25 @@
+body,
+div,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', Arial, sans-serif;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
