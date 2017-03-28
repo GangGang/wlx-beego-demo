@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	//"errors"
+	"errors"
 )
 
 type LoginController struct {
@@ -11,7 +11,7 @@ type LoginController struct {
 
 func (c *LoginController) Get() {
 	c.Data["cdnUrl"] = ""
-	//c.Data["error"] = errors.New("password error")
+	c.Data["error"] = errors.New("password error")
 	c.TplName = "login.jade"
 }
 
