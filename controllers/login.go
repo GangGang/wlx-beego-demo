@@ -3,20 +3,21 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"errors"
-	"github.com/astaxie/beego/validation"
-	"fmt"
+	"regexp"
+	"strings"
+	"unicode/utf8"
 )
 
 type login struct {
-	Username string `valid:"Mobile"` //Mobile必须为正确的手机号
-	Password string `valid:"Required;Match(/^Bee.*/)"`
+	Username string  `form:"username"` //Mobile必须为正确的手机号
+	Password string `form:"password"`
 }
 
 type LoginController struct {
 	beego.Controller
 }
 
-func (c *LoginController) Get() {
+func (c *LoginController)Get() {
 	//检测session,如果已登录直接重定向到首页
 
 	c.Data["cdnUrl"] = ""
@@ -27,20 +28,59 @@ func (c *LoginController) Get() {
 func (c *LoginController)Post() {
 	login := login{}
 	if err := c.ParseForm(&login); err != nil {
-		//handle error
+		jsonMap := make(map[string]interface{})
+		jsonMap["code"] = 1
+		jsonMap["error"] = err.Error()
+
+		c.Data["json"] = &jsonMap
+		c.ServeJSON()
 		return
 	}
 
-	valid := validation.Validation{}
-	b, err := valid.Valid(&login)
-	if err != nil {
-		//handle error
+	if strings.EqualFold(login.Username, "") {
+		jsonMap := make(map[string]interface{})
+		jsonMap["code"] = 1
+		jsonMap["msg"] = "username must input"
+
+		c.Data["json"] = &jsonMap
+		c.ServeJSON()
+		return
 	}
 
-	if !b {
-		//验证不通过
-		for _, err := range valid.Errors {
-			fmt.Println(err.Key, err.Message)
-		}
+	if !strings.HasPrefix(login.Username, "1") || utf8.RuneCountInString(login.Username) != 11 {
+		jsonMap := make(map[string]interface{})
+		jsonMap["code"] = 1
+		jsonMap["msg"] = "username must be mobile"
+
+		c.Data["json"] = &jsonMap
+		c.ServeJSON()
+		return
 	}
+	if strings.EqualFold(login.Password, "") {
+		jsonMap := make(map[string]interface{})
+		jsonMap["code"] = 1
+		jsonMap["msg"] = "password must input"
+
+		c.Data["json"] = &jsonMap
+		c.ServeJSON()
+		return
+	}
+
+	r, _ := regexp.Compile("^[a-zA-Z0-9]{6,12}$")
+	if !r.MatchString(login.Password) {
+		jsonMap := make(map[string]interface{})
+		jsonMap["code"] = 1
+		jsonMap["msg"] = "password must 6-12"
+
+		c.Data["json"] = &jsonMap
+		c.ServeJSON()
+		return
+	}
+
+	jsonMap := make(map[string]interface{})
+	jsonMap["code"] = 0
+	jsonMap["msg"] = "success"
+
+	c.Data["json"] = &jsonMap
+	c.ServeJSON()
 }

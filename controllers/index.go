@@ -10,6 +10,7 @@ type IndexController struct {
 }
 
 func (c *IndexController)Get() {
+	//检测session是否登录
 	c.Redirect("/login",http.StatusMovedPermanently)
 	return
 }
