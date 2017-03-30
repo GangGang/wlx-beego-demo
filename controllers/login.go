@@ -9,7 +9,7 @@ import (
 )
 
 type login struct {
-	Username string  `form:"username"` //Mobile必须为正确的手机号
+	Username string  `form:"username"`
 	Password string `form:"password"`
 }
 
@@ -47,19 +47,20 @@ func (c *LoginController)Post() {
 		return
 	}
 
-	if !strings.HasPrefix(login.Username, "1") || utf8.RuneCountInString(login.Username) != 11 {
+	if strings.EqualFold(login.Password, "") {
 		jsonMap := make(map[string]interface{})
 		jsonMap["code"] = 1
-		jsonMap["msg"] = "username must be mobile"
+		jsonMap["msg"] = "password must input"
 
 		c.Data["json"] = &jsonMap
 		c.ServeJSON()
 		return
 	}
-	if strings.EqualFold(login.Password, "") {
+
+	if !strings.HasPrefix(login.Username, "1") || utf8.RuneCountInString(login.Username) != 11 {
 		jsonMap := make(map[string]interface{})
 		jsonMap["code"] = 1
-		jsonMap["msg"] = "password must input"
+		jsonMap["msg"] = "username must be mobile"
 
 		c.Data["json"] = &jsonMap
 		c.ServeJSON()

@@ -9,6 +9,7 @@ import (
 	"github.com/Joker/jade"
 	"github.com/astaxie/beego"
 	"wlx/utils"
+	_ "github.com/astaxie/beego/session/redis"
 )
 
 func main() {

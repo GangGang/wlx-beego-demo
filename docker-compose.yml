@@ -14,12 +14,12 @@ wlx-mysql:
   volumes:
   - ./docker/mysql:/var/mysql
 
-wlx:
-  build: .
-  volumes:
-    - .:/go
-  ports:
-    - "8080:8080"
-  links:
-    - wlx-mysql
-    - wlx-redis
+#wlx:
+#  build: .
+#  volumes:
+#    - .:/go
+#  ports:
+#    - "8080:8080"
+#  links:
+#    - wlx-mysql
+#    - wlx-redis
