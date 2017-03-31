@@ -21,7 +21,7 @@ func (c *LoginController)Get() {
 	//检测session,如果已登录直接重定向到首页
 
 	c.Data["cdnUrl"] = ""
-	c.Data["error"] = errors.New("password error")
+	c.Data["error"] = errors.New("")
 	c.TplName = "login.jade"
 }
 
@@ -78,10 +78,20 @@ func (c *LoginController)Post() {
 		return
 	}
 
-	jsonMap := make(map[string]interface{})
-	jsonMap["code"] = 0
-	jsonMap["msg"] = "success"
+	//jsonMap := make(map[string]interface{})
+	//jsonMap["code"] = 0
+	//jsonMap["msg"] = "success"
+	//
+	//c.Data["json"] = &jsonMap
 
-	c.Data["json"] = &jsonMap
-	c.ServeJSON()
+	sess, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
+	if err != nil {
+		c.Redirect("/login", 302)
+		return
+	}
+
+	sess.Set("uid", 1)
+	c.Redirect("/", 302)
+
+	//c.ServeJSON()
 }

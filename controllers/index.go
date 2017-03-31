@@ -11,8 +11,17 @@ type IndexController struct {
 
 func (c *IndexController)Get() {
 	//检测session是否登录
-	//c.GetSession()
-
-	c.Redirect("/login",http.StatusMovedPermanently)
-	return
+	session, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
+	if err != nil {
+		c.Redirect("/login", http.StatusFound)
+		return
+	}
+	uid := session.Get("uid")
+	if uid == nil {
+		c.Redirect("/login", http.StatusFound)
+		return
+	}
+	c.Data["cdnUrl"] = ""
+	c.Data["error"] = uid
+	c.TplName = "login.jade"
 }
