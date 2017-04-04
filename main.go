@@ -12,13 +12,12 @@ import (
 	_ "github.com/astaxie/beego/session/redis"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	"wlx/models"
 )
 
 func init() {
 	orm.RegisterDriver("mysql",orm.DRMySQL)
-	orm.RegisterDataBase("wlx","mysql","root:123456@/wlx?charset=utf8")
-	orm.RegisterModel(new(models.Org),new(models.Userinfo))
+	//orm.RegisterDataBase("wlx","mysql","root:123456@/wlx?charset=utf8")
+
 }
 
 func main() {
