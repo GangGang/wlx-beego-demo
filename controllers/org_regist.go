@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"wlx/models"
 	"wlx/utils"
-	"wlx/models/constant"
+	"github.com/astaxie/beego/orm"
 )
 
 type OrgRegistController struct {
@@ -67,7 +67,7 @@ func (this *OrgRegistController)Put() {
 	}
 
 	//++++++++++++++++事物++++++++
-	constant.ORM.Begin()
+	o := orm.NewOrm()
 	//创建机构
 	orgId := models.InsertOrg(title, username)
 	if orgId == -1 {
@@ -87,12 +87,12 @@ func (this *OrgRegistController)Put() {
 	enPwd := utils.EncryptPwd(pwd, salt)
 	userAuth := models.InsertUserAuth(orguserinfoId, "mobile", username, enPwd, salt)
 	if userAuth == nil {
-		constant.ORM.Rollback()
+		o.Rollback()
 		this.Data["json"] = utils.Error(8, "注册失败")
 		this.ServeJSON()
 		return
 	} else {
-		constant.ORM.Commit()
+		o.Commit()
 		this.Data["json"] = utils.Success(userAuth)
 		this.ServeJSON()
 		return

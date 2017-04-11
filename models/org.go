@@ -2,7 +2,6 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
-	"wlx/models/constant"
 )
 
 type Org struct {
@@ -16,8 +15,10 @@ func init() {
 }
 
 func FindOrg(title string) interface{} {
+	o := orm.NewOrm()
+
 	org := Org{Title:title}
-	err := constant.ORM.Read(&org, "Title")
+	err := o.Read(&org, "Title")
 	if err == nil {
 		return org
 	} else {
@@ -26,11 +27,13 @@ func FindOrg(title string) interface{} {
 }
 
 func InsertOrg(title, mobile string) int64 {
+	o := orm.NewOrm()
+
 	var org Org
 	org.Title = title
 	org.Mobile = mobile
 
-	id, err := constant.ORM.Insert(&org)
+	id, err := o.Insert(&org)
 	if err == nil {
 		return id
 	} else {

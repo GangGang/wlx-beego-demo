@@ -3,7 +3,6 @@ package models
 import (
 	"github.com/astaxie/beego/orm"
 	"wlx/models/enum"
-	"wlx/models/constant"
 )
 
 type Userinfo struct {
@@ -32,8 +31,10 @@ func FindUserinfo(username string) interface{} {
 }
 
 func InsertOrguserinfo(username string, orgId int64) int64 {
+	o := orm.NewOrm()
+
 	orguserinfo := Userinfo{Username:username, Type:"O", OrgId:orgId, Role:enum.USER}
-	id, err := constant.ORM.Insert(&orguserinfo)
+	id, err := o.Insert(&orguserinfo)
 	if err == nil {
 		return id
 	} else {

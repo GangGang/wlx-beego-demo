@@ -10,8 +10,8 @@ import (
 	"github.com/astaxie/beego"
 	"wlx/utils"
 	_ "github.com/astaxie/beego/session/redis"
-	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/astaxie/beego/orm"
 )
 
 func init() {

@@ -2,7 +2,6 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
-	"wlx/models/constant"
 )
 
 type UserAuth struct {
@@ -19,8 +18,10 @@ func init() {
 }
 
 func InsertUserAuth(userinfoId int64, identityType, identifier, credential, salt string) interface{} {
+	o := orm.NewOrm()
+
 	userAuth := UserAuth{UserinfoId:userinfoId, IdentityType:identityType, Identifier:identifier, Credential:credential, Salt:salt}
-	_, err := constant.ORM.Insert(&userAuth)
+	_, err := o.Insert(&userAuth)
 	if err == nil {
 		return userAuth
 	} else {
