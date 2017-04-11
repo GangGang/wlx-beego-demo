@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strings"
 	"unicode/utf8"
+	"net/http"
 )
 
 type login struct {
@@ -19,10 +20,17 @@ type LoginController struct {
 
 func (c *LoginController)Get() {
 	//检测session,如果已登录直接重定向到首页
-
+	//sess, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
+	//if err != nil {
+	//	c.Redirect("/login", http.StatusFound)
+	//	return
+	//} else {
 	c.Data["cdnUrl"] = ""
 	c.Data["error"] = errors.New("")
 	c.TplName = "login.jade"
+	//c.Redirect("/", http.StatusFound)
+	return
+	//}
 }
 
 func (c *LoginController)Post() {
@@ -78,15 +86,9 @@ func (c *LoginController)Post() {
 		return
 	}
 
-	//jsonMap := make(map[string]interface{})
-	//jsonMap["code"] = 0
-	//jsonMap["msg"] = "success"
-	//
-	//c.Data["json"] = &jsonMap
-
 	sess, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
 	if err != nil {
-		c.Redirect("/login", 302)
+		c.Redirect("/login", http.StatusFound)
 		return
 	}
 
