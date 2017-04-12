@@ -50,7 +50,7 @@ func (this *LoginController)Post() {
 		return
 	}
 
-	ok, userAuth := models.FindOneByTypeAndIdentifier(enum.O, username)
+	ok, userAuth := models.FindOneByTypeAndIdentifier(enum.Mobile, username)
 	if ok {
 		pwdEncoded := utils.EncryptPwd(pwd, userAuth.Salt)
 		if strings.EqualFold(userAuth.Credential, pwdEncoded) {
@@ -86,7 +86,7 @@ func (this *LoginController)Post() {
 		}
 	} else {
 		this.Data["cdnUrl"] = ""
-		this.Data["error"] = "账号或者密码错误"
+		this.Data["error"] = "账号不存在"
 		this.TplName = "login.jade"
 		return
 	}

@@ -38,10 +38,10 @@ func FindOneByTypeAndIdentifier(identityType, identifier string) (bool, *UserAut
 	o := orm.NewOrm()
 
 	userAuth := UserAuth{IdentityType:identityType, Identifier:identifier}
-	err := o.QueryTable("user_auth").Filter("identity_type", "identifier").One(&userAuth)
+	err := o.QueryTable("user_auth").Filter("identity_type", identityType).Filter("identifier", identifier).One(&userAuth)
 	if err == nil {
-		return true,&userAuth
+		return true, &userAuth
 	} else {
-		return false,&userAuth
+		return false, &userAuth
 	}
 }
