@@ -1,0 +1,84 @@
+
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/tooltip.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/course_detail.css")
+
+
+block content
+    #content
+        - var aaaa = helper.stringify(data.gradeList)
+
+        .course-info 课程信息
+            span.hide #{aaaa}
+            span.hide1(style="display:none") #{data.clazz.imageUrl}
+            .container
+                .top
+                    .course-detail
+                        .img
+                            img(src='#{data.clazz.imageUrl}?x-oss-process=image/resize,m_fixed,h_150,w_200/format,jpg/quality,Q_86')
+                        ul.info
+                            li
+                                img(src='#{data.cdnUrl}/static/images/category.png')
+                                span(style='margin-left:10px' id='') #{data.clazz.title}
+                            li
+                                img(src='#{data.cdnUrl}/static/images/name.png')
+                                span(style='margin-left:10px;margin-right:20px') #{data.teacherName}
+                        ul.index
+                            li #{data.exist}/#{data.capacity}<br>
+                                span 容量
+                            li #{data.clazz.lastMonthRate}<br>
+                                span 上月上课率
+                            li #{data.clazz.price}<br>
+                                span 课次(#{data.clazz.classDuration}分钟)
+
+                        a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.clazz.id}/edit/")
+                          img.edit(src='#{data.cdnUrl}/static/images/editthegrid.png')
+
+
+
+                    .course-set
+                        .op
+                            a.f(href='/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.clazz.id}/setting/?category=1')
+                                img(src='#{data.cdnUrl}/static/images/coursedetails.png')
+                        .op
+                            a.s(href='/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.clazz.id}/setting/?category=2')
+                                img(src='#{data.cdnUrl}/static/images/courseoutline.png')
+                        .op
+                            a.t(href='/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.clazz.id}/setting/?category=3')
+                                img(src='#{data.cdnUrl}/static/images/commonproblem.png')
+                .bottom
+                    include ./course/course_schedule
+                    .class-list
+                        span.hide(style='display:none') #{ww}
+                        .classtop
+                            .top1 班级列表
+                            a(href='/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.clazz.id}/add_grade/' style='margin-top:10px')
+                              img(src='#{data.cdnUrl}/static/images/classlist.png')
+                        .classbrief
+                            div 班级
+                            div 已招/总数
+                            div 状态
+                        each val in data.gradeList
+                            if val.enabled
+                                a.bb(style='text-decoration:none' data-index=val.id href='/orgs/#{data.org_id}/schools/#{data.school_id}/grades/'+ val.id +'/')
+                                    div= val.gradeName
+                                    div= val.rate
+                                    div= val.status
+                            else
+                                a.bb.cc(style='text-decoration:none;' data-index=val.id href='/orgs/#{data.org_id}/schools/#{data.school_id}/grades/' + val.id + '/')
+                                    div= val.gradeName
+                                    div= val.rate
+                                    div= val.status
+                                    img(style="position:absolute;top:15px;left:5px" src="#{data.cdnUrl}/static/images/classdoesnotshow.png")
+
+                                
+block script
+    script(src="#{data.cdnUrl}/static/libs/tooltip.js")
+    script(src='#{data.cdnUrl}/static/js/coursedetail.js')
+
+
+
+

@@ -1,0 +1,109 @@
+//
+   Created by ganle on 17/2/21.
+
+extends common/main
+
+//- var aliimgupload = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/teacher_exchange.css")
+block script
+    script(src="#{data.cdnUrl}/static/js/change_teacher.js")
+
+block content
+    #content
+        .box
+            ul
+                li
+                    .le 课 程
+                        span
+                    span.ri 钢琴一对一课
+                li
+                    .le 班 级
+                        span
+                    span.ri 二(1)班
+                li
+                    .le 教 室
+                        span
+                    span.ri 钢琴VIP
+                li
+                    .le 上课时间
+                        span
+                    span.ri 周日 10:00 - 11:00
+                li
+                    .le 老 师
+                        span
+                    span.ri 张三丰
+                li
+                    .le 转换老师
+                        span
+                    .dropdown
+                        button#drop.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" style="outline:none")
+                            span.caret
+                        .input-group
+                            input.form-control.tea(type='text',name='mobile' readonly='yes' placeholder="请选择老师")
+                        ul.dropdown-menu(role="menu" aria-labelledby="drop")
+                            li(role="presentation") 卡特琳娜
+                            li(role="presentation") 雷恩加尔
+                            li(role="presentation") 卡尔萨斯
+                            li(role="presentation") 德莱厄斯
+                            li(role="presentation") 马尔扎哈
+                            li(role="presentation") 奥利安娜
+                            li(role="presentation") 卡莉斯塔
+            .ctcont
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+                .ctcla
+                    img.cla
+                    span.clana 钢琴集体课
+                    span.clapri ¥120
+                    img.sec(src="#{data.cdnUrl}/static/images/courseselection.png")
+            .ctlast
+                button.btn.btn-success.sure 确认
+
+
+
+

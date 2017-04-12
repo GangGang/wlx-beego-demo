@@ -1,0 +1,16 @@
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/order_finish.css")
+
+block script
+    script(src="#{data.cdnUrl}/static/js/order_flish.js")
+
+block content
+    #content
+        //data
+
+        .head_title( style='text-align : center')
+            h3 订单已完成
+        include order/finish_content
+

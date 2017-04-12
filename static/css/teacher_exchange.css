@@ -1,0 +1,98 @@
+#content {
+  padding-bottom: 50px;
+}
+.box {
+  margin: 20px;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 20px 20px 20px 35px;
+}
+.le {
+  height: 34px;
+  display: inline-block;
+  width: 65px;
+  font-size: 16px;
+  line-height: 34px;
+  text-align: justify;
+  vertical-align: top;
+  margin-right: 40px;
+  color: #999;
+}
+.le>span {
+  display: inline-block;
+  padding-left: 100%;
+}
+span.ri {
+  height: 34px;
+  display: inline-block;
+  width: 400px;
+  font-size: 16px;
+  line-height: 34px;
+  vertical-align: top;
+  color: #333;
+}
+.dropdown {
+  display: inline-block;
+  height: 34px;
+  width: 205px;
+  margin-right: 20px;
+}
+.dropdown button {
+  position: absolute;
+  right: 0;
+}
+.dropdown li {
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: 40px;
+}
+.dropdown ul {
+  padding: 0;
+  margin: 0;
+}
+.ctcont {
+  margin: 20px 0 20px 0;
+}
+.ctcla {
+  width: 243px;
+  height: 175px;
+  position: relative;
+  background-color: #eee;
+  margin: 0 20px 20px 0;
+  display: inline-block;
+  cursor: pointer;
+}
+img.cla {
+  width: 243px;
+  height: 141px;
+}
+span.clana {
+  font-size: 14px;
+  height: 34px;
+  margin-left: 10px;
+  line-height: 34px;
+  color: #333;
+}
+span.clapri {
+  position: absolute;
+  right: 0;
+  font-size: 14px;
+  height: 34px;
+  margin-right: 10px;
+  line-height: 34px;
+  color: #999;
+}
+button.sure {
+  margin: 0 0 15px 1020px;
+  width: 75px;
+}
+img.sec {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}

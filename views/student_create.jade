@@ -1,0 +1,24 @@
+extends common/main
+
+
+block style
+
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/bootstrap-select.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/student_create.css")
+
+block script
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{data.cdnUrl}/static/libs/bootstrap-select.js")
+    script(src="#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.js")
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/js/add_student.js")
+
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.zh-CN.js')
+
+block content
+    #content
+        textarea#jsonObject #{helper.stringify(data)}
+        //h5 机构管理 > 学生家长 > 添加学生
+        include student/student_create_content

@@ -1,0 +1,128 @@
+//
+   Created by ganle on 16/12/22.
+extends common/main
+
+//- var aliimgupload = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/school_officialset.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/alert.css")
+
+block script
+    //script(src="#{data.cdnUrl}/static/libs/wlx-aliyun-oss.js")
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/libs/alert.js")
+    script(src="#{data.cdnUrl}/static/js/school.js")
+
+block content
+    #content
+        .box.officialset(orgid='#{data.org_id}' schoolid='#{data.school_id}' category='#{data.category}')
+            .leftbb
+                ul.title
+                    li.org.first 校区主页
+                    li.cou 课程列表
+                    li.tea 教师列表
+                .bb
+                    .taborg(style='display:none')
+                        ul.container
+                            li.ban
+                                p.title1 Banner轮播
+                                    span 尺寸要求:1920x550px
+                                .imgs
+                                    each banner in data.school_setting.banners
+                                        .newban.upbox(data-wlx-ban-url="#{banner.url}" data-wlx-ban-title="#{banner.title}" data-wlx-ban-link="#{banner.link}" data-toggle="modal", data-target="#uporgban")
+                                            img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                            img.double.mainban(src="#{banner.url}")
+                                            .blackhover
+                                                .delete ×
+                                    .add.upbox(data-toggle="modal" data-target="#uporgban")
+                                        img(src='#{data.cdnUrl}/static/images/addpictures.png',style="width:100%;height:100%")
+
+                                    include ./modals/offical_banner
+
+
+                            li.edi
+                                p.title.se 教学环境
+                                    span 尺寸要求:1180x640px
+                                each envurl,index in data.school_setting.teaching_environment_urls
+                                    .newenv.upbox(data-wlx-envurl="#{envurl}" style="display: inline-block;position: relative;width: 235px;height: 127px;margin: 0 15px 15px 0")
+                                        img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                        img.double(src="#{envurl}", style="width: 100%;height: 100%")
+                                        .blackhover
+                                            .delete ×
+                                        label(for=index,style='width:235px;height:127px;display:block;position:absolute;top:0;left:0')
+                                        input.changeenv(type='file')
+                                .addenv.upbox
+                                    img.double(src='#{data.cdnUrl}/static/images/addpictures.png',style="width:100%;height:100%")
+                                    label(for='uploadenv',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                                    input#uploadenv(type='file',name='uploadcs1',style='')
+                            li.tea
+                                p.title.se 教师推荐
+                                ul.conta
+                                    li.pu
+                                        p.sp 标题
+                                        .input-group.orgbootinput.tearec
+                                            input.form-control.ti(type='text' name='title' value="#{data.school_setting.teacherRecommendationTitle}" placeholder="请输入标题")
+                                    li.pu
+                                        .spcen
+                                            p.sp.spm 描述
+                                        textarea.tea(cols=30,rows=5 placeholder="请输入描述" onpropertychange="if(value.length>100) value=value.substr(0,100)") #{data.school_setting.teacherRecommendationDescription}
+                                    li.onn
+                                        each teacher, index in data.school_setting.teacherUserProfileList
+                                            .on.newt(tagflag="#{data.school_setting.teacherUserProfileList[index].teacherUser.id}")
+                                                .imgt
+                                                    img(src="#{data.school_setting.teacherUserProfileList[index].avatartUrl}", style="width: 100%;height: 100%")
+                                                    .blacktea
+                                                p.name #{data.school_setting.teacherUserProfileList[index].name}
+                                                p.desc #{data.school_setting.teacherUserProfileList[index].intro}
+                                                img.delete(src='#{data.cdnUrl}/static/images/deleterecommendation.png')
+                                        .on.adds
+                                            .imgt(data-toggle="modal" data-target="#teacher_alert")
+                                                img(src='#{data.cdnUrl}/static/images/addarecommendation.png',style="width:100%;height:100%")
+                                            p.name &nbsp
+                                            p.desc &nbsp
+                                        block teacher_chosse
+                                            include ./modals/choose_teacher
+                            li.cou
+                                p.title.se 课程推荐
+                                ul.conta
+                                    li.pu
+                                        p.sp 标题
+                                        .input-group.orgbootinput.courec
+                                            input.form-control.ti(type='text' name='title' value="#{data.school_setting.classRecommendationTitle}" placeholder="请输入标题")
+                                    li.pu
+                                        .spcen
+                                            p.sp.spm 描述
+                                        textarea.cou(cols=30,rows=5 placeholder="请输入描述") #{data.school_setting.classRecommendationDescription}
+                                    li.onn
+                                        each course, index in data.school_setting.classList
+                                            .on.newc(tagflag="#{data.school_setting.classList[index].id}")
+                                                .imgc
+                                                    img(src="#{data.school_setting.classList[index].imageUrl}", style="width: 100%;height: 100%")
+                                                    .blacktea(style="background-color: rgba(0, 0, 0, 0.3);position: absolute;display: none;top: 0;width: 180px;height: 100px;left: 50%;margin-left: -90px")
+                                                        .delete ×
+                                                p.name #{data.school_setting.classList[index].teacherUserProfile.name}
+                                                p.desc #{data.school_setting.classList[index].title}
+                                        .on.addc
+                                            .imgc(data-toggle="modal" data-target="#course_alert")
+                                                img(src='#{data.cdnUrl}/static/images/addpictures.png',style="width:100%;height:100%")
+                                            p.name &nbsp
+                                            p.desc &nbsp
+                                        block course_chosse
+                                            include ./modals/choose_course
+
+                    include school_setting/tab_course
+
+                    include school_setting/tab_teacher
+
+
+
+            include school_setting/side_bar
+
+            //-
+                                           .desc
+                                               .input-group.coubootinput
+                                                   input.form-control(type='text' name='title' value="#{data.school_setting.classBannerTitle}" placeholder="请输入描述")
+                                               //button.subm.btn.btn-info(style="outline:none") 重新上传

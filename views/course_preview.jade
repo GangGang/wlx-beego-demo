@@ -1,0 +1,135 @@
+
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title 课程主页(预览)
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/global.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/libs/bootstrap.min.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/course_page.css')
+
+    body
+        - var aaaa = helper.stringify(data.course_details)
+        span.hide(style="display:none") #{aaaa}
+        span.school_id(style="display:none") #{data.school_id}
+        span.course_id(style="display:none") #{data.course_id}
+
+        include ./common/schoolhead
+
+        .course-info(style="margin-bottom:210px")
+            .video
+                a(href='' style="display:block;width:100%;height:100%")
+                    img(src='#{data.clazz.imageUrl}', alt='' style="width:100%;height:100%")
+            span.piano-class
+                | #{data.clazz.title}
+            .price-info
+                div.amount(style="display:inline-block;position:static;vertical-align:middle") 价格
+                div.sum(style="display:inline-block;position:static;vertical-align:middle") ￥#{data.clazz.price}
+                div.course-time(style="display:inline-block;position:static;vertical-align:middle")
+                    | &nbsp/&nbsp课次(
+                    span=data.clazz.classDuration
+                    | &nbsp&nbsp&nbsp&nbsp分钟)
+                .learning
+
+                .good-comments
+            .course-choice
+                ul
+                    li.class-name(style='background:none;border: none;width: 70px') 班级名称
+                    li.choose(data-toggle='modal', data-target='#myModal') 选择班级
+            .course-choice1
+                ul
+                    li(style='background: none;border: none;width: 70px') 课次次数
+                    li.cou-times.src 12课次
+                    li.cou-times 24课次
+                    li.cou-times 36课次
+                    li.cou-times 48课次
+
+            span.commitment(style='') 服务承诺
+            .platform(style='')
+                img(src='#{data.cdnUrl}/static/images/platformauditing.png', alt='')
+            span(style='left:690px;top:300px;width:60px;font-length: 14px;') 平台审核
+            .payment
+                img(src='#{data.cdnUrl}/static/images/paymentsecurity.png', alt='')
+            span(style='left:800px;top:300px;width:60px;font-length: 14px;') 支付安全
+            .buy
+                img(src='#{data.cdnUrl}/static/images/thatistobuythatschool.png', alt='')
+            span(style='left:910px;top:300px;width:60px;font-length: 14px;') 即学即买
+
+
+
+        .later_change(style="position:relative;width:1200px;margin:0 auto;display:flex;justify-content:space-between")
+            .left(style="position:relative;width:70%")
+                .tab-head
+                    div.he 课程详情
+                    div.he 课程大纲
+                    div.he 常见问题
+                .tab-content
+                    .try.cou-info(style="display:flex;flex-direction:column;align-items:center")
+                        - var temp_list = data.classSetting.course_detail_url
+                        if temp_list.size() > 0
+                            each val in temp_list
+                                div.tab_123
+                                    img.sob(src="#{val}")
+
+
+                    .try.cou-outline(style="display:flex;flex-direction:column;align-items:center")
+                        div.tab_123
+                            img.sob(src="#{data.SyllabusUrl[0]}")
+
+
+                    .try.com-issue(style="display:flex;flex-direction:column;align-items:center")
+                        - var temp_list = data.FaqUrl
+                        if temp_list.size() > 0
+                            each val in temp_list
+                                div.tab_123
+                                    img.sob(src="#{val}")
+
+
+            .right(style="position:relative;width:25%;;display:flex;flex-direction:column")
+                .tea-school
+                    span.current-school
+                        | 所在校区
+                    span.area #{data.schooltitle}
+                    .telephone
+                        img(src='#{data.cdnUrl}/static/images/phone.png', alt='')
+                    span.phone-num #{data.schoolmoblie}
+                    .address
+                        img(src='#{data.cdnUrl}/static/images/address.png', alt='')
+                    p.address-info #{data.schooladdress}
+                    #map-container
+                .other-course
+                    span.current-school(style='border: 1px solid #cccccc;border-bottom: none') 该教师其他课程
+                    .big-wrapper
+                        -var temp_list = data.otherClassList
+                        if temp_list.size() > 0
+                            each val in temp_list
+                                .single-wrapper
+                                    .img-wrapper1(style="height:180px;border:1px solid #ccc")
+                                        a(href='/schools/#{data.school_id}/courses/#{val.id}/' style="display:block;width:100%;height:100%")
+                                            img(style="position:absolute;top:0;left:0;border:1px solid #ccc" width='100%', height=200, src='#{val.imageUrl}', alt='华侨城校区')
+                                    span.course-name=val.title
+                                    span.tea-price
+                                        span(style='color:#ef7878 ') ￥#{val.price}
+                                        span(style='font-length:10px;text-indent:65px') /#{val.coursecount}课时
+                                        span(style='text-indent:180px ') 好评度
+                                        span(style='color:#ef7878;right:5px')=val.goodrate
+                        else
+                            div 暂无其他课程
+
+
+        include ./common/footer
+
+
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/jquery-2.2.2.min.js')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap.min.js')
+    script(src='http://webapi.amap.com/maps?v=1.3&key=b91297e64adfed2dd41e6b0589473aaf')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/js/coursepage.js')
+
+
+
+
+
+
+
+

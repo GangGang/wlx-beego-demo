@@ -1,0 +1,14 @@
+//
+   Created by leibin on 17/3/25.
+
+.useb
+    .save
+        a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/school_settings/preview/" target="_blank")
+            button.toshow.btn.btn-success(style="outline:none") 预览
+        button.touse.btn.btn-info(style="outline:none")  保存
+    p.msg 预览前请先保存更改
+    p.createmodi.times(wlx-date='#{data.school_setting.creationDate}')
+    p.lastmodi.times(wlx-date='#{data.school_setting.lastModified}')
+    p.lastrele.times(wlx-date='#{data.school_setting.lastModified}')
+    button.rel.btn.btn-default(style="outline:none") 发布
+    a.jump

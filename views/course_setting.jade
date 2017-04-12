@@ -1,0 +1,87 @@
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/alert.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/course_item.css")
+
+block script
+    script(src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/libs/alert.js")
+    script(src="#{data.cdnUrl}/static/libs/dargFlex.js")
+    script(src="#{data.cdnUrl}/static/js/course_item.js")
+
+block content
+    #content
+        - var jsondata = helper.stringify(data)
+        .box(jsondata=jsondata)
+            .left_con
+                .container_ban
+                    ul.title
+                        li.org.first 课程详情
+                        li.cou 课程大纲
+                        li.tea 常见问题
+                    button.selectadd.btn.btn-info(style="outline:none") 选择图片 +
+                    label.sadd(for="sadd" style='width:1px;height:1px;display:block;position:absolute;top:59px;left:5px;outline:none')
+                    input#sadd(type='file',name='sadd' style='width:1px;height:1px;display:block;position:absolute;top:59px;left:5px;outline:none')
+                    span.right 支持gif / png / jpg / jpeg
+                    .tabdes.like
+                        #targetdes
+                            -var temp_list = data.classSetting.course_detail_url
+                            -var length = temp_list.size()
+                            if  length != 0
+                                each course, index in data.classSetting.course_detail_url
+                                    .ban.drag
+                                        .imgb
+                                            img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                            img.double.des(ali_src='#{data.classSetting.course_detail_url[index]}' src='#{data.classSetting.course_detail_url[index]}',style="width:100%;height:auto")
+                                            label(for='updes0',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                                            input#updes0.uploadimg.des(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                        img.delete(src="#{data.cdnUrl}/static/images/deletethepicture.png")
+
+                    .tabcou.like
+                        #targetcou
+                            - var temp_list = data.classSetting.syllabus_url
+                            - var length = temp_list.size()
+                            if  length != 0
+                                each course, index in data.classSetting.syllabus_url
+                                    .ban.drag
+                                        .imgb
+                                            img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                            img.double.cou(ali_src='#{data.classSetting.syllabus_url[index]}' src='#{data.classSetting.syllabus_url[index]}' style="width:100%;height:auto")
+                                            label(for='upcou0',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                                            input#upcou0.uploadimg.des(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                        img.delete(src="#{data.cdnUrl}/static/images/deletethepicture.png")
+
+                    .tabque.like
+                        #targetque
+                            - var temp_list = data.classSetting.faq_url
+                            - var length = temp_list.size()
+                            if  length != 0
+                                each course, index in data.classSetting.faq_url
+                                    .ban.drag
+                                        .imgb
+                                            img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                            img.double.que(ali_src='#{data.classSetting.faq_url[index]}' src='#{data.classSetting.faq_url[index]}',style="width:100%;height:auto")
+                                            label(for='upque0',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                                            input#upque0.uploadimg.des(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                        img.delete(src="#{data.cdnUrl}/static/images/deletethepicture.png")
+
+                        a.jump
+                    .ban.drag.forclone(style="display:none")
+                        .imgb
+                            img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                            img.double(src='#{data.cdnUrl}/static/images/add-pictures.png',style="width:100%;height:auto")
+                            label(for='updes0',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                            input#updes0.uploadimg.des(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                        img.delete(src="#{data.cdnUrl}/static/images/deletethepicture.png")
+            .useb
+                .save
+                    button.touse.btn.btn-info 保存
+                    a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/courses/#{data.classSetting.clazz.id}/setting/preview/" target="_blank")
+                        button.toshow.btn.btn-success 预览
+                p.tishi 预览前请先保存修改
+                p.fir(create="#{data.classSetting.creationDate}") 初次发布
+                p.new(last="#{data.classSetting.lastModified}") 最近修改
+                p.new(last="#{data.classSetting.lastModified}") 最近发布
+                button.rel.btn.btn-default(style="outline:none") 发布

@@ -1,0 +1,81 @@
+//
+   Created by beingRay on 16/12/21
+
+//"2017/1/24 上午8:00:00".replace(/[:|/]/g,'-')
+//.replace(/[\u4e00-\u9fa5]{2,4}/g,'');
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/order_detail.css")
+
+block script
+    script(src = "#{data.cdnUrl}/static/js/orderdetail.js")
+block content
+    #content
+        .container
+            .detail 订单详情
+            .ordernum
+                .circle
+                    img(src='#{data.cdnUrl}/static/images/or1.png', width='100%', height='100%', alt='')
+                span 订单号#{data.order_number}
+            .stuinfo
+                if data.stu_pic
+                   img(src='#{data.stu_pic}')
+                else
+                    img(src='#{data.cdnUrl}/static/images/student.png')
+                ul
+                    li 客户账号:#{data.mobile_phone}(#{data.parent_name})
+                    li 学生姓名:#{data.stu_name}
+                    li 学生学号:#{data.stu_number}
+            .ordernum
+                .circle
+                    img(src='#{data.cdnUrl}/static/images/or2.png', width='100%', height='100%', alt='')
+                span 订单内容
+
+            .courseinfo
+                img.qwe(src='#{data.classimg}')
+                ul
+                    li(style='color:#333333') #{data.course_name}
+                        span(style='color:#999999;font-size:12px') &nbsp&nbsp#{data.teacher_lv}
+
+                    li
+                        img.axiba(src='#{data.cdnUrl}/static/images/parents.png')
+                        span(style='margin-left:15px;') #{data.teacher_name}
+
+                    li
+                        img.axiba(src='#{data.cdnUrl}/static/images/parents.png')
+                        each val,index in data.grade_info.schdule
+                               if index == 0
+                                   span(style="margin-left:16px") #{val.week_name}&nbsp#{val.start_time}-#{val.end_time}
+
+                               else
+                                   if (index+1)%3 != 0
+                                       span(style="margin-left:28px") #{val.week_name}&nbsp#{val.start_time}-#{val.end_time}
+                                   else
+                                       span(style="margin-left:15px") #{val.week_name}&nbsp#{val.start_time}-#{val.end_time}
+                                       br
+
+                .amount ¥ #{data.price}
+                    br
+                    span &nbsp&nbsp&nbsp#{data.count}课次
+
+
+            .ordernum
+                .circle
+                    img(src='#{data.cdnUrl}/static/images/or3.png', width='100%', height='100%', alt='')
+                span 支付信息
+
+            .payinfo
+                -var ts= data.pay_time
+                -var timestamp = helper.toLocaleString(ts)
+                ul
+                    li 支付单号:&nbsp#{data.pay_number}
+                    li 付款方式:&nbsp#{data.pay_way}
+                    li 支付时间:&nbsp#{timestamp}
+
+
+
+
+
+
+

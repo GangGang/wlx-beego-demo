@@ -1,0 +1,83 @@
+
+#leftmenu
+    - var school = data.school_id
+    each school_id, index in data.school_ids
+        -var school_title = data.school_titles[index]
+        -var school_status = data.school_statuses[index]
+        if(school==school_id)
+            .school
+                a.active(href='/orgs/#{data.org_id}/schools/#{school_id}/' style='color:#FFFFFF') #{school_title}
+        else
+            .school
+                a(href='/orgs/#{data.org_id}/schools/#{school_id}/' style='color:#cccccc' ) #{school_title}
+        if(school==school_id)
+                ul.school-list
+                    li.left
+                        a(href='/orgs/#{data.org_id}/schools/#{school_id}/courses/')
+                            div.sprite(style='background-image:url(/static/images/courses.png);')
+
+                            div.intro 课程管理
+                    li.left
+                        a(href='/orgs/#{data.org_id}/schools/#{school_id}/classroom/')
+                            div.sprite(style='background-image:url(/static/images/classroommanagement.png);')
+                            div.intro 教室管理
+                    li.left
+                        a(href='/orgs/#{data.org_id}/schools/#{school_id}/orders/')
+                            div.sprite(style='background-image:url(/static/images/orders.png);')
+                            div.intro 订单管理
+                    li.left
+                        a(href='/orgs/#{data.org_id}/schools/#{school_id}/stuparents/')
+                            div.sprite(style='background-image:url(/static/images/studentmanagement.png);')
+                            div.intro 学生管理
+                    li.left
+                        a(href='/orgs/#{data.org_id}/schools/#{school_id}/school_settings/')
+                            div.sprite(style='background-image:url(/static/images/campussettings.png);')
+                            div.intro 校区设置
+    .tea-manager.school
+        a(href='/orgs/#{data.org_id}/teachers/') 教师管理
+    .tea-manager.school
+        a(href='/orgs/#{data.org_id}/schools/create/') 新建校区
+
+    script(src="#{data.cdnUrl}/static/libs/jquery-2.2.2.min.js")
+    script.
+        console.log(location.href.split('/')[7]);
+        var arr = ['courses','classroom','orders','stuparents','school_settings'];
+        var arr1 = ['teachers'];
+        if(location.href.split('/')[7]){
+            if(location.href.split('/')[7] == 'grades'){
+                $('.left').eq(0).find('a').addClass('active1')
+            }else{
+                $('.left').eq(arr.indexOf(location.href.split('/')[7])).find('a').addClass('active1')
+            }
+        }
+        else{
+            console.log(location.href.split('/')[5]);
+            if(location.href.split('/')[6] =='create'){
+                $('.tea-manager').eq(1).find('a').addClass('active1')
+            }
+            else{
+                if(location.href.split('/')[5] =='teachers')
+                $('.tea-manager').eq(0).find('a').addClass('active1')
+            }
+        }
+
+        //当在下面是
+        if($('a').hasClass('active') && $('a.active').parent().offset().top>$(window).height()){
+            $('#leftmenu').scrollTop($('a.active').parent().offset().top-50)
+        }
+
+        if($('a').hasClass('active1') && $('a.active1').parent().offset().top>$(window).height()){
+            console.log('ssss')
+            $('#leftmenu').scrollTop($('a.active1').parent().offset().top)
+        }
+
+
+
+
+
+
+
+
+
+
+

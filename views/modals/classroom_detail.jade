@@ -1,0 +1,53 @@
+//
+   Created by leibin on 17/3/25.
+
+.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button(type="button" class="close" data-dismiss="modal")
+                    img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/blackcancelicon.png', alt='')
+                h4.modal-title 编辑教室
+            .modal-body.modal_box
+                //form(name="input")
+                .alert_classroom_name
+                    span 教室名称
+                        input(type="text" name="classroom_title" value="#{data.classroom_data.title}")
+                .chosse_type
+                    p 教室类型
+                    - var grade_list = data.grade_data
+                    - var count = grade_list.length
+                    if count > 0
+                        .btn-group
+                            if data.classroom_data.isSingle == false
+                                label.big_class.active 集体课
+
+                            else
+
+                                label.one-to-one.active 一对一
+                    else
+                        .btn-group(data-toggle="buttons")
+                            if data.classroom_data.isSingle == false
+                                label.btn.big-class.active(style="left:0px") 集体课
+                                    input(type="radio" name="options" id="option1" autocomplete="off" value="0")
+                                label.btn.one-to-one(style="left:10px") 一对一
+                                    input(type="radio" name="options" id="option2" autocomplete="off" value="1")
+                            else
+                                label.btn.big-class(style="left:0px") 集体课
+                                    input(type="radio" name="options" id="option1" autocomplete="off" value="0")
+                                label.btn.one-to-one.active(style="left:10px") 一对一
+                                    input(type="radio" name="options" id="option2" autocomplete="off" value="1")
+                .classroom_cum
+                    span 教室容量
+                    if count > 0
+                        input(disabled = true type="number" autocomplete="off" name="classroom_cum" value="#{data.classroom_data.maxStudentCount}")
+                    else
+                        input(type="number" autocomplete="off" name="classroom_cum" value="#{data.classroom_data.maxStudentCount}")
+                    p 教室容量作为班级的容量参考值
+                -var temp_list = data.grade_data
+                -var length = temp_list.size()
+                if length == 0
+                    button.save_classroom_btn 保存
+                    button.del_classroom_btn 删除
+                else
+                    button.save_classroom_btn(style="left:260px") 保存

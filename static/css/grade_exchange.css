@@ -1,0 +1,224 @@
+#content {
+  padding-bottom: 75px;
+}
+p {
+  color: #333;
+}
+.cgcontent {
+  min-width: 1205px;
+  height: 100%;
+  overflow: hidden;
+  padding: 17px 17px 60px 17px;
+}
+.leftbox {
+  height: 100%;
+  background-color: #fff;
+  width: 46%;
+  display: inline-block;
+  overflow: auto;
+  padding: 0 20px 0 20px;
+  position: relative;
+  border-radius: 6px;
+  margin-right: 15px;
+  border-bottom: 10px solid #fff;
+  border-top: 20px solid #fff;
+}
+p.cgstuti {
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+ul.cgstus li {
+  position: relative;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ul.cgstus li:hover {
+  background-color: #eee;
+}
+p.fir {
+  margin-left: 50px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+}
+.cgcheck {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 20px;
+  border-radius: 15px;
+  margin-top: -10px;
+  top: 50%;
+}
+div.fir {
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+div.fir img {
+  display: block;
+  position: absolute;
+  right: 100px;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+}
+.cgcheck img {
+  width: 100%;
+  height: 100%;
+}
+.cgstu {
+  position: relative;
+  height: 80px;
+  margin-left: 170px;
+}
+img.stuheader {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  border: 1px solid #f0ad4e;
+  left: -120px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+p.stuname {
+  color: #222;
+  font-size: 17px;
+}
+p.par {
+  color: #666;
+  font-size: 14px;
+}
+p.sur {
+  color: #666;
+  font-size: 14px;
+}
+.rightbox {
+  height: 100%;
+  display: inline-block;
+  width: 52%;
+  overflow: auto;
+  padding: 0 20px 0 20px;
+  background-color: #fff;
+  border-bottom: 10px solid #fff;
+  border-top: 20px solid #fff;
+  border-radius: 6px;
+}
+p.cggrati {
+  font-size: 17px;
+}
+.cgtop {
+  margin-bottom: 30px;
+  position: relative;
+}
+.dropdown {
+  display: inline-block;
+  height: 34px;
+  width: 205px;
+  margin-right: 20px;
+}
+.dropdown button {
+  position: absolute;
+  right: 0;
+}
+.dropdown li {
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: 40px;
+}
+.dropdown ul {
+  padding: 0;
+  margin: 0;
+  width: 172px;
+}
+.search_input {
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+  background-color: #f6f6f6;
+  width: 170px;
+  border: 1px solid #ddd;
+  outline: none;
+  height: 34px;
+  position: absolute;
+  top: 0;
+  left: 250px;
+}
+ul.cggras li {
+  height: 92px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ul.cggras li:hover {
+  background-color: #eee;
+}
+span.clna {
+  display: inline-block;
+  width: 280px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #333;
+}
+span.clpr {
+  display: inline-block;
+  width: 75px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #333;
+}
+span.we {
+  display: inline-block;
+  width: 160px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #333;
+}
+span.cla {
+  display: inline-block;
+  width: 280px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #666;
+}
+span.num {
+  display: inline-block;
+  width: 75px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #666;
+}
+span.time {
+  display: inline-block;
+  width: 160px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 16px;
+  color: #666;
+}
+button.sure {
+  width: 80px;
+  right: 40px;
+  position: absolute;
+}
+.lastbtn {
+  height: 45px;
+  margin-top: 10px;
+  position: relative;
+}

@@ -1,0 +1,19 @@
+//
+   Created by leibin on 17/3/25.
+
+- var temp_list = data.course_list
+if temp_list.size() > 0
+    #content_all(style="margin: 30px auto; width:93%")
+        table.tableClassList
+            //caption 班级列表
+            tbody
+                tr.head(style='height: 70px; color: #666666')
+                    //th 排序
+                    th 课程列表
+                    th 饱和量
+                    th 上月上课率
+                    th 价格
+                    th 创建时间
+else
+    img(src="#{data.cdnUrl}/static/images/nocourses.png" style="display:block;margin:150px auto")
+    .nomanner(style="text-align:center;margin-top:-120px") 暂无课程

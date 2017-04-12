@@ -1,0 +1,23 @@
+#contentStuPar(style="margin-top : 30px")
+    table.tableClassList
+        tbody
+            each student_Info in data.student_list
+                .content(style="position: relative")
+                    a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/#{student_Info.stuId}/")
+                        img.img_lll(style="both:none;border: 2px solid #F6D97C"  src="#{student_Info.imgUrl}")
+                    .contentText
+                        ul
+                            li.name(style="font-size: 16px;  color : #222222" )
+                                span(style="color:#222222") #{student_Info.stuName}
+                            li.name(style="font-size: 15px;")
+                                span.agetext(style="font-size: 15px; color :#666666") 学号:#{student_Info.stuNum}
+                            li.parentName
+                                img.parent_icon_ll(style="margin-right: 10px" src="/static/images/people.png")
+                                span(style="font-size: 15px; color :#666666;position:relative;top:2px") #{student_Info.parentsAccount} (家长)
+                            li.phoneNumeber
+                                img.icon_phone_ll(style="margin-right: 10px" src="/static/images/telephonenumber.png")
+                                span(style="font-size: 15px; color :#666666;position:relative;top:2px") #{student_Info.parentsTel}
+                            li.bottomContent
+                    a.order_wlx(style="display: inline-block" href="/orgs/#{data.org_id}/schools/#{data.school_id}/orders/order_submit/#{student_Info.stuId}/")
+                        img.order_ll_img(src="/static/images/+order.png")
+

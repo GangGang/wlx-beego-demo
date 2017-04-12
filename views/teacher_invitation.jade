@@ -1,0 +1,42 @@
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/teacher_invitation.css")
+
+
+block script
+
+    script(src="#{data.cdnUrl}/static/js/invitation_teacher.js")
+
+block content
+    #content
+        textarea.display_none.org_id #{data.org_id}
+        textarea.display_none.school_id #{data.school_id}
+        textarea #{helper.stringify(data)}
+        .invitation_background
+            span.invitation_title 账号邀请
+            textarea.invitation_input(placeholder="输入手机号,批量添加用"+";"+"分开" onfocus="if(placeholder=='输入手机号,批量添加用'+';'+'分开') {placeholder=''}" onblur="if(placeholder=='') {placeholder='输入手机号,批量添加用'+';'+'分开'}")
+            .warming
+            button.btn-default.invitation_btn 确认
+            .line
+            .invitation_table
+                each invitation_info,index in data.invitation_teachers
+                    if invitation_info.invite_status == "INVITING"
+                        .invitation_cell
+                            span.teacher_phone #{invitation_info.username}
+                            span.teacher_status 邀请中...
+
+                    if invitation_info.invite_status == "TIMEOUT"
+                        .invitation_cell
+                            p.teacher_phone #{invitation_info.username}
+                            span.teacher_status.red 邀请中超时
+                            button.wlx-btn.invitation_again 重新邀请
+                            button.wlx-btn.invitation_delete X
+                    if invitation_info.invite_status == "REFUSE"
+                        .invitation_cell
+                            p.teacher_phone #{invitation_info.username}
+                            span.teacher_status.red 已拒绝
+                            button.wlx-btn.invitation_delete X
+
+
+

@@ -1,0 +1,704 @@
+#teacher_alert .modal-dialog {
+  width: 900px;
+}
+.modal-header .close {
+  margin-top: -10px;
+}
+.chosse_teacher {
+  height: 400px;
+}
+.modal-header {
+  min-height: 20px;
+  padding: 15px;
+  border-bottom: 0px solid #fff;
+}
+.chosse_click_btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  margin-top: 0;
+}
+.select_active {
+  background-color: #363d4b;
+  color: #fff;
+}
+.btn.btn-default.chosse_click_btn.media {
+  margin-top: 0;
+}
+.search_background {
+  position: absolute;
+  right: 120px;
+  padding-top: 5px;
+  display: inline-block;
+  border-radius: 6px;
+  width: 180px;
+  height: 35px;
+  background-color: #fff;
+  text-align: center;
+}
+.search_input_chosse {
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #999;
+  background-color: #f6f6f6;
+  height: 27px;
+  width: 170px;
+  outline: none;
+}
+#carousel-teacher {
+  left: 0;
+  position: relative;
+  width: 868px;
+}
+#carousel-course {
+  left: 0;
+  position: relative;
+  width: 868px;
+}
+.last_page {
+  background-color: #fff;
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  height: 160px;
+  width: 50px;
+}
+.scrollview {
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  left: 54px;
+  top: 25px;
+  width: 760px;
+  height: 260px;
+}
+.next_page {
+  background-color: #fff;
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  top: 10px;
+  height: 160px;
+  width: 50px;
+}
+.sure {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 80px;
+}
+.teacher_item {
+  display: inline-block;
+  width: 190px;
+  height: 260px;
+  position: relative;
+  text-align: center;
+}
+.teacher_box {
+  background-color: #fff;
+  position: absolute;
+  width: 170px;
+  height: 240px;
+  left: 10px;
+  top: 10px;
+  text-align: center;
+}
+.teacher_img {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+}
+.teacher_name {
+  font-size: 17px;
+  color: #222;
+  position: relative;
+  top: 20px;
+  text-align: center;
+}
+.teacher_desc {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 160px;
+  margin-top: 10px;
+  text-align: left;
+}
+.saturating_cum {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 200px;
+  text-align: left;
+}
+.aaaabox {
+  height: 260px;
+  position: absolute;
+  left: 50%;
+  margin-left: -380px;
+  width: 760px;
+}
+.cell1 {
+  height: 260px;
+  display: block;
+}
+.cell2 {
+  height: 260px;
+  display: block;
+}
+.add_img {
+  position: absolute;
+  left: 130px;
+  top: 130px;
+  width: 36px;
+  height: 36px;
+}
+.add_img_c {
+  position: absolute;
+  left: 145px;
+  top: 90px;
+  width: 36px;
+  height: 36px;
+}
+.sure_c {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 80px;
+}
+.searchcou {
+  top: -1px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f0f0f0;
+  margin-top: 0px;
+}
+.searchtea {
+  top: -1px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f0f0f0;
+  margin-top: 0px;
+}
+.search_background .input-group {
+  top: -5px;
+  right: -12px;
+  width: 200px;
+}
+.saturating_cum_c {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 200px;
+  text-align: left;
+}
+#course_alert .modal-dialog {
+  width: 900px;
+}
+.chosse_course {
+  height: 400px;
+}
+.course_item {
+  display: inline-block;
+  width: 190px;
+  height: 260px;
+  position: relative;
+  text-align: center;
+}
+.course_box {
+  background-color: #fff;
+  position: absolute;
+  width: 190px;
+  height: 240px;
+  top: 20px;
+  text-align: center;
+}
+.course_img {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  width: 180px;
+  height: 100px;
+}
+.course_name {
+  font-size: 14px;
+  color: #222;
+  position: relative;
+  top: 20px;
+  text-align: center;
+}
+.course_desc {
+  color: #666;
+  position: relative;
+  font-size: 16px;
+  top: 35px;
+  text-align: center;
+  padding: 0 5px;
+}
+.select_active_c {
+  background-color: #363d4b;
+  color: #fff;
+}
+#content {
+  padding-bottom: 65px;
+}
+p {
+  margin: 0;
+  color: #333;
+}
+.box {
+  padding: 20px;
+  position: relative;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+  min-width: 1210px;
+}
+.leftbb {
+  width: 100%;
+  margin-left: -320px;
+}
+.bb {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 800px;
+  margin-left: 320px;
+}
+.tabcou {
+  display: none;
+}
+.tabtea {
+  display: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+ul.container {
+  padding: 0;
+}
+ul.title {
+  height: 40px;
+  background-color: #e0e1e7;
+/* width: 800px; */
+  margin-left: 320px;
+  min-width: 800px;
+}
+ul.title li {
+  float: left;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 17px;
+  color: #aaa;
+  text-align: center;
+  cursor: pointer;
+}
+ul.container {
+  width: 100%;
+}
+ul.container > li {
+  position: relative;
+  padding: 0 10px 15px 10px;
+}
+p.title1 {
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 10px;
+}
+p.title.se {
+  border-top: 1px solid #bbb;
+  height: 70px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #999;
+  padding-top: 25px;
+}
+p.title span,
+p.title1 span {
+  font-size: 13px;
+  margin-left: 40px;
+}
+.container .add {
+  display: inline-block;
+  height: 99px;
+  width: 345px;
+  margin: 0 15px 15px 0;
+  cursor: pointer;
+  vertical-align: top;
+}
+.newban {
+  display: inline-block;
+  position: relative;
+  width: 345px;
+  height: 99px;
+  margin: 0 15px 15px 0;
+  vertical-align: top;
+}
+.mainban {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  clip: rect(0, 345px, 99px, 0);
+}
+.container .addenv {
+  display: inline-block;
+  height: 127px;
+  width: 235px;
+  margin: 0 15px 15px 0;
+  cursor: pointer;
+  position: relative;
+  vertical-align: top;
+}
+.blackhover {
+  z-index: 5;
+  display: none;
+  background-color: rgba(0,0,0,0.27);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+ul.conta li.pu {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin-bottom: 15px;
+}
+label {
+  cursor: pointer;
+}
+.sp {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  height: 34px;
+  width: 80px;
+  line-height: 34px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+.orgbootinput {
+  display: inline-block;
+  min-width: 600px;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  width: 85%;
+}
+.spcen {
+  display: inline-block;
+  position: relative;
+  height: 80px;
+  width: 80px;
+}
+.sp.spm {
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+}
+textarea {
+  min-width: 600px;
+  height: 80px;
+  font-size: 14px;
+  line-height: 19px;
+  display: inline-block;
+  border-color: #ddd;
+  padding: 12px;
+  outline: none;
+  resize: none;
+  width: 85%;
+}
+li.onn {
+  padding-left: 80px;
+}
+.on {
+  width: 180px;
+  height: 190px;
+  margin: 0 30px 20px 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.blacktea {
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  display: none;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  left: 50%;
+  margin-left: -60px;
+}
+.imgt {
+  height: 120px;
+  width: 120px;
+  position: relative;
+  left: 50%;
+  margin-left: -60px;
+  cursor: pointer;
+  border-radius: 60px;
+  overflow: hidden;
+}
+.newc .imgc {
+  height: 100px;
+  width: 180px;
+  position: relative;
+  left: 50%;
+  margin-left: -90px;
+}
+.on p.name {
+  width: 180px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+.on p.desc {
+  width: 180px;
+  height: 36px;
+  line-height: 18px;
+  font-size: 14px;
+  text-align: center;
+  margin: 5px 0 0 0;
+  color: #999;
+}
+#uploadcub1,
+#uploadenv,
+#uploadteab {
+  width: 1px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+img.delete {
+  display: none;
+  position: absolute;
+  top: 100px;
+  right: 25px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+.blackhover .delete {
+  color: #fff;
+  background-color: rgba(0,0,0,0.42);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+.imgc {
+  height: 100px;
+  width: 180px;
+  cursor: pointer;
+}
+.like li {
+  position: relative;
+  padding: 0 10px 15px 0;
+}
+.like li.ban p {
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  margin: 10px 0 10px 0;
+  display: inline-block;
+}
+.like li.ban .imgb {
+  position: relative;
+  width: 300px;
+  height: 120px;
+}
+.like li.ban .desc {
+  position: absolute;
+  top: 50px;
+  left: 340px;
+}
+.like li.ban .desc .coubootinput {
+  width: 380px;
+  margin: 10px 0 40px 0;
+}
+.useb {
+  width: 300px;
+  height: 250px;
+  position: absolute;
+/* left: 880px; */
+  top: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  right: 20px;
+}
+.useb .save {
+  position: relative;
+  width: 180px;
+  height: 34px;
+  margin: 30px 60px 10px 60px;
+}
+.useb .save button.toshow {
+  outline: none;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  width: 80px;
+}
+.useb .save button.touse {
+  outline: none;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 80px;
+}
+.useb p {
+  line-height: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.useb button.rel {
+  outline: none;
+  height: 34px;
+  width: 200px;
+  margin: 10px 50px 0 50px;
+}
+.uporgban .imgmoo {
+  position: relative;
+  width: 500px;
+  height: 143px;
+  margin: 20px 20px 20px 20px;
+}
+.imgmodal {
+  width: 100%;
+  height: 100%;
+}
+.uporgban .descmo {
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  width: 300px;
+}
+.uporgban button.close {
+  margin: 0 3px 0 0;
+  padding: 0 3px 0 0;
+  outline: none;
+}
+.uporgban .modal-content {
+  width: 870px;
+}
+.uporgban .coubootinput {
+  width: 300px;
+  margin: 0 0 15px 0;
+}
+.uporgban .btns {
+  position: relative;
+  width: 300px;
+}
+.uporgban .btns button {
+  width: 80px;
+  height: 34px;
+}
+.uporgban .btns .savem {
+  float: right;
+}
+.uporgban .btns .subm {
+  display: none;
+}
+.teacher_item {
+  cursor: pointer;
+}
+.course_item {
+  cursor: pointer;
+}
+img.loading {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+p.testing {
+  display: none;
+  position: absolute;
+  left: 320px;
+  top: 5px;
+  width: 200px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #ff6054;
+}
+p.exm {
+  height: 16px;
+  line-height: 16px;
+  margin: 5px 0 5px 0;
+  color: #aaa;
+  font-size: 14px;
+}
+p.msg {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+p.times {
+  color: #999;
+}
+.couban {
+  position: relative;
+  width: 400px;
+  height: 150px;
+}
+img.imgcouban {
+  width: 100%;
+  height: 100%;
+}
+.teaban {
+  position: relative;
+  width: 400px;
+  height: 150px;
+}
+img.imgteaban {
+  width: 100%;
+  height: 100%;
+}
+.secbtn {
+  margin-right: 20px;
+  outline: none;
+}
+.changeenv {
+  width: 1px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+}

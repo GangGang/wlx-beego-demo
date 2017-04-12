@@ -1,0 +1,129 @@
+.box {
+  position: relative;
+  background-color: #f0f0f0;
+  padding-bottom: 15px;
+  height: 100%;
+  overflow: auto;
+  min-width: 1210px;
+}
+.title {
+  height: 50px;
+  background-color: #c0c0c0;
+  padding-left: 20px;
+}
+.ti h4 {
+  position: relative;
+  padding: 0;
+  height: 40px;
+  margin: auto 0;
+  line-height: 50px;
+  top: -15px;
+  left: 4px;
+  color: #333;
+}
+.ti a {
+  position: absolute;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  right: 0;
+  display: inline-block;
+  top: 10px;
+}
+.ti a span {
+  font-size: 22px;
+}
+.rightcon {
+  width: 100%;
+  margin-left: -348px;
+}
+.orgcon {
+  background-color: #fff;
+  position: relative;
+  border-radius: 6px;
+  margin-top: 30px;
+  padding: 19px;
+  margin-left: 378px;
+  min-width: 750px;
+}
+.imgl {
+  overflow: hidden;
+  float: left;
+  width: 280px;
+  height: 200px;
+  background-color: #d3d3d3;
+  margin-right: 15px;
+}
+a.jump {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.info {
+  float: left;
+  width: 415px;
+  height: 200px;
+}
+.info p {
+  margin: 5px;
+  display: inline-block;
+  line-height: 20px;
+  font-size: 16px;
+}
+.info p.t {
+  width: 80px;
+  margin-left: 20px;
+}
+.selection {
+  position: absolute;
+  width: 303px;
+  height: 237px;
+  right: 30px;
+  top: 30px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.selection .orgsl {
+  width: 263px;
+  height: 59px;
+  margin: 20px auto 10px;
+  border-radius: 6px;
+  background-color: #afd8f0;
+}
+.coursesl {
+  border-radius: 6px;
+  width: 263px;
+  height: 59px;
+  margin: 0 auto 10px;
+  background-color: #f6d97c;
+}
+.teachersl {
+  border-radius: 6px;
+  width: 263px;
+  height: 59px;
+  margin: 0 auto 20px;
+  background-color: #dfb0d0;
+}
+.selection a {
+  display: block;
+  width: 263px;
+  height: 59px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 59px;
+  text-align: center;
+  text-decoration: none;
+}
+.inf1 {
+  position: relative;
+  left: 7px;
+  margin-bottom: 7px;
+}
+.inf1 p {
+  color: #373e4a;
+  margin-left: 25px;
+}
+img.l {
+  position: absolute;
+  top: 7px;
+}

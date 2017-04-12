@@ -1,0 +1,148 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/school_detail.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/alert.css")
+
+block script
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/libs/alert.js")
+    script(src="#{data.cdnUrl}/static/js/school_info.js")
+
+block content
+    #content
+        -var jsondata = helper.stringify(data)
+        .box.school_info(jsondata=jsondata)
+            .bcontainer
+                h4.ti 校区信息
+                ul
+                    li.name
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 校区名称:
+                        .input-group
+                            input.form-control(type='text' name='title' value="#{data.title}" readonly='yes')
+                    li.name
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 校区负责人:
+                        .input-group
+                            input.form-control(type='text' name='contact' value="#{data.contact}" readonly='yes')
+                    li.name
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 负责人电话:
+                        .input-group
+                            input.form-control(type='text' name='mobile' value="#{data.mobile}" readonly='yes')
+                    li.address
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 详细地址:
+                        .thaddress_show
+                            .input-group
+                                input.form-control(type='text' name='mobile' value="#{data.province_code}" readonly='yes')
+                            .input-group
+                                input.form-control(type='text' name='mobile' value="#{data.city_code}" readonly='yes')
+                            .input-group
+                                input.form-control(type='text' name='mobile' value="#{data.region_code}" readonly='yes')
+                        .input-group.show
+                            input.form-control.inprov(type='text' name='prov' value="#{data.address}" readonly='yes')
+                    li.name
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 建校时间:
+                        .input-group
+                            input.show_decorationdate.form-control(data-wlx-decorationdate="#{data.decoration_date}" type='text',name='decoration_date',readonly='yes',style="outline:none")
+                    li.upp
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 房屋租赁合同:
+                        .upl
+                            -var temp_list = data.contract_url
+                            -var count = temp_list.size()
+                            .imgl
+                                img.double(src='#{data.contract_url[0]}' style="height:100%;width:100%")
+                                //label(for='uploadzl1',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                //input#uploadzl1.uploadimg(type="file",name="uploadzl1",style="width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none;")
+                            .imgr
+                                img.double(src='#{data.contract_url[1]}' style="height:100%;width:100%")
+                                //label(for='uploadzl2',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                //input#uploadzl2.uploadimg(type='file',name='uploadzl2',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                    li.upp
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 从属机构证明:
+                        .upl
+                            -var temp_list = data.license_url
+                            -var count = temp_list.size()
+                            .imgl
+                                img.double(src='#{data.license_url[0]}' style="height:100%;width:100%")
+                                //label(for='uploadcs1',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                //input#uploadcs1.uploadimg(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                            .imgr
+                                img.double(src='#{data.license_url[1]}' style="height:100%;width:100%")
+                                //label(for='uploadcs2',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                //input#uploadcs2.uploadimg(type='file',name='uploadcs2',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                    li.upimg
+                        p.sp 校区展示图:
+                        .upl
+                            .imgl
+                                img.loading(src='#{data.cdnUrl}/static/images/loading2.gif' style="height:100%;width:100%")
+                                -var temp_list = data.image_url
+                                -var count = temp_list.size()
+                                if count == 1
+                                    img.double.image_url(src='#{data.image_url[0]}' ali="#{data.image_url[0]}" style="height:100%;width:100%")
+                                else
+                                    img.double.image_url(src='#{data.cdnUrl}/static/images/addpictures.png',style="width:100%;height:100%")
+                                label(for='uploadzs',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                input#uploadzs.uploadimg(type='file',name='uploadzs')
+                    li.time
+                        img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                        p.sp 营业时间:
+                        .tim
+
+                            include school/start_select
+                            .mi
+
+                            include school/end_select
+
+                        p.testing.times(style="left:590px;top:10px")
+                        p.sp.zhu 注:营业时间自动关联排课的时间
+                    li.name.hotline(data-wlx-phonum="#{data.support_hotline}")
+                        p.sp 咨询电话:
+                        .choose
+                            button.btn.btn-success.numtype(style='outline:none') 手机
+                            button.btn.btn-default.numtype(style='outline:none') 固话
+                        .hotmob
+                            .input-group
+                                input.form-control.support_hotline(type='text',name='consultatephone')
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                p.testing *热线电话不能为空
+                        .hottel
+                            .input-group.tel1
+                                input.form-control.support_hotline1(type='text',name='consultatephone')
+                            p.j -
+                            .input-group.tel2
+                                input.form-control.support_hotline2(type='text',name='consultatephone')
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none;top:-15px")
+                                p.testing(style="top:-10px") *热线电话不能为空
+                button#change-school-info.subm.btn.btn-info(style="outline:none") 提交审核
+                .xx(style='clear:both')
+                    a
+            //.orgstu
+            //    -var status = data.status
+            //    .stu1
+            //        span.ti 目前状态:
+            //        if status == 'waiting'
+            //            span.stus 待审核
+            //        else if status == 'processing'
+            //            span.stus 审核中
+            //        else if status == 'unapproved'
+            //            span.stus 未通过
+            //        else if status == 'approved'
+            //            span.stus 已通过
+            //    .stu2
+            //        span.ti 提交时间:
+            //        span.lastmodi
+            //    if  status == 'unapproved'
+            //        .stu3
+            //            span.ti 原因:
+            //            p.rea 1.上传租赁买卖合同不清晰 2.上传从属机构证明不清晰
+            //            p.rea (如有疑问请咨询未来星机构服务热线:400-092-9922)
+

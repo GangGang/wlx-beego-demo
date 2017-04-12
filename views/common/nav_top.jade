@@ -1,0 +1,21 @@
+//
+   Created by leibin on 17/3/24.   通用导航
+- var sort_list = ['全部','器乐','舞蹈','美术','媒体艺术','武术','棋艺']
+- var sort_eng = ['all','music','dance','art','media_art','wushu','chess']
+.nav-Top
+    .sort
+        each val,index in sort_list
+            if index == 6
+                .category(style='border-right: none' cat=sort_eng[index])
+                    a(href= url + sort_eng[index]) #{val}
+            else
+                .category(cat=sort_eng[index])
+                    a(href= url + sort_eng[index]) #{val}
+
+
+    .vg_end
+        .search
+            input.search_input(placeholder='搜索' value="#{data.search}")
+
+        a(href=url1)
+            img(src="#{data.cdnUrl}/static/images/addacell.png")

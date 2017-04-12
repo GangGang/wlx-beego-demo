@@ -1,0 +1,19 @@
+
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/student_detail.css")
+
+block script
+    script(src="#{data.cdnUrl}/static/js/stuParent.js")
+
+block content
+    #content
+        textarea#jsonObject #{helper.stringify(data)}
+
+        include  student/detail_header
+
+        include  student/learning_class
+
+        include  student/history_class

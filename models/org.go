@@ -2,6 +2,7 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
+	"time"
 )
 
 type Org struct {
@@ -32,6 +33,9 @@ func InsertOrg(title, mobile string) int64 {
 	var org Org
 	org.Title = title
 	org.Mobile = mobile
+	org.CreationDate = time.Now()
+	org.LastModifiedDate = time.Now()
+	org.Mark = true
 
 	id, err := o.Insert(&org)
 	if err == nil {

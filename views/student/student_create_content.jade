@@ -1,0 +1,75 @@
+
+#add_student_content(style="height:200px")
+    .put_text
+       span.text_name.text_text 账号
+       input.text_file
+       .sure_button 确认
+
+    .prompt_content(style="color :red; padding-top : 10px")  *请输入用户名搜索学生
+
+    .parent_name(style="display : none")
+        span.text_text 家长姓名
+        span.parent_name_text
+
+    .select_student(style="display : none")
+        span.text_text 选择学生
+        .content_student
+    .sure_select_stud(style="display : none")
+        .sure_button_selct 确认
+
+    .add_new_student(style="display : none")
+        .slider_student
+            span.new_add_student 新增学生
+            img.slider(src='#{data.cdnUrl}/static/images/expandnew.png')
+        hr
+
+        .add_submit_content(style="display : none")
+            .student_ico.add_cont
+                span.text_text(style="width:70px;display:inline-block;position:relative;vertical-align:top;top:30px") 学生头像
+                //img(src='#{data.cdnUrl}/static/images/studentheadpicture.png')
+                .imgb(style="position: relative")
+                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                    img.double.ipho.pho(src='#{data.cdnUrl}/static/images/studentheadpicture.png',style="width:100%;height:100%")
+                    label(for='uppho0',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                    input#uppho0.uploadimg.pho(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+            .student_name.add_cont
+                span.text_text 学生姓名
+                input.student_name_n(type="text")
+                span.prompt(style="color :red; padding-left : 10px") *请输入名字
+            .student_sex.add_cont
+                span.text_text 性别
+                select.selectpicker(data-width="150px")
+                  option 男
+                  option 女
+
+            .birthday.add_cont
+                span.text_text 出生日期
+                .container.obs(style='position: absolute;width:200px;height:30px;left:80px;color:lightgrey;line-height :30px; display : inline-block ')
+                    .row
+                        .col-sm-6(style='width:100%')
+                            .form-group
+                                .input-group.date#datetimepicker1
+                                    input.form-control.decoration_date(type='text' style="width:100%;outline:none;color:#666666" readonly='yes' placeholder="点击选择")
+                                    //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="right:45px;display:none")
+                                    span.input-group-addon
+                                        span.glyphicon.glyphicon-calendar
+                //input#datetimepicker1.form_datetime.date.input-append(size="16" type="text" value="2012-06-15"  style="width : 150px" readonly)
+
+            hr
+            .bottom_button(style="height : 80px; width : 100%")
+                .button_content
+                    .give_up_button.button_bot 放弃保存
+                    .flish_butt.button_bot   保存
+
+
+
+
+
+
+
+
+
+
+
+
+

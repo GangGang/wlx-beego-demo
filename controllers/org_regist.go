@@ -51,8 +51,8 @@ func (this *OrgRegistController)Put() {
 	}
 
 	//用户名是否存在
-	userinfo := models.FindUserinfo(username)
-	if userinfo != nil {
+	ok, _ := models.FindUserinfo(username)
+	if ok {
 		this.Data["json"] = utils.Error(6, "用户名已存在")
 		this.ServeJSON()
 		return
@@ -68,6 +68,7 @@ func (this *OrgRegistController)Put() {
 
 	//++++++++++++++++事物++++++++
 	o := orm.NewOrm()
+	o.Begin()
 	//创建机构
 	orgId := models.InsertOrg(title, username)
 	if orgId == -1 {

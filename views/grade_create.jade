@@ -1,0 +1,140 @@
+
+// Created by beingRay on 16/12/21.
+
+extends common/main
+
+block style
+    link(rel='stylesheet', href='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.css')
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/searchableSelect.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/tooltip.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/grade_create.css")
+
+
+block content
+    #content
+        span.hide(style='display:none') #{qq}
+        span.hide1(style='display:none') #{data.org_id}
+        span.hide2(style='display:none') #{data.school_id}
+        span.hide3(style='display:none') #{data.course_id}
+        span.hide4(style='display:none') #{data.coursetype}
+        span.hide5(style='display:none') #{data.duration}
+
+        form.form-horizontal(role="form")
+            .form-group(style='text-align:center;height:50px;')
+                label.col-sm-1(style='width:130px').control-label 添加班级
+                .col-sm-2.teacher(style='font-size:16px;color:#7f8288;line-height:38px;text-align:left' code="#{data.teacheruser_id}") #{data.teacher_name}
+                .pull-right.circle
+                    .switch1
+                .pull-right.state 显示
+
+            hr
+
+            .form-group
+                label.col-sm-1.control-label(style='width:130px', for="lastname") 班级名称
+                .col-sm-3
+                    input#lastname.form-control(type="text" maxlength='12' placeholder="请输入班级名称(少于12字)")
+
+            .form-group
+                label.col-sm-1(style='width:130px;margin-right:15px').control-label 开课日期
+
+                .input-group.col-sm-2.date#datetimepicker1
+                    input.form-control.decoration_date#date(type='text' style="width:100%;outline:none;color:#666666" readonly='yes' placeholder="请选择日期")
+                    //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="right:45px;display:none")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    //label(style='color:#8d8d8d;font-size:16px')
+                    //    input(type='radio' name='qq' class='date')
+                    //    | &nbsp&nbsp即时开课&nbsp&nbsp&nbsp&nbsp
+                    //    input(type='radio' name='qq' class='date')
+                    //    | &nbsp自定义
+                    //    input( style="display:none;width:120px;margin-left:25px;text-align:center" class='laydate-icon-danlan' id='date')
+
+            .form-group(style='padding-right 20px')
+                label.col-sm-1(style='width:130px').control-label 选择教室
+
+            select
+                option  选择教室
+                each val in data.classroom_list
+
+                    option(value=val.id)  #{val.title}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp#{val.maxStudentCount}
+
+
+                //each val in data.classroom
+                //    option val.name
+
+            .form-group
+                label.col-sm-1(style='width:130px').control-label 容&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp量
+                if data.coursetype == 'one'
+                    .col-sm-2
+                        span#capacity.form-control 1
+                else
+                    .col-sm-2
+                        span#capacity.form-control(contenteditable='true')
+                if data.coursetype != 'one'
+                    .col-sm-2
+                        span.form-control.capacity_num(style='border:none')
+        .bottom
+            .schedule
+                div.lb_top 选择时间
+                table.qwe(style='')
+
+                        tr
+                            th
+                            th.week 周一
+                            th.week 周二
+                            th.week 周三
+                            th.week 周四
+                            th.week 周五
+                            th.week 周六
+                            th.week 周日
+                        each val,index in data.time_list
+                            - var bb = data.start_time_hour + val
+                            if index == data.time_list.length-1
+                                tr.axe
+                                    th.time #{bb}:00
+                            else
+                                tr
+                                    th.time #{bb}:00
+
+                div.show
+                    each val,index in data.time_list
+                      .line
+                button.btn.btn-info.pull-right(style='margin-right:50px;margin-bottom:20px') 保存
+
+
+
+block script
+    script(src="#{data.cdnUrl}/static/libs/searchableSelect.js")
+    script(src="#{data.cdnUrl}/static/libs/tooltip.js")
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.js')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.zh-CN.js')
+    script(src="#{data.cdnUrl}/static/js/addgrade.js")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

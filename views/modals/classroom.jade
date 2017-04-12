@@ -1,0 +1,30 @@
+//
+   Created by leibin on 17/3/25.
+
+.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button(type="button" class="close" data-dismiss="modal")
+                    //span aria-hidden="true") &times;
+                    img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/blackcancelicon.png', alt='')
+                h4.modal-title 新建教室
+            .modal-body.modal_box
+                //form(name="input")
+                .classroom_title
+                    span 教室名称
+                    input(maxlength='12')
+                    span.classroom_title_warming
+                .chosse_type
+                    p 教室类型
+                    .btn-group(data-toggle="buttons")
+                        label.btn.big-class.active 集体课
+                            input(type="radio" name="options" id="option1" autocomplete="off" value="0")
+                        label.btn.one-to-one 一对一
+                            input(type="radio" name="options" id="option2" autocomplete="off" value="1")
+                .classroom_cum
+                    span 教室容量
+                    input(maxlength='3' type="number" autocomplete="off" name="classroom_cum" value="" placeholder="" oninput='if(value.length>3)value=value.slice(0,3)')
+                    span.classroom_num_warming
+                    p 教室容量作为班级的容量参考值
+                button.add_classroom_btn 保存

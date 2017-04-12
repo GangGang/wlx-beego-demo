@@ -9,19 +9,15 @@ type IndexController struct {
 	beego.Controller
 }
 
-func (c *IndexController)Get() {
+func (this *IndexController)Get() {
 	//检测session是否登录
-	session, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
-	if err != nil {
-		c.Redirect("/login", http.StatusFound)
+	sess := this.StartSession()
+	if sess == nil {
+		this.Redirect("/login", http.StatusFound)
 		return
+	} else {
+		this.Data["cdnUrl"] = ""
+		this.TplName = "school_index.jade"
 	}
-	uid := session.Get("uid")
-	if uid == nil {
-		c.Redirect("/login", http.StatusFound)
-		return
-	}
-	c.Data["cdnUrl"] = ""
-	c.Data["error"] = uid
-	c.TplName = "login.jade"
+
 }

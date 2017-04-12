@@ -1,0 +1,35 @@
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/student_list.css")
+    //link(rel="stylesheet", href="#{data.cdnUrl}/static/css/head_nav.css")
+
+
+block script
+    script(src="#{data.cdnUrl}/static/js/stuParentInformation.js")
+    script(src="#{data.cdnUrl}/static/libs/paging.js")
+
+block content
+    #content
+        textarea#jsonObject #{helper.stringify(data)}
+
+        include  student/header
+
+        include  student/content
+        - var temp_list = data.student_list
+        - var count = temp_list.size()
+        if count == 0
+            img(src='#{data.cdnUrl}/static/images/noclassroom.png',style="display:block;margin:150px auto" alt='')
+            .nomanner(style="text-align:center;margin-top:-120px") 暂无学生
+        .href
+          a
+
+        .wlx_bottom_page
+           .page
+
+
+
+
+
+
+

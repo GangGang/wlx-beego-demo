@@ -1,0 +1,16 @@
+
+.tabtea.like
+    ul
+        li.ban
+            if data.school_setting.classBannerUrl
+                button.secbtn.btn.btn-info(style="outline:none") 重新上传
+            p.title1 Banner图片
+                span 尺寸要求:1920x320px
+            .upbox.teaban
+                img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                if data.school_setting.teacherBannerUrl
+                    img.double.imgteaban(src='#{data.school_setting.teacherBannerUrl}')
+                else
+                    img.double.imgteaban(src='#{data.cdnUrl}/static/images/addpictures.png')
+                label(for='uploadteab',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                input#uploadteab.uploadimg(type='file',name='uploadcs1')

@@ -1,0 +1,22 @@
+
+
+#uporgban.uporgban.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    .modal-dialog(style="width:870px;margin:200px auto")
+        .modal-content
+            button.close(type="button", data-dismiss="modal" style="position:relative;top:4px;right:4px")
+                span(aria-hidden="true") ×
+                span.sr-only Close
+            .imgmoo
+                img.double.imgmodal(src='#{data.cdnUrl}/static/images/addpictures.png')
+                label(for='uploadorgban',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0')
+                input#uploadorgban.uploadimg(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+            .descmo
+                .input-group.coubootinput(style="display:none")
+                    input#orgbantit.form-control.title(type='text',name='title',placeholder="显示文字")
+                .input-group.coubootinput
+                    input#orgbanlin.form-control.link(type='text',name='title',placeholder="跳转连接")
+                p.exm 例:http://www.chinawlx.com
+                .btns
+                    //button.subm.btn.btn-info(style="outline:none") 重新上传
+                    button.savem.btn.btn-info(style="outline:none") 保存
+                    button.savemodal.btn.btn-info(style="display:none",data-dismiss="modal")

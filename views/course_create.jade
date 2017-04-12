@@ -1,0 +1,28 @@
+
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/course_create.css")
+
+block script
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/js/create_course.js")
+
+        // TODO 这是我封装的选择老师弹框js
+block content
+    #content
+        textarea.org_id #{data.org_id}
+        textarea.school_id #{data.school_id}
+        textarea.drop_li_types #{helper.stringify(data.course_second_type_list)}
+        .href
+            a
+        .alert.alert-warning.alert-dismissible(role="alert" style="display: none;position: absolute;left: 40%;top: 30px;")
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                span(aria-hidden="true") &times
+            strong
+
+        include course/course_create_content
+

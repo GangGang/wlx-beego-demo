@@ -1,0 +1,132 @@
+//
+   Created by ganle on 17/2/20.
+
+extends common/main
+
+//- var aliimgupload = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/grade_exchange.css")
+block script
+    script(src="#{data.cdnUrl}/static/js/change_grade.js")
+
+block content
+    #content
+        .cgcontent(orgid="#{data.org_id}" schoolid="#{data.school_id}" gradeid="#{data.grade_id}")
+            .leftbox
+                p.cgstuti 转班>选择学生
+                .cgcheck.fir
+                    img(src="#{data.cdnUrl}/static/images/unselected_cg.png")
+                p.fir(style="position:absolute;top:2px;right:40px;cursor:pointer;") 全选
+                ul.cgstus
+                    each stu in data.student_list
+                        li(stuid="#{stu.id}")
+                            .cgcheck
+                                img(src="#{data.cdnUrl}/static/images/unselected_cg.png")
+                            .cgstu
+                                img.stuheader(src="#{data.cdnUrl}/static/images/3.png")
+                                p.stuname #{stu.name}
+                                p.par #{stu.parent_name} : #{stu.parent_phonenum}
+                                p.sur 剩余:#{stu.sur_class}
+            .rightbox
+                p.cggrati 转班>选择班级
+                .cgtop
+                    .dropdown
+                        button#drop.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" style="outline:none")
+                            span.caret
+                        .input-group(style="width:172px")
+                            input.form-control.week(type='text',name='mobile' readonly='yes' placeholder="请选择时间")
+                        ul.dropdown-menu(role="menu" aria-labelledby="drop")
+                            li(role="presentation" week="all") 全部
+                            li(role="presentation" week="mon") 周一
+                            li(role="presentation" week="tue") 周二
+                            li(role="presentation" week="wed") 周三
+                            li(role="presentation" week="thu") 周四
+                            li(role="presentation" week="fri") 周五
+                            li(role="presentation" week="sat") 周六
+                            li(role="presentation" week="sun") 周日
+                    input.search_input(placeholder='搜索')
+                ul.cggras
+                    if data.grade_list.mon
+                        each grade_mon in data.grade_list.mon
+                            li(week="mon" graid="#{grade_mon.id}")
+                                .on
+                                    span.clna #{grade_mon.course_title}
+                                    span.clpr ¥#{grade_mon.price}
+                                    span.we #{grade_mon.week}
+                                .tw
+                                    span.cla #{grade_mon.grade_title} &nbsp #{grade_mon.teacher_name}
+                                    span.num #{grade_mon.inclass}/#{grade_mon.capacity}
+                                    span.time #{grade_mon.start_time} - #{grade_mon.end_time}
+                    if data.grade_list.tue
+                        each grade_tue in data.grade_list.tue
+                            li(week="tue" graid="#{grade_tue.id}")
+                                .on
+                                    span.clna #{grade_tue.course_title}
+                                    span.clpr ¥#{grade_tue.price}
+                                    span.we #{grade_tue.week}
+                                .tw
+                                    span.cla #{grade_tue.grade_title} &nbsp #{grade_tue.teacher_name}
+                                    span.num #{grade_tue.inclass}/#{grade_tue.capacity}
+                                    span.time #{grade_tue.start_time} - #{grade_tue.end_time}
+                    if data.grade_list.wed
+                        each grade_wed in data.grade_list.wed
+                            li(week="wed" graid="#{grade_wed.id}")
+                                .on
+                                    span.clna #{grade_wed.course_title}
+                                    span.clpr ¥#{grade_wed.price}
+                                    span.we #{grade_wed.week}
+                                .tw
+                                    span.cla #{grade_wed.grade_title} &nbsp #{grade_wed.teacher_name}
+                                    span.num #{grade_wed.inclass}/#{grade_wed.capacity}
+                                    span.time #{grade_wed.start_time} - #{grade_wed.end_time}
+                    if data.grade_list.thu
+                        each grade_thu in data.grade_list.thu
+                            li(week="thu" graid="#{grade_thu.id}")
+                                .on
+                                    span.clna #{grade_thu.course_title}
+                                    span.clpr ¥#{grade_thu.price}
+                                    span.we #{grade_thu.week}
+                                .tw
+                                    span.cla #{grade_thu.grade_title} &nbsp #{grade_thu.teacher_name}
+                                    span.num #{grade_thu.inclass}/#{grade_thu.capacity}
+                                    span.time #{grade_thu.start_time} - #{grade_thu.end_time}
+                    if data.grade_list.fri
+                        each grade_fri in data.grade_list.fri
+                            li(week="fri" graid="#{grade_fri.id}")
+                                .on
+                                    span.clna #{grade_fri.course_title}
+                                    span.clpr ¥#{grade_fri.price}
+                                    span.we #{grade_fri.week}
+                                .tw
+                                    span.cla #{grade_fri.grade_title} &nbsp #{grade_fri.teacher_name}
+                                    span.num #{grade_fri.inclass}/#{grade_fri.capacity}
+                                    span.time #{grade_fri.start_time} - #{grade_fri.end_time}
+                    if data.grade_list.sat
+                        each grade_sat in data.grade_list.sat
+                            li(week="sat" graid="#{grade_sat.id}")
+                                .on
+                                    span.clna #{grade_sat.course_title}
+                                    span.clpr ¥#{grade_sat.price}
+                                    span.we #{grade_sat.week}
+                                .tw
+                                    span.cla #{grade_sat.grade_title} &nbsp #{grade_sat.teacher_name}
+                                    span.num #{grade_sat.inclass}/#{grade_sat.capacity}
+                                    span.time #{grade_sat.start_time} - #{grade_sat.end_time}
+                    if data.grade_list.sun
+                        each grade_sun in data.grade_list.sun
+                            li(week="sun" graid="#{grade_sun.id}")
+                                .on
+                                    span.clna #{grade_sun.course_title}
+                                    span.clpr ¥#{grade_sun.price}
+                                    span.we #{grade_sun.week}
+                                .tw
+                                    span.cla #{grade_sun.grade_title} &nbsp #{grade_sun.teacher_name}
+                                    span.num #{grade_sun.inclass}/#{grade_sun.capacity}
+                                    span.time #{grade_sun.start_time} - #{grade_sun.end_time}
+            .lastbtn
+                button.btn.btn-success.sure(style="outline:none") 确认
+
+
+
+

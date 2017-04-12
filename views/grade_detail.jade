@@ -1,0 +1,82 @@
+//
+   Created by beingRay on 17/1/5.
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/grade_detail.css")
+block script
+    script(src="#{data.cdnUrl}/static/js/classinfo.js")
+
+
+block content
+    #content
+        - var aa = helper.stringify(data.grade_detail.classRateList)
+        - var bb = helper.stringify(data.grade_detail.saturation)
+        - var cc = helper.stringify(data.grade_detail.computeList)
+        span.hide(style="display:none") #{aa}
+        span.hide1(style="display:none") #{bb}
+        span.hide2(style="display:none") #{cc}
+        .container
+            img.aa(src='#{data.grade_detail.imageUrl}')
+
+            ul.info
+                li
+                    span.top #{data.grade_detail.title} &nbsp
+                    a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/grades/#{data.grade_id}/edit/")
+                        img.edit(style="margin-top:-6px" src='#{data.cdnUrl}/static/images/editthegrid.png')
+                li
+                    span.tea 老师 &nbsp &nbsp
+                    span #{data.grade_detail.teacherName}
+                    span.begin 开课日期
+                    -var ts =data.grade_detail.openDate
+                    -var timestamp =helper.toLocaleString(ts)
+                    span.date #{timestamp}
+                li
+                    span.room 教室
+                    span.jiao(style='margin-left:15px') #{data.grade_detail.classroomName}
+
+                    span.begin 上课时间
+                    span.date
+                        each val,index in data.grade_detail.scheduleTimeItemList
+
+                            if (index + 1) % 2 != 0
+                                span #{val.weekName}&nbsp#{val.startTime}-#{val.endTime}
+                            else
+                                span(style="margin-left:8px") #{val.weekName}&nbsp#{val.startTime}-#{val.endTime}
+                                br
+        //-
+            .selection
+                .orgsl
+                    a(data-toggle="modal" data-target="#uporgban")
+                        img(src='#{data.cdnUrl}/static/images/lesson.png')
+                .coursesl
+                    a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/grades/#{data.grade_id}/change/")
+                        img(src='#{data.cdnUrl}/static/images/changeclasses.png')
+                .teachersl
+                    a(href="/orgs/9/schools/16/grades/6/change_teacher/")
+                        img(src='#{data.cdnUrl}/static/images/forteachers.png')
+                #uporgban.uporgban.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+                    .modal-dialog
+                        .modal-content(style="height:274px;width:600px;margin:auto;border-radius:0;margin-top:150px;")
+                            button.close(type="button", data-dismiss="modal" style="position:relative;top:6px;right:6px;outline:none")
+                                span.mod(aria-hidden="true") ×
+                                span.sr-only Close
+                            img.mod(src="#{data.cdnUrl}/static/images/prompt.png")
+                            p(style="padding:33px;text-align:center;font-size:17px;") 结课后该班级将成为历史班级可在教师详情中查看历史班级
+                            .cibtns
+                                button.true.btn.btn-default(style="outline:none;" data-dismiss="modal" sub-url="/orgs/#{data.org_id}/schools/#{data.school_id}/grades/#{data.grade_id}/end/") 确定
+                                button.flase.btn.btn-default(style="outline:none;" data-dismiss="modal") 取消
+
+
+        .statics
+            .rank
+                .title 上课率
+                #chart
+            .rank
+                .title 饱和量
+                #chart1
+            .rank
+                .title 新生与退学
+                #chart2
+

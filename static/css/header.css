@@ -1,0 +1,151 @@
+body {
+  font-family: 'Raleway', Arial, sans-serif;
+}
+ul {
+  list-style-type: none;
+}
+/*  div{box-sizing: border-box}*/
+body,
+div,
+figure,
+ul,
+li,
+section {
+  margin: 0 0;
+  padding: 0 0;
+}
+div {
+  box-sizing: border-box;
+}
+a {
+  color: #ccc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.amap-logo {
+  z-index: 0;
+}
+header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  z-index: 15;
+}
+.top-line {
+  height: 100px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 10%;
+  position: relative;
+}
+.nav-container {
+  position: relative;
+  width: 390px;
+  height: 35px;
+  left: 20%;
+}
+.navi {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.navi a {
+  color: #010101;
+}
+.navi li {
+  list-style-type: none;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  margin-top: 5px;
+  margin-right: 2px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+}
+.navi li a:hover {
+  color: #2d68bb;
+}
+a:hover {
+  color: #2d68bb;
+}
+.logo-wrapper {
+  height: 50px;
+  width: 234px;
+}
+.dropdown {
+  display: none;
+}
+.search {
+  position: absolute;
+  left: 70.5%;
+  width: 218px;
+  height: 36px;
+  top: 35%;
+  padding-left: 10px;
+  border-radius: 18px;
+  background: #f0f0f0;
+}
+span#subject {
+  height: 100%;
+  line-height: 38px;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  color: #999;
+}
+.input {
+  position: absolute;
+  box-sizing: border-box;
+  left: 56px;
+  top: 0;
+  height: 34px;
+  width: 63%;
+  text-align: center;
+  outline: none;
+}
+.input input {
+  position: absolute;
+  width: 100%;
+  height: 36px;
+  padding-top: 3px;
+  left: 0;
+  outline: none;
+  font-size: 13px;
+  text-indent: 8px;
+  background: #f0f0f0;
+  border-left: 1px solid #ccc;
+  border-top: none;
+  box-sizing: border-box;
+}
+span.icon {
+  position: absolute;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  top: 8px;
+}
+.register-login {
+  position: absolute;
+  right: 8%;
+}
+.register-login a {
+  color: #2c2c2c;
+}
+.main_menu {
+  display: none;
+}
+.p_name {
+  margin-left: 5px;
+}
+.p_img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #f00;
+  border-radius: 50%;
+}

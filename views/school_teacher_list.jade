@@ -1,0 +1,228 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title 校区教师列表(预览)
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_page_global.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_header.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_teachers_list.css')
+
+    body
+        include ./common/schoolhead
+        .tea-background(style="top:160px")
+            img(width='100%', height='100%', src='#{data.banner_url}', alt='')
+        .choice
+            .category
+                | 分类
+                ul.category-info
+                    - var typeArr = data.class_type_name
+                    - var typeArrID = data.class_type_code
+
+                    each type_each,index in typeArrID
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+typeArrID[index]+'&page='+data.page+'&size='+data.p_size+'&sort='+data.sort)
+                            if typeArrID[index] == data.type_code
+                                li(class = "activeli") #{typeArr[index]}
+                            else
+                                li #{typeArr[index]}
+        .sort
+            ul
+                //这里的垃圾case循环是为了判断当前的排序应该是那种方式
+                case data.sort
+                    when "default"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(class = "activeli" style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "rating_desc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_asc')
+                            li(class = "activeli")
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/up.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "rating_asc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li(class = "activeli")
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "student_sum_desc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_asc')
+                            li(class = "activeli")
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/up.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "student_sum_asc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li(class = "activeli")
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "teaching_duration_desc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_asc')
+                            li(class = "activeli")
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/up.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "teaching_duration_asc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li(class = "activeli")
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "start_teach_time_desc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_asc')
+                            li(class = "activeli")
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/up.png')
+                    when "start_teach_time_asc"
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=default')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=rating_desc')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=student_sum_desc')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=teaching_duration_desc')
+                            li
+                                | 授课时长&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/teachers/?type_code='+data.type_code+'&page='+data.page+'&size='+data.p_size+'&sort=start_teach_time_desc')
+                            li(class = "activeli")
+                                | 教龄&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+
+        .img-container
+            .img-wrapper
+                each teacher_info,index in  data.teacher_list
+                    .tea-info
+                        .tea-img
+                            a(href='/teachers/#{teacher_info.teacherUserId}/')
+                                img(width='100%',height='100%', src=teacher_info.avatartUrl, alt='')
+                        span.tea-name(style=' ') #{teacher_info.teacherName}
+                        //TODO-MARK 暂时隐藏
+                        //span.tea-course(style='')=teacher_info.webTeacherLvList[0].dictCode.name+teacher_info.webTeacherLvList[0].dictLv.name
+                        span.tea-position(style='')=teacher_info.honor
+                textarea.currentPage #{data.page}
+                textarea.total_page #{data.pages}
+                textarea.current_type #{data.type_code}
+                textarea.current_sort #{data.sort}
+                textarea.school_id #{data.school_id}
+                textarea.current_size #{data.p_size}
+
+        .foot_page
+            //#demo1(style='width:100%;top:160px;left:50%;margin-left: -50%')
+        include ./common/footer
+
+    script.
+        $("div").css("pointer-events", "none")
+                .filter(".nav-bottom")
+                .css("pointer-events", "auto");

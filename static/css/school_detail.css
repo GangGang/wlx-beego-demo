@@ -1,0 +1,417 @@
+#content {
+  padding-bottom: 100px;
+}
+.datetimepicker {
+  position: absolute;
+}
+ul {
+  list-style: none;
+}
+.box {
+  position: relative;
+  overflow: auto;
+  min-width: 1440px;
+  padding: 20px;
+}
+h4.ti {
+  padding: 0;
+  height: 40px;
+  margin: auto 0;
+  line-height: 50px;
+  position: relative;
+  top: -20px;
+  left: -30px;
+  color: #999;
+}
+.bcontainer {
+  background-color: #fff;
+  position: relative;
+  width: 70%;
+  min-width: 750px;
+  border-radius: 10px;
+  padding: 20px 20px 20px 45px;
+}
+.bcontainer li {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+}
+.bcontainer .sp {
+  float: left;
+  margin-left: 40px;
+  height: 50px;
+  width: 110px;
+  line-height: 50px;
+  font-size: 16px;
+}
+.name .input-group {
+  position: absolute;
+  height: 30px;
+  width: 60%;
+  top: 50%;
+  margin-top: -15px;
+  left: 160px;
+}
+li.upp {
+  height: 160px;
+}
+.upl {
+  width: 430px;
+  height: 130px;
+  position: absolute;
+  left: 160px;
+  margin-right: 70px;
+}
+li.address {
+  height: 110px;
+}
+li.address .int {
+  position: absolute;
+  top: 60px;
+  width: 60%;
+  left: 160px;
+}
+li.address .show {
+  position: absolute;
+  top: 60px;
+  width: 60%;
+  left: 160px;
+}
+.thaddress {
+  position: absolute;
+  height: 50px;
+  width: 60%;
+  left: 160px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.thaddress select {
+  padding-left: 8px;
+  height: 34px;
+  width: 95%;
+/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #999;
+/*很关键：将默认的select选择框样式清除*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+/*在选择框的最右侧中间显示小箭头图片*/
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+/*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand {
+  display: none;
+}
+.inaddre {
+  float: left;
+  width: 33.3%;
+  height: 34px;
+}
+#selectti,
+#selecttie {
+  background-color: #eee;
+  height: 40px;
+  width: 210px;
+  position: relative;
+  top: 50px;
+  z-index: 1000;
+  padding-left: 10px;
+}
+li.time select {
+  padding-left: 5px;
+  width: 40px;
+  outline: none;
+  border: solid 1px #999;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+  padding-right: 14px;
+  margin-right: 5px;
+}
+#turestarte,
+#turestart {
+  padding: 3px;
+  height: 26px;
+  width: 50px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -13px;
+}
+.obs {
+  position: relative;
+  min-width: 330px;
+  height: 30px;
+  left: 150px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#datetimepicker1 {
+  width: 60%;
+  left: -140px;
+}
+.imgr {
+  position: absolute;
+  right: 0;
+  width: 195px;
+  height: 128px;
+}
+li.upimg {
+  height: 150px;
+}
+.bt span {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: -5;
+  top: 30;
+}
+.imgb {
+  width: 300px;
+  height: 200px;
+  float: rightl;
+  margin-right: 200px;
+}
+.imgl {
+  float: left;
+  width: 195px;
+  height: 128px;
+  position: relative;
+}
+label {
+  cursor: pointer;
+}
+select {
+  cursor: pointer;
+}
+span {
+  cursor: pointer;
+}
+li.time {
+  height: 85px;
+  margin-top: 20px;
+}
+.tim {
+  position: absolute;
+  width: 400px;
+  height: 50px;
+  left: 160px;
+}
+.start {
+  position: absolute;
+  height: 50px;
+  width: 180px;
+  left: 0;
+}
+.end {
+  position: absolute;
+  height: 50px;
+  width: 180px;
+  right: 0;
+}
+.tim .mi {
+  position: absolute;
+  height: 1px;
+  width: 25px;
+  background-color: #999;
+  right: 138px;
+  top: 50%;
+}
+.tim .start .input-group {
+  position: absolute;
+  width: 180px;
+  top: 50%;
+  margin-top: -17px;
+}
+.tim .end .input-group {
+  position: absolute;
+  width: 180px;
+  top: 50%;
+  margin-top: -17px;
+}
+.time .zhu {
+  position: absolute;
+  left: 160px;
+  line-height: 15px;
+  width: 300px;
+  height: 13px;
+  bottom: 0;
+  font-size: 14px;
+  color: #999;
+  top: 55px;
+  margin-left: 0;
+}
+.subm {
+  float: right;
+  margin-right: 50px;
+}
+.canc {
+  float: right;
+  margin-right: 10px;
+}
+.orgstu {
+  position: absolute;
+  top: 65px;
+  left: 800px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
+.orgstu p {
+  margin: 0;
+}
+.orgstu span {
+  margin-right: 5px;
+}
+span.stus {
+  color: #900;
+}
+ul.times {
+  display: none;
+}
+ul.timee {
+  display: none;
+}
+ul.times li {
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  font-size: 15px;
+}
+ul.timee li {
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  font-size: 15px;
+}
+#selectti {
+  display: none;
+}
+#selecttie {
+  display: none;
+}
+.thaddress_show {
+  position: absolute;
+  height: 50px;
+  width: 60%;
+  left: 160px;
+}
+.thaddress_show .input-group {
+  float: left;
+  width: 33.3%;
+  height: 50px;
+}
+img.loading {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+p.testing {
+  display: none;
+  position: absolute;
+  right: -230px;
+  top: 5px;
+  width: 200px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #ff6054;
+}
+li.hotline {
+  height: 140px;
+}
+.hotline .input-group {
+  position: absolute;
+  height: 30px;
+  width: 60%;
+  top: 75px;
+  margin-top: -15px;
+  right: 200px;
+}
+.choose {
+  position: absolute;
+  height: 34px;
+  width: 300px;
+  top: 15px;
+  margin-top: -15px;
+  left: 160px;
+}
+button.numtype {
+  margin-right: 20px;
+}
+.hottel {
+  display: none;
+  position: absolute;
+  top: 90px;
+  width: 60%;
+  height: 34px;
+  margin-top: -15px;
+  left: 160px;
+}
+.hottel .input-group.tel1 {
+  position: static;
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  height: 34px;
+}
+.hottel p.j {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+  text-align: center;
+  height: 34px;
+  margin: 0;
+  line-height: 2px;
+}
+.hottel .input-group.tel2 {
+  position: static;
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+  height: 34px;
+}
+img.tfi {
+  position: absolute;
+  left: 10px;
+  top: 17px;
+}
+.schoolsp {
+  position: absolute;
+  width: 100px;
+  left: 40px;
+  top: 40px;
+  font-size: 13px;
+  color: #999;
+}
+.zhue {
+  margin: 25px 0 0 40px;
+}
+#selecttie {
+  background-color: #999;
+  height: 40px;
+  width: 200px;
+  position: relative;
+  top: 50px;
+  z-index: 1000;
+  padding-left: 10px;
+}
+#uploadzs {
+  width: 1px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+}

@@ -1,0 +1,38 @@
+
+
+#content_all
+    .password
+        span.text_up 用户账号
+        input(style='text')
+    .student_name
+        span.text_up 学生姓名
+        input(style='text')
+    .student_number
+        span.text_up 学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号
+        span 4324121421421421
+
+
+    h5 订单内容
+    .content_od
+        button.button.btn.btn-primary.btn-lg.content_img_text.glyphicon(type="button" data-toggle="modal" data-target="#teacher_alert")
+        include chosse_class
+       .text_title(style="text-align : center; width : 200px; padding : 10px") 添加班级
+
+    .pay
+        .head
+            span
+               strong 支付信息
+            input(type='button',value='添加')
+        .pay_content
+            span 付款方式
+            input.text(type='text',value='刷卡',disabled=true)
+            span.pay_number 支付单号
+            input.text(type='text',value='11111111111',disabled=true)
+
+#cancel_submit
+    .cancel 取消
+
+    a.submit(href='/orgs/' + data.org_id +'/schools/' + data.school_id + '/orders/'+ 123456 +'/') 提交
+
+
+

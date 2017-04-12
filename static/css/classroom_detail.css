@@ -1,0 +1,510 @@
+body {
+  background-color: #f0f0f0;
+  line-height: 0px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+#content {
+  height: 90%;
+}
+textarea {
+  display: none;
+  height: 1px;
+  width: 1px;
+}
+a {
+  text-decoration: none;
+  color: #999;
+}
+a:hover {
+  text-decoration: none;
+}
+.org_title {
+  font-size: 9px;
+  color: #999;
+  margin: 0;
+  display: inline-block;
+}
+.classroom p.org_title {
+  font-size: 9px;
+}
+.classroom_list_top {
+  color: #222;
+  margin: 0;
+  display: inline-block;
+  font-size: 10px;
+}
+.banner {
+  background-color: #fff;
+  position: absolute;
+  display: inline-block;
+  left: 20px;
+  top: 30px;
+  right: 20px;
+  height: 100px;
+  border-radius: 5px;
+}
+.classroom_detail {
+  color: #888;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  width: 30px;
+  height: 20px;
+}
+.edit_classroom {
+  background-image: url("/static/images/editthegrid.png");
+  background-size: 100%;
+  position: relative;
+  width: 13px;
+  height: 16px;
+  left: 30px;
+  top: 18px;
+}
+.classroom_title {
+  color: #333;
+  position: relative;
+  font-size: 17px;
+  left: -50px;
+  top: 57px;
+  height: 20px;
+}
+.classroom_info {
+  color: #888;
+  position: relative;
+  top: 60px;
+  width: 200px;
+  height: 20px;
+}
+.cut_line {
+  background-color: #c5c5c5;
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  top: 20px;
+  left: 460px;
+}
+.classroom_num {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 400;
+  top: 30px;
+  left: 500px;
+}
+.a {
+  position: absolute;
+  top: 60px;
+  left: 500px;
+  color: #999;
+}
+.class_num {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 400;
+  top: 30px;
+  left: 550px;
+}
+.b {
+  position: absolute;
+  top: 60px;
+  left: 550px;
+  color: #999;
+}
+.saturating_num {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 400;
+  top: 30px;
+  left: 600px;
+}
+.c {
+  position: absolute;
+  top: 60px;
+  left: 600px;
+  color: #999;
+}
+.class_list {
+  position: absolute;
+  display: inline-block;
+  left: 20px;
+  top: 150px;
+  width: 500px;
+  height: 700px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.clssroom_list {
+  position: absolute;
+  display: inline-block;
+  left: 540px;
+  top: 150px;
+  width: 500px;
+  height: 700px;
+  border-radius: 6px;
+  background-color: #fff;
+  text-align: center;
+}
+.content_title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: #666;
+}
+.teacher_title {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  width: 110px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #666;
+  font-size: 14px;
+}
+.class_title {
+  position: absolute;
+  left: 140px;
+  top: 50px;
+  width: 180px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #666;
+  font-size: 14px;
+}
+.grade_title {
+  position: absolute;
+  line-height: 30px;
+  left: 330px;
+  top: 50px;
+  width: 150px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #666;
+  font-size: 14px;
+}
+.grade_table {
+  position: relative;
+  top: 90px;
+  left: 20px;
+  width: 480px;
+  height: 590px;
+  background-color: #fff;
+  overflow: auto;
+}
+.grade_cell {
+  position: relative;
+  left: 0px;
+  margin-top: 10px;
+  width: 460px;
+  height: 50px;
+  background-color: #fff;
+}
+.teacher_name {
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  width: 110px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f6f6f6;
+  color: #333;
+  border-radius: 2px;
+}
+.class_name {
+  position: absolute;
+  display: inline-block;
+  left: 120px;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f6f6f6;
+  color: #333;
+  border-radius: 2px;
+}
+.grade_name {
+  position: absolute;
+  display: inline-block;
+  left: 310px;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f6f6f6;
+  color: #333;
+  border-radius: 2px;
+}
+.weakend {
+  position: relative;
+  top: 30px;
+  left: 80px;
+  width: 400px;
+  height: 40px;
+  background-color: #fff;
+}
+.weakend span {
+  position: relative;
+  display: inline-block;
+  width: 57px;
+  line-height: 50px;
+  height: 40px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+.time_line {
+  position: relative;
+  left: 10px;
+  top: 16px;
+  height: 600px;
+  width: 60px;
+}
+.time_line span {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  line-height: 46px;
+  width: 60px;
+  font-size: 16px;
+  color: #666;
+  background-color: #fff;
+}
+.class_content {
+  position: absolute;
+  left: 80px;
+  top: 80px;
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+}
+.class_block {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  height: 44px;
+  line-height: 40px;
+  margin: 0;
+  margin-top: 2px;
+  padding: 0;
+  background-color: #fff;
+}
+.class_block_1 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  border-top: 1px solid #d3d3d3;
+  line-height: 0px;
+  background-color: #fff;
+}
+.class_block {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  line-height: 0px;
+  background-color: #fff;
+}
+.block_one {
+  position: absolute;
+  width: 57px;
+  display: inline-block;
+  background-color: #ccc;
+}
+.modal-dialog {
+  width: 600px;
+}
+.modal-header {
+  border-bottom: 0px;
+}
+.modal-title {
+  text-align: center;
+  text-indent: 10px;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 100;
+  color: #333;
+}
+.modal_box {
+  display: block;
+  position: relative;
+  height: 300px;
+  background-color: #fff;
+}
+.alert_classroom_name {
+  position: relative;
+  display: inline-block;
+  left: 150px;
+  width: 350px;
+  height: 40px;
+  top: 0px;
+  font-size: 16px;
+}
+.alert_classroom_name span {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  font-size: 14px;
+  font-weight: 100;
+  color: #888;
+}
+.alert_classroom_name input {
+  position: absolute;
+  text-indent: 8px;
+  top: -15px;
+  left: 80px;
+  height: 30px;
+  width: 129px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+  font-weight: 400;
+}
+.chosse_type {
+  position: relative;
+  display: inline-block;
+  left: 150px;
+  width: 350px;
+  height: 40px;
+}
+.chosse_type p {
+  display: inline-block;
+  color: #888;
+  font-size: 14px;
+  font-weight: 100;
+}
+.btn-group {
+  left: 25px;
+}
+.btn-group label {
+  left: 40px;
+  top: 0px;
+  padding: 2px 12px;
+  height: 30px;
+  color: #333;
+  line-height: 25px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.btn-group label.active {
+  left: 40px;
+  top: 0px;
+  padding: 2px 12px;
+  color: #fff;
+  background-color: #373e4a;
+}
+.classroom_cum {
+  position: relative;
+  display: inline-block;
+  left: 150px;
+  width: 350px;
+  height: 40px;
+  font-size: 16px;
+}
+.classroom_cum span {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  font-size: 14px;
+  font-weight: 100;
+  color: #888;
+}
+.classroom_cum input {
+  position: absolute;
+  left: 80px;
+  top: 5px;
+  height: 25px;
+  width: 129px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.classroom_cum p {
+  position: absolute;
+  color: #373e4a;
+  font-size: 10px;
+  top: 40px;
+  left: 80px;
+}
+.save_classroom_btn {
+  position: absolute;
+  display: inline-block;
+  top: 170px;
+  left: 230px;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #373e4a;
+}
+.del_classroom_btn {
+  position: absolute;
+  display: inline-block;
+  top: 170px;
+  left: 310px;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  color: #333;
+  border-radius: 3px;
+  border: 1px solid #373e4a;
+  background-color: #fff;
+}
+.show_info_box {
+  background-color: #fff;
+  position: absolute;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  top: -85px;
+  width: 100px;
+  height: 80px;
+  left: -25px;
+  display: none;
+  z-index: 1;
+  text-align: center;
+}
+.show_info_box h3 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  height: 20px;
+  font-size: 16px;
+  color: #000;
+}
+.show_info_box p {
+  position: relative;
+  top: 5px;
+  height: 20px;
+  line-height: 20px;
+  color: #999;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0px;
+}
+.show_info_box span {
+  position: relative;
+  top: 5px;
+  height: 20px;
+  line-height: 20px;
+  color: #999;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

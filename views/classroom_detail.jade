@@ -1,0 +1,120 @@
+//
+   Created by beingRay on 16/12/19.
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/classroom_detail.css")
+    //link(rel="stylesheet", href="#{data.cdnUrl}/libs/tooltip.css")
+block script
+    //script(src="#{data.cdnUrl}/libs/tooltip.js")
+    script(src="#{data.cdnUrl}/static/js/classroom_detail.js")
+
+
+block content
+    #content
+        //textarea #{jsonObject.schedule_data[0].startTime.substring(0,1)}
+        .page_location
+            //h4.org_title 机构管理
+            //p.org_title.glyphicon.glyphicon-chevron-right
+            //h4.org_title 教室列表
+            //p.org_title.glyphicon.glyphicon-chevron-right
+            //h4.classroom_list_top 教室详情
+            textarea.org_id #{data.org_id}
+            textarea.school_id #{data.school_id}
+            textarea.classroom_id #{data.classroom_data.id}
+            .href
+                a
+        .banner
+            span.classroom_detail 教室信息
+            img.edit_classroom.add_teacher(type="button" data-toggle="modal" data-target="#myModal" src='#{data.cdnUrl}/static/images/classroominformation.png', alt='')
+            include ./modals/classroom_detail
+
+
+                        //.modal-footer
+                        //    button(type="button" class="btn btn-default" data-dismiss="modal") 取消
+                        //    button(type="button" class="btn btn-primary") 保存
+            span.classroom_title #{data.classroom_data.title}
+            -var title= data.classroom_data.title
+            -var single= data.classroom_data.isSingle
+            -var count= data.classroom_data.maxStudentCount
+            -var classroom_type = "false";
+            -var issigle = "集体课"
+            if data.classroom_data.isSingle
+                -classroom_type = "true";
+                -issigle = "一对一"
+            span.classroom_info(data-wlx-title=title, data-wlx-single=classroom_type, data-wlx-count=count) #{issigle},#{count}人
+            img.cut_line
+            span.classroom_num #{data.classroom_data.gradeCount}
+            span.a 班级
+            span.class_num #{data.classroom_data.courseCount}
+            span.b 课次
+            span.saturating_num #{data.saturation.exist_count}/#{data.saturation.max_count}
+            span.c 饱和量
+        .class_list
+            span.content_title 课程表
+            .weakend
+                span 周一
+                span 周二
+                span 周三
+                span 周四
+                span 周五
+                span 周六
+                span 周日
+            .time_line
+                span 8:00
+                span 9:00
+                span 10:00
+                span 11:00
+                span 12:00
+                span 13:00
+                span 14:00
+                span 15:00
+                span 16:00
+                span 17:00
+                span 18:00
+                span 19:00
+                span 20:00
+                span 21:00
+                span 22:00
+            .class_content
+                each XXOO,index in [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    if index <=12
+                        .class_block_1
+                    else
+                        .class_block
+                // TODO 添加课程表
+                each sub_schedule_data,index in data.schedule_data
+                   .block_one(tag_flag=sub_schedule_data.id data-wlx-start-time="#{sub_schedule_data.startTime}" data-wlx-end-time="#{sub_schedule_data.endTime}" data-wlx-week="#{sub_schedule_data.week}")
+                        .show_info_box
+                            h3(style="font-size: 18px") #{sub_schedule_data.name}
+                            p(style="color: lightgrey") #{sub_schedule_data.course_title}
+                            span #{sub_schedule_data.startTime+' -- '+sub_schedule_data.endTime}
+        .clssroom_list
+            span.content_title 班级列表
+            span.teacher_title 教师名称
+            span.class_title 课程名称
+            span.grade_title 班级名称
+            .grade_table(data-spy="scroll")
+                // TODO 这里是数据更改的内容
+                //- var class_name
+                each sub_grade_data, index in data.grade_data
+                    -var classroom_type = "false";
+                    if data.classroom_data.isSingle
+                        -classroom_type = "true";
+                    a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/grades/#{sub_grade_data.id}/")
+                        .grade_cell(tag_flag=sub_grade_data.id data-wlx-single=classroom_type)
+                            .teacher_name #{sub_grade_data.name}
+                            .class_name #{sub_grade_data.course_title}
+                            .grade_name #{sub_grade_data.grade_title}
+
+
+
+
+
+
+
+
+
+
+

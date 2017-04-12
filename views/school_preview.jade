@@ -1,0 +1,139 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title 校区首页(预览)
+        //link(rel="icon", href="#{data.cdnUrl}/static/images/favicon.ico", type="image/x-icon")
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/libs/bootstrap.min.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_header.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_page_global.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_page.css')
+
+
+    body
+        include ./common/schoolhead
+        .banner
+            #carousel-example-generic.carousel.slide(data-ride="carousel")
+                ol.carousel-indicators(style="position: relative;top:500px")
+                    //- var banners = [1,2,3,4,5]
+                    each show_point ,index in data.school_settings.bannerUrls
+                        if index == 0
+                            li.active(data-target="#carousel-example-generic" data-slide-to=index)
+                        else
+                            li(data-target="#carousel-example-generic" data-slide-to=index)
+                .carousel-inner(role="listbox" )
+                    each show_img ,index in data.school_settings.bannerUrls
+                        if index == 0
+                            .item.active(style="height:550px;")
+                                img(width='100%', src=show_img alt="")
+                                .carousel-caption
+                        else
+                            .item(style="height:550px;")
+                                //width="100%",height="70%",vertical-align='middle',
+                                img(width='100%', src=show_img alt="...")
+                                .carousel-caption
+
+        .topic
+            .special-course
+                | #{data.school_settings.classRecommendationTitle}
+            .course-advantage
+                | #{data.school_settings.classRecommendationDescription}
+        .school-course
+            .course-wrapper
+                .course-list
+                    each course_ieam,index in data.recommended_courses
+                        .single-container
+                            .img-wrapper
+                                a(href='/schools/#{data.school_id}/courses/#{course_ieam.courseId}/')
+                                    img(width='100%', height='100%', src=course_ieam.imageUrl, alt='')
+                            .course-info
+                                span(style='color: #e10000;font-size: 18px') ￥&nbsp
+                                span(style='color: red;margin-left: -6px') #{course_ieam.price}
+                                span(style='font-size: 14px;color: #aaaaaa') &nbsp/课次
+                                span(style='font-size: 14px;color: #aaaaaa') (#{course_ieam.rating}分钟)
+                                //span(style='font-size: 15px;color: #aaaaaa;position: absolute;right: 35px') 好评度
+                                //span(style='font-size: 15px;position: absolute;right: 13px;color: red') #{course_ieam.rating}
+                            span(style='position: absolute;top:250px;width:100%;height:30px;line-height: 30px;text-indent: 8px;\
+              font-size: 15px;color: #666666 ') #{course_ieam.title}
+                            div(style='position: absolute;bottom: 0;width:100%;height:40px;text-indent: 8px;border-top: 1px solid #F6F6F6;line-height: 40px')
+                                span(style='font-size: 14px;color: #666666') #{course_ieam.teacherName}
+
+
+                .for-more
+                    a(href='/schools/#{data.school_id}/courses/') 查看全部
+        .tea-place
+            #carousel-example-generic-middle.carousel.slide(data-ride="carousel")
+                ol.carousel-indicators(style="position: relative;top:500px")
+                    each show_point ,index in data.school_settings.teaching_environment_urls
+                        if index == 0
+                            li.active(data-target="#carousel-example-generic-middle" data-slide-to=index)
+                        else
+                            li(data-target="#carousel-example-generic" data-slide-to=index)
+                .carousel-inner(role="listbox")
+                    each show_img ,index in data.school_settings.teaching_environment_urls
+                        if index == 0
+                            .item.active
+                                img(width='100%',src=show_img alt="...")
+                                .carousel-caption
+                        else
+                            .item
+                                img(width='100%',src=show_img alt="...")
+                                .carousel-caption
+        .tea-scroll
+            span.main #{data.school_settings.teacherRecommendationTitle}
+            span.intro #{data.school_settings.teacherRecommendationDescription}
+                //老师列表
+            .school-teacher
+                #carousel-example-generic-teacher-list.carousel.slide(data-ride="carousel")
+                    ol.carousel-indicators
+                        each show_point ,index in data.recommended_teacher
+                            if index == 0
+                                li.active(data-target="#carousel-example-generic-teacher-list" data-slide-to=index)
+                            else
+                                li(data-target="#carousel-example-generic-teacher-list" data-slide-to=index)
+
+                    .carousel-inner(role="listbox")
+                        each show_ul ,index in data.recommended_teacher
+                            - var teacher_h = data.recommended_teacher_honor[index]
+                            if index == 0
+                                .item.active
+                                    ul.teacher-container
+                                        each show_point_li,index in show_ul
+                                            li
+                                                a(href='/teachers/' + show_point_li.teacherUser.id + '/')
+                                                    img(width='100%', src=show_point_li.avatartUrl, alt='')
+                                                span.teacher-name #{show_point_li.name}
+                                                //span.teach-category=teacher_lv[index][0]
+                                                span.teacher-info=teacher_h[index]
+                                    .carousel-caption
+                            else
+                                .item
+                                    ul.teacher-container
+                                        each show_point_li,index in show_ul
+                                            li
+                                                a(href='/teachers/' + show_point_li.teacherUser.id + '/')
+                                                    img(width='100%',src=show_point_li.avatartUrl, alt='')
+                                                span.teacher-name #{show_point_li.name}
+                                                //span.teach-category=teacher_lv[index][0]
+                                                span.teacher-info=teacher_h[index]
+                                    .carousel-caption
+
+                .arrow.arrow-left(class="left" href="#carousel-example-generic-teacher-list" role="button" data-slide="prev")
+                    img(src='#{data.cdnUrl}/static/images/arrowleft.png', alt='')
+                .arrow.arrow-right(class="right" href="#carousel-example-generic-teacher-list" role="button" data-slide="next")
+                    img(src='#{data.cdnUrl}/static/images/arrowright.png', alt='')
+
+        .map-container
+            span.school-info
+                | 校区信息
+            #map
+        include  ./common/footer
+
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/jquery-2.2.2.min.js')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap.min.js')
+    script(src='http://webapi.amap.com/maps?v=1.3&key=b91297e64adfed2dd41e6b0589473aaf')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/js/school_page.js')
+
+
+
+

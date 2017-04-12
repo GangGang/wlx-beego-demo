@@ -1,9 +1,10 @@
+
 html(lang='en')
     head
         meta(charset='UTF-8')
         title 机构登录
-        link(rel="stylesheet",href="{{.cdnUrl}}/static/css/global.css")
-        link(rel="stylesheet",href="{{.cdnUrl}}/static/css/login.css")
+        link(rel="stylesheet", href="{{.cdnUrl}}/static/css/global.css")
+        link(rel="stylesheet", href="{{.cdnUrl}}/static/css/login.css")
         script(src="{{.cdnUrl}}/static/libs/jquery-2.2.2.min.js")
         script(src="{{.cdnUrl}}/static/libs/jquery-validate.js")
 
@@ -13,21 +14,22 @@ html(lang='en')
             span.title 机构管理后台登录
 
         .container
-            form(action="/login" method="post" class="form form--login")
+            form(action="/login" method="post" class="form form--login" )
                 .form_field
                     label
-                        img(src="{{.cdnUrl}}/static/images/person.png")
+                        img(src='{{.cdnUrl}}/static/images/person.png')
                     input(type='username' style='display:none')
-                    input.required#username(type='username' name='username' autocomplete='off' placeholder='手机号码' data-tip='请输入手机号码'
-                    data-valid='isNonEmpty||isMobile' data-error='手机号不能为空||输入正确号码'
+                    input.required#username(type='username' name='username' autocomplete='off' placeholder='手机号码' data-tip="请输入手机号码"
+                    data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||输入正确号码"
                     onfocus="if(placeholder=='手机号码') {placeholder=''}" onblur="if(value=='') {placeholder='手机号码'}")
+
 
                 .msg1
                 .form_field
                     label
                         img(src='{{.cdnUrl}}/static/images/key.png')
 
-                    input.required#password(type='password' name='password' autocomplete='new-password' placeholder='输入密码' data-tip='请输入密码'
+                    input.required#password(type='password' name='password' autocomplete='new-password' placeholder='输入密码' data-tip="请输入密码"
                     data-valid="isNonEmpty||onlyNum" data-error="密码不能为空||输入正确密码"
                     onfocus="if(placeholder=='输入密码') {placeholder=''}" onblur="if(value=='') {placeholder='输入密码'}")
 
@@ -36,22 +38,42 @@ html(lang='en')
                 else
                     .msg2
                 .form_field
-                    button.submit(type='submit') 登录
+                       button.submit(type='submit') 登录
+                       //img(src='{{.cdnUrl}}/static/images/open.png')
 
-                script.
-                    $('form').validate({
-                        onFocus: function () {
-                            this.parent().addClass('active');
-                            return false;
-                        },
+            script.
+                $('form').validate({
 
-                        onBlur: function () {
-                            var $parent = this.parent();
-                            var _status = parseInt(this.attr('data-status'));
-                            $parent.removeClass('active');
-                            if (!_status) {
-                                $parent.addClass('error')
-                            }
-                            return false;
+                    onFocus: function () {
+
+                        this.parent().addClass('active');
+
+                        return false;
+
+                    },
+
+                    onBlur: function () {
+
+                        var $parent = this.parent();
+
+                        var _status = parseInt(this.attr('data-status'));
+
+                        $parent.removeClass('active');
+
+                        if (!_status) {
+
+                            $parent.addClass('error');
+
                         }
-                    });
+                        return false;
+                    }
+                });
+
+
+
+
+
+
+
+
+

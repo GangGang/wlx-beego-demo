@@ -1,0 +1,233 @@
+.nav-Top {
+  position: relative;
+  width: 93%;
+  height: 50px;
+  display: -webkit-box;
+  display: flex;
+  margin-top: 20px;
+  left: 3.5%;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.sort {
+  width: 770px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: flex;
+  background: #fff;
+}
+.category {
+  position: relative;
+  width: 110px;
+  height: 50px;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+}
+.category a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+}
+.category a:hover {
+  background: #373e4a;
+  color: #fff;
+}
+.category:nth-of-type(1) a {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.category:nth-last-child(1) a {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.category a:hover::after {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 46px;
+  border-top: 8px solid #373e4a;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.picked {
+  background: #373e4a;
+  color: #fff;
+}
+.clicked {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 46px;
+  border-top: 8px solid #373e4a;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.vg_end {
+  display: -webkit-box;
+  display: flex;
+  width: 270px;
+  height: 50px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.search {
+  width: 160px;
+  height: 50px;
+  background: #fff;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+}
+.search_input {
+  text-align: center;
+  outline: none;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #999;
+  background-color: #f6f6f6;
+  height: 42px;
+  width: 150px;
+  border: 0px;
+}
+body {
+  background: #f0f0f0;
+  overflow-y: hidden;
+}
+.content {
+  background: #f8f8f8;
+  width: 142px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+tr a {
+  display: block;
+  background: #000;
+}
+.content {
+  background: #f8f8f8;
+  width: 142px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+a.add {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+}
+input {
+  height: 30px;
+  width: 170px;
+  position: absolute;
+  right: 80px;
+  font-size: 15px;
+}
+table {
+  margin: 30px auto;
+  padding-top: 10px;
+  background: #fff;
+  border-radius: 8px;
+  width: 93%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  padding-right: 13px;
+  padding-left: 13px;
+}
+thead {
+  border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 1500px) {
+  thead {
+    line-height: 40px;
+  }
+}
+@media screen and (min-width: 1500px) and (max-width: 1800px) {
+  thead {
+    line-height: 48px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  thead {
+    line-height: 56px;
+    font-size: 18px;
+  }
+}
+th {
+  width: 60px;
+  background: #f0f0f0;
+}
+td {
+  text-align: center;
+  width: 120px;
+  background: #f0f0f0;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1500px) {
+  td {
+    height: 70px;
+  }
+}
+@media screen and (min-width: 1500px) and (max-width: 1800px) {
+  td {
+    height: 78px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  td {
+    height: 86px;
+    font-size: 18px;
+  }
+}
+td.qq {
+  width: 110px;
+  text-align: left;
+}
+td.ww {
+  text-align: left;
+}
+td.www {
+  text-align: left;
+  text-indent: 15px;
+}
+tr:hover {
+  cursor: pointer;
+}
+tr:hover td {
+  background: #3fbae4;
+  color: #fff;
+}
+.blend {
+  width: 90%;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+span.no {
+  text-align: left;
+  text-indent: 15px;
+}

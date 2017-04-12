@@ -1,0 +1,169 @@
+body {
+  background: #f0f0f0;
+}
+div {
+  box-sizing: border-box;
+}
+#content {
+  padding-bottom: 60px;
+}
+.form-horizontal {
+  width: 1150px;
+  margin: 15px auto 2px auto;
+  background: #fff;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.control-label {
+  color: #999;
+  font-size: 16px;
+  font-weight: 300;
+}
+.form-group {
+  margin-left: -20px;
+}
+.bottom {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  width: 1150px;
+}
+.schedule {
+  position: relative;
+  margin: 2 auto;
+  width: 100%;
+  background: #fff;
+}
+.qwe {
+  border-collapse: collapse;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+table.qwe tr {
+  height: 52px;
+}
+th {
+  width: 80px;
+  text-align: center;
+}
+th.week {
+  width: 130px;
+}
+td {
+  width: 120px;
+  border-top: 1px solid #d2691e;
+  margin-top: 40px;
+}
+.show {
+  position: absolute;
+  width: 915px;
+  left: 100px;
+  top: 130px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+.lb_top {
+  color: #c9c9c9;
+  position: relative;
+  font-size: 18px;
+  margin-left: 35px;
+  top: 30px;
+}
+.line {
+  position: relative;
+  border-top: 2px solid #f0f0f0;
+  width: 910px;
+  height: 52px;
+}
+.occupy {
+  display: block;
+  z-index: 3;
+  width: 130px;
+  height: 50px;
+  background: #ccc;
+}
+.occupy1 {
+  z-index: 3;
+  width: 130px;
+  height: 50px;
+  background: #3fbae4;
+}
+.occupy:hover {
+  background: #3fbae4;
+}
+.circle {
+  border: 1px solid #f0f0f0;
+  border-radius: 30px;
+  width: 60px;
+  height: 30px;
+  margin-right: 35px;
+  margin-top: 5px;
+}
+.actives {
+  background: #f5d300;
+}
+.switch1 {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: #3fbae4;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.changing {
+  margin-left: 30px;
+}
+.change {
+  margin-left: 30px;
+  background: #ccc;
+}
+div.select-set {
+  z-index: 0;
+}
+.state {
+  margin-right: 10px;
+  color: #666;
+  font-size: 16px;
+  line-height: 42px;
+}
+.toggle {
+  display: none;
+}
+p {
+  text-align: center;
+}
+div.select-main {
+  left: 130px;
+}
+a.save {
+  position: absolute;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #38ff4b;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+}
+.tea-img {
+  width: 200px;
+  text-align: center;
+}
+hr {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+img.classroom {
+  widht: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
+}

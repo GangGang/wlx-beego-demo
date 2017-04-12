@@ -1,0 +1,28 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/course_list.css")
+block script
+    script(src="#{data.cdnUrl}/static/js/coursemain.js")
+    script(src="#{data.cdnUrl}/static/libs/paging.js")
+
+block content
+    #content
+        - var url = '/orgs/' + data.org_id +'/schools/'+data.school_id+'/courses/?type='
+        - var url1 = '/orgs/' + data.org_id + '/schools/' + data.school_id+'/courses/add/'
+
+        textarea#jsonObject #{helper.stringify(data)}
+        .href
+            a
+
+        include  common/nav_top
+        include  course/content
+        .wlx_bottom_page
+            if data.total_page>1
+                .page
+
+        a.lll(style='height:20px' href='../courseDetail/' url="#{data.cdnUrl}")
+
+
+

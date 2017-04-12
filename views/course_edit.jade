@@ -1,0 +1,82 @@
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/course_create.css")
+
+
+block script
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/js/editclass.js")
+        // TODO 这是我封装的选择老师弹框js
+
+block content
+    #content
+        span#teacher(style="display:none") #{data.teacher_user_id}
+        span#upfile(style="display:none") #{data.image_url}
+        span#duration(style="display:none") #{data.class_duration}
+        span#class_type_code(style="display:none") #{data.class_type[0]}
+        span#class_child_type_code(style="display:none") #{data.class_child_type[0]}
+        span#grade_type_code(style="display:none") #{data.grade_type_code}
+        span#base_price(style="display:none") #{data.base_price}
+        span#price(style="display:none") #{data.price}
+        span#course_id(style="display:none") #{data.course_id}
+        span#enabled(style="display:none") #{data.enabled}
+        textarea.org_id #{data.org_id}
+        textarea.school_id #{data.school_id}
+        .href
+            a
+
+        #add_class_content
+            h5.head_title(style="width:100%") 编辑课程
+                - var on_shelf = data.enabled ? '上架':'暂不上架'
+                if data.enabled
+                    .pull-right.circle
+                        .switch
+                    .pull-right.state #{on_shelf}
+                else
+                    .pull-right.circle.actives
+                        .switch.changing
+                    .pull-right.state #{on_shelf}
+                hr
+                .text_content
+                    .left_span
+                        span.light_text 课程名称
+                        span.light_text 老&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp师
+                        span.light_text 技&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp能
+                        span.light_text 类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型
+                        span.light_text 课次单价
+                        // TODO 这是我封装的选择老师弹框
+                        block teacher_chosse
+
+                    .middle_input
+                        .course_name_input
+                            input(placeholder='请输入课程名称' maxlength='20' value="#{data.title}")
+                        .chosse_teacher_input(style="border:none;top:28px")
+                            input#tname(placeholder='请选择老师'  disabled=true value="#{data.teacher_name}")
+
+                        .chosse_topskill(style="top:27px;border:none")
+                            input(placeholder='顶级技能' disabled=true value="#{data.class_type[1]}" )
+                        .chosse_issingle(style="top:28px;border:none")
+                            - var course_type = data.is_single ? '一对一':'集体课'
+                            input(value="#{course_type}")
+                        .class_price(style="top:37px;")
+                            input(type="number" autocomplete="off" placeholder='价格',value="#{data.price}")
+                            span.course_price_warming 平台底价:#{data.base_price}
+                    .upload_file
+                        img(src='#{data.image_url}?x-oss-process=image/resize,m_fixed,h_120,w_200/format,jpg/quality,Q_86' width=200 height=120)
+                        label.img(for='UpLoadFile')
+                        input#UpLoadFile.uploadimg(type="file",name="uploadzl1")
+
+                .btn-group(style="left:50%;transform:translateX(-40%);width:180px")
+                    button.btn-delete(type="button")  删除
+                    button.btn-save(type="button")  保存
+
+
+
+
+
+
+
+

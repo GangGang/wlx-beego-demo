@@ -1,0 +1,717 @@
+#teacher_alert .modal-dialog {
+  width: 900px;
+}
+.modal-header .close {
+  margin-top: -10px;
+}
+.chosse_teacher {
+  height: 400px;
+}
+.modal-header {
+  min-height: 20px;
+  padding: 15px;
+  border-bottom: 0px solid #fff;
+}
+.chosse_click_btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  margin-top: 0;
+}
+.select_active {
+  background-color: #363d4b;
+  color: #fff;
+}
+.btn.btn-default.chosse_click_btn.media {
+  margin-top: 0;
+}
+.search_background {
+  position: absolute;
+  right: 120px;
+  padding-top: 5px;
+  display: inline-block;
+  border-radius: 6px;
+  width: 180px;
+  height: 35px;
+  background-color: #fff;
+  text-align: center;
+}
+.search_input_chosse {
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #999;
+  background-color: #f6f6f6;
+  height: 27px;
+  width: 170px;
+  outline: none;
+}
+#carousel-teacher {
+  left: 0;
+  position: relative;
+  width: 868px;
+}
+#carousel-course {
+  left: 0;
+  position: relative;
+  width: 868px;
+}
+.last_page {
+  background-color: #fff;
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  height: 160px;
+  width: 50px;
+}
+.scrollview {
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  left: 54px;
+  top: 25px;
+  width: 760px;
+  height: 260px;
+}
+.next_page {
+  background-color: #fff;
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  top: 10px;
+  height: 160px;
+  width: 50px;
+}
+.sure {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 80px;
+}
+.teacher_item {
+  display: inline-block;
+  width: 190px;
+  height: 260px;
+  position: relative;
+  text-align: center;
+}
+.teacher_box {
+  background-color: #fff;
+  position: absolute;
+  width: 170px;
+  height: 240px;
+  left: 10px;
+  top: 10px;
+  text-align: center;
+}
+.teacher_img {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  width: 150px;
+  height: 150px;
+}
+.teacher_name {
+  font-size: 17px;
+  color: #222;
+  position: relative;
+  top: 20px;
+  text-align: center;
+}
+.teacher_desc {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 160px;
+  margin-top: 10px;
+  text-align: left;
+}
+.saturating_cum {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 200px;
+  text-align: left;
+}
+.aaaabox {
+  height: 260px;
+  position: absolute;
+  left: 50%;
+  margin-left: -380px;
+  width: 760px;
+}
+.cell1 {
+  height: 260px;
+  display: block;
+}
+.cell2 {
+  height: 260px;
+  display: block;
+}
+.add_img {
+  position: absolute;
+  left: 130px;
+  top: 130px;
+  width: 36px;
+  height: 36px;
+}
+.add_img_c {
+  position: absolute;
+  left: 145px;
+  top: 90px;
+  width: 36px;
+  height: 36px;
+}
+.sure_c {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 80px;
+}
+.searchcou {
+  top: -1px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f0f0f0;
+  margin-top: 0px;
+}
+.searchtea {
+  top: -1px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f0f0f0;
+  margin-top: 0px;
+}
+.search_background .input-group {
+  top: -5px;
+  right: -12px;
+  width: 200px;
+}
+.saturating_cum_c {
+  color: #d3d3d3;
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 200px;
+  text-align: left;
+}
+#course_alert .modal-dialog {
+  width: 900px;
+}
+.chosse_course {
+  height: 400px;
+}
+.course_item {
+  display: inline-block;
+  width: 190px;
+  height: 260px;
+  position: relative;
+  text-align: center;
+}
+.course_box {
+  background-color: #fff;
+  position: absolute;
+  width: 190px;
+  height: 240px;
+  top: 20px;
+  text-align: center;
+}
+.course_img {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  width: 180px;
+  height: 100px;
+}
+.course_name {
+  font-size: 14px;
+  color: #222;
+  position: relative;
+  top: 20px;
+  text-align: center;
+}
+.course_desc {
+  color: #666;
+  position: relative;
+  font-size: 16px;
+  top: 35px;
+  text-align: center;
+  padding: 0 5px;
+}
+.select_active_c {
+  background-color: #363d4b;
+  color: #fff;
+}
+.org_course {
+  font-size: 9px;
+  color: #999;
+  margin: 0;
+  display: inline-block;
+}
+.org_course p.org_title {
+  font-size: 9px;
+}
+.newcreate_course {
+  color: #222;
+  margin: 0;
+  display: inline-block;
+  font-size: 10px;
+}
+* {
+  padding: 0;
+  outline: none;
+}
+#add_class_content {
+  border-radius: 5px;
+  background: #fff;
+  margin: 15px;
+  padding: 15px;
+}
+.text_content {
+  position: relative;
+}
+#add_class_content .head_title {
+  color: #999;
+  font-size: 16px;
+  display: inline-block;
+  width: 70%;
+  height: 20px;
+}
+input {
+  outline: none;
+  border: none;
+}
+.left_span {
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+  height: 320px;
+  left: 20px;
+}
+.middle_input {
+  display: inline-block;
+  background-color: #fff;
+  width: 400px;
+  height: 320px;
+  position: relative;
+  left: 120px;
+}
+.left_span img {
+  position: relative;
+  display: inline-block;
+  top: 80px;
+  left: -90px;
+}
+.light_text {
+  color: #999;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  font-size: 15px;
+  line-height: 60px;
+  height: 60px;
+  width: 80px;
+}
+.course_name_input {
+  position: relative;
+  display: block;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  top: 20px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 300px;
+}
+.course_name_input input {
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 280px;
+}
+.course_name_input span {
+  display: inline-block;
+  position: relative;
+  left: 320px;
+  color: #999;
+  top: -25px;
+  height: 30px;
+  width: 280px;
+}
+.chosse_teacher_input {
+  position: relative;
+  display: block;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  top: 10px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 200px;
+}
+.chosse_teacher_input input {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 180px;
+}
+.middle_input .chosse_teacher_input span {
+  display: inline-block;
+  position: absolute;
+  left: 250px;
+  color: #999;
+  top: 10px;
+  height: 30px;
+  width: 280px;
+}
+.delete_teacher_button {
+  position: absolute;
+  display: inline-block;
+  background-color: #fff;
+  top: -10px;
+  height: 38px;
+  margin: 10px 0px;
+  left: 178px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 200px;
+  outline: none;
+  border: 0px;
+}
+.chosse_teacher_btn {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  top: -41px;
+  height: 40px;
+  margin: 10px 0px;
+  left: 198px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 400px;
+  width: 40px;
+}
+.chosse_topskill {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  left: 0px;
+  top: 20px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 200px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.chosse_topskill_btn {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  top: -41px;
+  height: 40px;
+  margin: 10px 0px;
+  left: 198px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 400px;
+  width: 40px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.chosse_topskill input {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 180px;
+}
+.chosse_skill {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  left: 100px;
+  top: 20px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 200px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.chosse_skill input {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 180px;
+}
+.chosse_skill_btn {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  top: -41px;
+  height: 40px;
+  margin: 10px 0px;
+  left: 198px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 400px;
+  width: 40px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.chosse_issingle {
+  position: relative;
+  display: block;
+  border: 1px solid #d3d3d3;
+  top: 0px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 200px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.chosse_issingle input {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 180px;
+}
+.chosse_issingle_btn {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  top: -41px;
+  height: 40px;
+  margin: 10px 0px;
+  left: 198px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 400px;
+  width: 40px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.class_price {
+  position: relative;
+  display: block;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  top: 20px;
+  height: 40px;
+  margin: 10px 0px;
+  width: 200px;
+}
+.class_price input {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  left: 10px;
+  top: 5px;
+  height: 30px;
+  width: 180px;
+}
+.class_price_btn {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  top: -41px;
+  height: 40px;
+  margin: 10px 0px;
+  left: 198px;
+  line-height: 41px;
+  text-align: center;
+  font-weight: 400px;
+  width: 40px;
+}
+.course_length_warming {
+  left: 260px;
+  top: 10px;
+  position: absolute;
+  width: 400px;
+}
+.course_price_warming {
+  left: 230px;
+  top: 10px;
+  position: absolute;
+  width: 400px;
+}
+.submit_btn {
+  position: relative;
+  background-color: #69a837;
+  border-radius: 2px;
+  left: 48%;
+  bottom: 30%;
+  text-align: center;
+  color: #fff;
+  font-size: 11px;
+  outline: none;
+  top: 10px;
+}
+.btn:focus:active {
+  outline: none;
+}
+.upload_file {
+  position: absolute;
+  display: inline-block;
+  right: 30px;
+  color: #3fbae4;
+  text-align: center;
+  line-height: 120px;
+  border-radius: 2px;
+  height: 120px;
+  margin: 10px 0px;
+  width: 200px;
+}
+.isshopping_warning {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+  left: 100px;
+  width: 100px;
+  text-align: right;
+}
+.btn-group_warning {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #c5c5c5;
+  border-radius: 20px;
+  left: 150px;
+}
+.isshopping.active {
+  color: #fff;
+  background-color: #00bde8;
+}
+.isnotshopping.active {
+  color: #fff;
+  background-color: #00bde8;
+}
+.btn-group_warning > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.btn-group_warning > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.warmiming_img_explain {
+  position: relative;
+  left: 40px;
+  height: 30px;
+}
+.dropdown-menu {
+  border-radius: 2px;
+  width: 100%;
+}
+.dropdown-menu li {
+  height: 30px;
+  line-height: 30px;
+}
+.dropdown-menu li:hover {
+  background-color: #3fbae4;
+  color: #fff;
+}
+textarea {
+  display: none;
+}
+.glyphicon-remove {
+  font-size: 14px;
+}
+label.img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#UpLoadFile {
+  width: 1px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  border: 1px solid #3fbae4;
+}
+.circle {
+  border: 1px solid #f0f0f0;
+  border-radius: 30px;
+  width: 60px;
+  height: 30px;
+  margin-right: 35px;
+  margin-left: 5px;
+  margin-top: -6px;
+}
+.actives {
+  background: #f5d300;
+}
+.changing {
+  margin-left: 30px;
+}
+.switch {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: #3fbae4;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+button {
+  display: inline-block;
+  border: none;
+  outline: none;
+}
+.btn-group {
+  width: 43px;
+}
+.btn-delete {
+  background: #000;
+  color: #fff;
+  width: 80px;
+  padding: 8px;
+  margin-right: 8px;
+}
+.btn-save {
+  background: #90ee90;
+  color: #fff;
+  width: 80px;
+  padding: 8px;
+}

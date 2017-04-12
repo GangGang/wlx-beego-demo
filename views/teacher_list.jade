@@ -1,0 +1,94 @@
+//
+   Created by snail on 16/12/19.
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/wlx_category.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/teacher_list.css")
+
+block script
+    script(src="#{data.cdnUrl}/static/libs/ZeroClipboard.min.js")
+    script(src="#{data.cdnUrl}/static/libs/jquery.qrcode.min.js")
+    script(src="#{data.cdnUrl}/static/libs/paging.js")
+
+    script(src="#{data.cdnUrl}/static/js/teacher.js")
+
+block content
+    #content
+        .classroom
+            //h4.org_title 机构管理
+            //p.org_title.glyphicon.glyphicon-chevron-right
+            //h4.classroom_list 教师列表
+            .wlzx-nav
+                .wlzx-sort
+                    a.wlzx-category.all_class(href='/orgs/#{data.org_id}/teachers/') 全部
+                    a.wlzx-category.music(href='/orgs/#{data.org_id}/teachers/?type=music') 器乐
+                    a.wlzx-category.dance(href='/orgs/#{data.org_id}/teachers/?type=dance') 舞蹈
+                    a.wlzx-category.art(href='/orgs/#{data.org_id}/teachers/?type=art') 美术
+                    a.wlzx-category.media_art(href='/orgs/#{data.org_id}/teachers/?type=media_art') 媒体艺术
+                    a.wlzx-category.wushu(href='/orgs/#{data.org_id}/teachers/?type=wushu') 武术
+                    a.wlzx-category.chess(href='/orgs/#{data.org_id}/teachers/?type=chess') 棋艺
+                .wlzx-search
+                    input.search_input(placeholder='搜索' value="#{data.search}")
+                button.wlzx-add.add_teacher
+                    a(href="/orgs/#{data.org_id}/teachers/invitation_teacher/")
+                        img(style='vertical-align: middle;width:110%;height:110%', src='#{data.cdnUrl}/static/images/addacell.png', alt='')
+
+            .sort_banner
+                - var class_rate
+                - var saturating
+                case data.sort
+                    when "default"
+                        - class_rate = "saturated_asc"
+                        - saturating = "clazz_asc"
+                    when "saturated_asc"
+                        - class_rate = "saturated_desc"
+                        - saturating = "clazz_asc"
+                    when "saturated_desc"
+                        - class_rate = "saturated_asc"
+                        - saturating = "clazz_asc"
+                    when "clazz_asc"
+                        - class_rate = "saturated_asc"
+                        - saturating = "clazz_desc"
+                    when "clazz_desc"
+                        - class_rate = "saturated_asc"
+                        - saturating = "clazz_asc"
+
+                a.default(href='/orgs/#{data.org_id}/teachers/?type=#{data.type}')
+                    span 默认
+                    img
+                a.sort_rate(href='/orgs/#{data.org_id}/teachers/?type=#{data.type}&sort='+saturating)
+                    span.class_rate 上课率
+                    img.class_rate_logo(style='vertical-align: middle')
+                a.sort_saturating(href='/orgs/#{data.org_id}/teachers/?type=#{data.type}&sort='+class_rate)
+                    span.saturating 饱和量
+                    img.saturating_logo(style='vertical-align: middle')
+            .allClass
+                each teacher_info,index in data.content.teacher_list
+                    .teacher_item
+                        a(href='/orgs/#{data.org_id}/teachers/#{teacher_info.teacher_user_id}/')
+                            .teacher_box
+                                img.teacher_img(src=teacher_info.avatart_url + '?x-oss-process=image/resize,m_fixed,h_135,w_135/circle,r_135')
+                                .teacher_name #{teacher_info.user_name}
+                                .teacher_rate
+                                    span #{'上课率 ：' + teacher_info.inclass}/#{teacher_info.regist}
+                                .saturating_cum
+                                    span #{'饱和量 ：' + teacher_info.student_sum}/#{teacher_info.capacity}
+            - var temp_list = data.content.teacher_list
+            - var count = temp_list.size()
+            if count == 0
+                .no_content(style="position:relative;left:40%;width:20%;top:10%")
+                    img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/noteacher.png', alt='')
+            if data.total > 1
+                .foot_page
+            textarea #{helper.stringify(data)}
+            textarea.data_type #{data.type}
+            textarea.total_page #{data.total}
+            textarea.data_page #{data.page}
+            textarea.data_sort #{data.sort}
+            textarea.org_id #{data.org_id}
+            textarea.cdn_url #{data.cdnUrl}
+            textarea.search #{data.search}
+            .href
+                a

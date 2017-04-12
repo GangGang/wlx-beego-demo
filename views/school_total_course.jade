@@ -1,0 +1,209 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title 校区课程列表(预览)
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/school_page_global.css')
+        link(rel='stylesheet', href='#{data.cdnUrl}/static/css/totalcourse.css')
+    body
+        include ./common/schoolhead
+        .tea-background(style="top:160px")
+            img(width='100%', height='100%', src='#{data.banner_url}', alt='')
+        .choice
+            .location
+                | 地点
+                ul.location-info
+                    - var spaceArr = data.school_region_set
+                    each space_each,index in spaceArr
+                        if spaceArr[index] == data.region
+                            a(href='/schools/#{data.school_id}/courses/?region=#{spaceArr[index]}')
+                                if index == 0
+                                    li(class = "activeli") 不限
+                                else
+                                    li(class = "activeli") #{spaceArr[index]}
+                        else
+                            a(href='/schools/#{data.school_id}/courses/?region=#{spaceArr[index]}')
+                                if index == 0
+                                    li 不限
+                                else
+                                    li #{spaceArr[index]}
+            .category
+                | 分类
+                ul.category-info
+                    - var typeArr = data.class_type_name
+                    - var typeArrID = data.class_type_code
+                    each key,index in typeArrID
+                        if typeArrID[index] == data.type_code
+                            a(href='/schools/#{data.school_id}/courses/?type='+key+'&region=#{data.region}')
+                                li(class = "activeli") #{typeArr[index]}
+                        else
+                            a(href='/schools/#{data.school_id}/courses/?type=#{typeArrID[index]}&region=#{data.region}')
+                                li #{typeArr[index]}
+        .sort
+            ul
+                //这里的垃圾case循环是为了判断当前的排序应该是那种方式
+                  //  default rating_asc  rating_desc  student_sum_asc  student_sum_desc  teaching_duration_asc  teaching_duration_desc
+                case data.sort
+                    when "default"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli" style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "rating_asc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_desc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/up.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "rating_desc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "exist_asc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_desc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/up.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "exist_desc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    when "price_asc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_desc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/up.png')
+                    when "price_desc"
+                        a(href='/schools/#{data.school_id}/courses/?sort=default&type=#{data.type_code}&region=#{data.region}')
+                            li(style='color: #888888;') 默认
+                        a(href='/schools/#{data.school_id}/courses/?sort=rating_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 好评度&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=student_sum_asc&type=#{data.type_code}&region=#{data.region}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                        a(href='/schools/#{data.school_id}/courses/?sort=teaching_duration_asc&type=#{data.type_code}&region=#{data.region}')
+                            li(class = "activeli")
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/down.png')
+                    default
+                        a(href='/courses/?sort=default&type=#{data.type_code}')
+                            li(class = "activeli" style='color: #888888;') 默认
+                        //a(href='/courses/?sort=rating_asc')
+                        //  li
+                        //    | 好评度&nbsp&nbsp
+                        //    img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/down.png')
+                        a(href='/courses/?sort=student_sum_asc&type=#{data.type_code}')
+                            li
+                                | 学生&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/down.png')
+                        a(href='/courses/?sort=teaching_duration_asc&type=#{data.type_code}')
+                            li
+                                | 课次单价&nbsp&nbsp
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/teacher_list/down.png')
+        .img-container
+            .img-wrapper
+                each class_info,index in  data.class_list
+                    .tea-info
+                        .tea-img
+                            a(href='/schools/#{data.school_id}/courses/#{class_info.clazz_id}/')
+                                img(src='#{class_info.imageUrl}', alt='')
+                        .course-info
+                            span(style='color: #e10000;font-size: 16px') ￥
+                            span(style='color: red') #{class_info.price}
+                            span(style='font-size: 14px;color: #aaaaaa') &nbsp/课次
+                            span(style='font-size: 14px;color: #aaaaaa') (#{class_info.classDuration}分钟)
+                            //TODO-MARK 暂时隐藏
+                            //span(style='font-size: 15px;color: #aaaaaa;position: absolute;right: 35px') 好评度
+                            //span(style='font-size: 15px;position: absolute;right: 13px;color: red') #{class_info.com}
+                        span(style='position: absolute;top:250px;width:100%;height:30px;line-height: 30px;text-indent: 8px;\
+                            font-size: 15px;color: #666666 ') #{class_info.title}
+                        div(style='position: absolute;bottom: 0;width:100%;height:40px;text-indent: 8px;border-top: 1px solid #F6F6F6;line-height: 40px')
+                            span(style='font-size: 14px;color: #666666') #{class_info.teacherName}
+                            //TODO-MARK 暂时隐藏
+                            //span(style='position:absolute;background:#50adff;padding-right:10px;height:20px;line-height:20px;\
+                            //  top:50%;margin-top:-10px ;font-size:10px;left:65px;color: white;border-radius: 3px;text-align: left;') #{class_info.teacherlv.child_name}#{class_info.teacherlv.child_lv}
+                            .school-info(style='')
+                                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/address.png', alt='')
+                                |                     &nbsp#{class_info.address}
+                textarea.schoolId #{data.school_id}
+                textarea.currentPage #{data.page}
+                textarea.total_page #{data.pages}
+                textarea.current_space #{data.space}
+                textarea.current_type #{data.type}
+                textarea.current_sort #{data.sort}
+
+        .foot_page
+
+        include ./common/footer
+
+    script.
+        $("div").css("pointer-events", "none")
+                .filter(".nav-bottom")
+                .css("pointer-events", "auto");
+
+
+

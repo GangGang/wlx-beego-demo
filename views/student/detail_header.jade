@@ -1,0 +1,27 @@
+#studParentHead(style='width : 520px')
+        img.icon_image(src= data.stu_detail.webStudentSimple.imgUrl style='float: left ')
+
+        - var souce_data = data.stu_detail.webStudentSimple
+        .contentText(style ='botn : none')
+              ul
+                li.name(style='margin-top : 10px')
+                  strong.student_name(style='font-size : 18px')=souce_data.stuName
+                  span.agetext(style='font-size : 17px')="--"+souce_data.stuAge+"岁"
+                li.parentName(style='margin-top : 5px')
+                  img(src= data.cdnUrl+'/static/images/people.png', alt='' style='margin-right: 10px')
+                  span.parent_name(style='font-size : 15px')=souce_data.parentsName + "(家长)"
+                li.phoneNumeber(style='margin-top : 5px')
+                  img(src=data.cdnUrl + '/static/images/telephonenumber.png', alt='' style='margin-right : 10px')
+                  span.parent_phone_number(style='font-size : 15px')=souce_data.parentsTel
+
+                li.address(style='margin-top : 5px')
+                  img(src=data.cdnUrl + '/static/images/placeofresidence.png', alt='' style='margin-right : 10px')
+                  span.address_school(style='font-size : 15px')=souce_data.parentsAddress
+
+                //li.bottomContent(style='margin-top : 10px')
+                //  .pading 绘画V9
+                //  .latinDance 拉丁舞V10
+
+
+        .addbut
+           img(src = data.cdnUrl + '/static/images/+order.png')

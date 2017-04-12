@@ -1,0 +1,23 @@
+//
+   Created by leibin on 17/3/25.
+
+.schedule
+    div.lb_top 课程表
+    table
+        tbody
+            tr
+                th
+                th.week 周一
+                th.week 周二
+                th.week 周三
+                th.week 周四
+                th.week 周五
+                th.week 周六
+                th.week 周日
+            each val,index in data.time_list
+                - var bb = data.start_time_hour + val
+                tr
+                    th.time #{bb}:00
+    div.show
+        each val in data.time_list
+            .line

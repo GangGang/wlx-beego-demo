@@ -3,97 +3,91 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"errors"
-	"regexp"
 	"strings"
-	"unicode/utf8"
+	"wlx/utils"
+	"wlx/models"
+	"wlx/models/enum"
 	"net/http"
 )
 
-type login struct {
-	Username string  `form:"username"`
-	Password string `form:"password"`
-}
+const userType = enum.O
 
 type LoginController struct {
 	beego.Controller
 }
 
 func (c *LoginController)Get() {
-	//检测session,如果已登录直接重定向到首页
-	//sess, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
-	//if err != nil {
-	//	c.Redirect("/login", http.StatusFound)
-	//	return
-	//} else {
 	c.Data["cdnUrl"] = ""
 	c.Data["error"] = errors.New("")
 	c.TplName = "login.jade"
-	//c.Redirect("/", http.StatusFound)
 	return
-	//}
 }
 
-func (c *LoginController)Post() {
-	login := login{}
-	if err := c.ParseForm(&login); err != nil {
-		jsonMap := make(map[string]interface{})
-		jsonMap["code"] = 1
-		jsonMap["error"] = err.Error()
+func (this *LoginController)Post() {
+	username := this.GetString("username")
+	pwd := this.GetString("password")
 
-		c.Data["json"] = &jsonMap
-		c.ServeJSON()
+	if len(username) == 0 {
+		this.Data["json"] = utils.Error(1, "username为空")
+		this.ServeJSON()
+		return
+	}
+	if len(pwd) == 0 {
+		this.Data["json"] = utils.Error(2, "password为空")
+		this.ServeJSON()
 		return
 	}
 
-	if strings.EqualFold(login.Username, "") {
-		jsonMap := make(map[string]interface{})
-		jsonMap["code"] = 1
-		jsonMap["msg"] = "username must input"
-
-		c.Data["json"] = &jsonMap
-		c.ServeJSON()
+	if !utils.IsMobile(username) {
+		this.Data["json"] = utils.Error(4, "username must be mobile")
+		this.ServeJSON()
 		return
 	}
 
-	if strings.EqualFold(login.Password, "") {
-		jsonMap := make(map[string]interface{})
-		jsonMap["code"] = 1
-		jsonMap["msg"] = "password must input"
-
-		c.Data["json"] = &jsonMap
-		c.ServeJSON()
+	if !utils.IsPassword(pwd) {
+		this.Data["json"] = utils.Error(5, "password must 6-12")
+		this.ServeJSON()
 		return
 	}
 
-	if !strings.HasPrefix(login.Username, "1") || utf8.RuneCountInString(login.Username) != 11 {
-		jsonMap := make(map[string]interface{})
-		jsonMap["code"] = 1
-		jsonMap["msg"] = "username must be mobile"
-
-		c.Data["json"] = &jsonMap
-		c.ServeJSON()
+	ok, userAuth := models.FindOneByTypeAndIdentifier(enum.O, username)
+	if ok {
+		pwdEncoded := utils.EncryptPwd(pwd, userAuth.Salt)
+		if strings.EqualFold(userAuth.Credential, pwdEncoded) {
+			//密码相等
+			sess := this.StartSession()
+			token := sess.SessionID()
+			sess.Set("token", token)
+			ok, _ := models.FindOneByTokenAndType(token, userType)
+			if ok {
+				//数据库已经有token
+			} else {
+				//插入token to db
+				models.InsertUserToken(username, token, userType)
+			}
+			//判断权限
+			ok, userinfo := models.FindUserinfo(username)
+			if ok {
+				sess.Set("user" + userType, userinfo)
+				this.Redirect("/", http.StatusFound)
+				return
+			} else {
+				this.Data["cdnUrl"] = ""
+				this.Data["error"] = "该用户尚未有登录权限,请联系管理员"
+				this.TplName = "login.jade"
+				return
+			}
+		} else {
+			//密码错误
+			this.Data["cdnUrl"] = ""
+			this.Data["error"] = "账号或者密码错误"
+			this.TplName = "login.jade"
+			return
+		}
+	} else {
+		this.Data["cdnUrl"] = ""
+		this.Data["error"] = "账号或者密码错误"
+		this.TplName = "login.jade"
 		return
 	}
-
-	r, _ := regexp.Compile("^[a-zA-Z0-9]{6,12}$")
-	if !r.MatchString(login.Password) {
-		jsonMap := make(map[string]interface{})
-		jsonMap["code"] = 1
-		jsonMap["msg"] = "password must 6-12"
-
-		c.Data["json"] = &jsonMap
-		c.ServeJSON()
-		return
-	}
-
-	sess, err := beego.GlobalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
-	if err != nil {
-		c.Redirect("/login", http.StatusFound)
-		return
-	}
-
-	sess.Set("uid", 1)
-	c.Redirect("/", 302)
-
-	//c.ServeJSON()
 }

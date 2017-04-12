@@ -1,0 +1,90 @@
+//
+   Created by beingRay on 17/1/7.
+
+extends common/main
+
+block style
+     link(rel="stylesheet", href="/static/libs/tooltip.css")
+     link(rel="stylesheet", href="/static/css/teacher_detail.css")
+
+block script
+
+    script(src="/static/libs/jquery-2.2.2.min.js")
+    script(src='/static/libs/tooltip.js')
+    script(src='/static/js/teacherinfo.js')
+
+block content
+    #content
+        - var aaa = helper.stringify(data.new_loss)
+        - var bbb = helper.stringify(data.class_rate)
+        - var ccc = helper.stringify(data.course_comsume)
+        - var ddd = helper.stringify(data.learning_cycle)
+        span.hide1(style="display:none")  #{aaa}
+        span.hide2(style="display:none")  #{bbb}
+        span.hide3(style="display:none")  #{ccc}
+        span.hide4(style="display:none")  #{ddd}
+        .container1
+            .top1
+                .static(style="display:flex;align-items:center;padding-left:2%")
+                    img.tea(src='#{data.avatart_url}?x-oss-process=image/resize,m_fixed,h_120,w_120/circle,r_120/format,jpg')
+                    ul
+                        li
+                          img(src='#{data.cdnUrl}/static/images/parents.png' width='15' height='22')
+                          span.info= data.username
+                        li
+                          img(src='#{data.cdnUrl}/static/images/phone.png' width='15' height='22')
+                          span.info= data.mobile
+                        li
+                           each val, index in data.skill_lvs
+                               if (index < 2)
+                                   span.subject= val.child_name + val.child_lv
+
+
+                .static
+                    .rate 上课率
+                    #charts1
+                .static
+                    .rate 课次消耗
+                    #charts2
+            .center
+                .static1
+                    .study 学生学习周期
+                    #charts3
+                .static1
+                    .study 新生退学
+                    #charts4
+            .bottom
+                .schedule
+                    div(style='color:#999999;font-size: 17px;margin: 15px 0 0 15px') 课程表
+                    table(style='margin-left:3%;border-collapse: collapse;border-color: red;width:97%;')
+                        // <thead style="text-align: center;width:100%;height: 20px;background: deeppink">上课时间表</thead>
+                        // <caption style="font-size: 16px;color: #372fff">课程表</caption>
+                        tbody
+                            tr
+                                th
+                                th.week 周一
+                                th.week 周二
+                                th.week 周三
+                                th.week 周四
+                                th.week 周五
+                                th.week 周六
+                                th.week 周日
+                            each val,index in data.time_list
+                                - var bb = data.start_time_hour + val
+                                tr
+                                    th.time #{bb}:00
+                    div.show
+                        each _ in data.time_list
+                            .line
+                span.hide(style='display:none')=helper.stringify(data.schedules)
+                .class-list
+                    .list 班级列表
+                    .detail
+                        div 教师名称
+                        div 课程名称
+                        div 班级名称
+                    each val in data.grade_list
+                        .infos(data-index=val.clazz_id)
+                            div.such= val.teacher_name
+                            div.such= val.course
+                            div.such= val.clazz

@@ -1,0 +1,59 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/order_list.css")
+block script
+    script(src="#{data.cdnUrl}/static/libs/paging.js")
+    script(src="#{data.cdnUrl}/static/js/ajax.js")
+
+block content
+    #content(style="padding-bottom:80px")
+        - var url = '/orgs/' + data.org_id +'/schools/'+data.school_id+'/orders/?type='
+        - var url1 = '/orgs/' + data.org_id + '/schools/' + data.school_id+'/orders/order_submit/'
+        span.org(style='display:none') #{data.org_id}
+        span.schools(style='display:none') #{data.school_id}
+        span.hide(style='display:none') #{data.type}
+        span.total(style='display:none') #{data.total}
+        span.current(style='display:none') #{data.current}
+        if(data.keyword)
+            span.keyword(style='display:none') #{data.keyword}
+
+        include ./common/nav_top
+
+        - var temp_list = data.info
+        if temp_list.size()>0
+            table
+                thead
+                    th(style='text-align:left;text-indent:25px') 订单号
+                    th(style='text-align:left;') 客户账号
+                    th(style='text-align:left;text-indent:15px') 学生信息
+                    th(style='text-align:left') 课程信息
+                    th(style='text-align:center') 授课老师
+                    th(style='text-align:center') 金额
+
+                each val in temp_list
+                    tr(data-attr="/orgs/#{data.org_id}/schools/#{data.school_id}/orders/" + val.orderNumber + "/")
+                        td(style='text-align:left;text-indent:23px') #{val.orderNumber}
+                          br
+                          |  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                          span.no=val.create_time
+                        td.qq=val.parentsUserAccount
+                        td.www #{val.studentName}
+                          br
+                          | &nbsp&nbsp&nbsp
+                          span.no=val.studentNumber
+                        td.ww=val.className
+                        td=val.teacherName
+                        td #{val.count}
+                          br
+                          span.no=val.price
+            if data.total > 1
+                .blend
+                    .page
+
+        else
+            img(src="#{data.cdnUrl}/static/images/noorder.png" style="display:block;margin:150px auto")
+            .nomanner(style="text-align:center;margin-top:-120px") 暂无订单
+
+

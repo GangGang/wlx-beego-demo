@@ -3,8 +3,8 @@ package models
 import "time"
 
 type Common struct {
-	Id uint `pk:"auto"`
-	CreationDate time.Time
+	Id               int64  `pk:"auto"`
+	CreationDate     time.Time
 	LastModifiedDate time.Time
-	Mark bool
+	Mark             bool
 }

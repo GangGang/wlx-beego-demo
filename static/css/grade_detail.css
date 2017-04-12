@@ -1,0 +1,167 @@
+.container {
+  background: #fff;
+  width: 1100px;
+  height: 200px;
+  border-radius: 8px;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+img.aa {
+  position: absolute;
+  width: 210px;
+  height: 120px;
+  top: 40px;
+  left: 40px;
+}
+img.bb {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+}
+ul.info {
+  width: 600px;
+  height: 150px;
+  position: absolute;
+  top: 38px;
+  left: 280px;
+}
+ul.info li {
+  position: relative;
+  margin-bottom: 18px;
+}
+span.top {
+  font-size: 18px;
+  color: #666;
+}
+span.cat {
+  margin-left: 10px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 8px 12px;
+  background: #afd8f0;
+}
+span.begin {
+  position: absolute;
+  left: 260px;
+}
+span.date {
+  position: absolute;
+  left: 340px;
+}
+span.tea,
+span.room,
+span.begin {
+  color: #999;
+  font-size: 14px;
+}
+.statics {
+  position: absolute;
+  width: 1100px;
+  height: 200px;
+  top: 260px;
+  left: 40px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.rank {
+  position: relative;
+  width: 350px;
+  border-radius: 8px;
+  height: 200px;
+  background: #fff;
+}
+#chart,
+#chart1,
+#chart2 {
+  position: absolute;
+  width: 110%;
+  top: -5%;
+  left: -2%;
+  height: 120%;
+  background: #fff;
+}
+#chart2 {
+  position: absolute;
+  width: 120%;
+  top: -5%;
+  left: -10%;
+  height: 120%;
+  background: #fff;
+}
+.title {
+  position: absolute;
+  width: 100%;
+  line-height: 50px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+.selection {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  left: 900px;
+  top: 43px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.selection .orgsl {
+  width: 114px;
+  height: 32px;
+  margin: 0 auto 10px;
+  cursor: pointer;
+}
+.coursesl {
+  width: 114px;
+  height: 32px;
+  margin: 0 auto 10px;
+  cursor: pointer;
+}
+.teachersl {
+  width: 114px;
+  height: 32px;
+  margin: 0 auto 20px;
+  cursor: pointer;
+}
+.selection a {
+  display: block;
+  width: 114px;
+  height: 32px;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.close {
+  osition: relative;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+}
+span.mod {
+  width: 20px;
+  height: 20px;
+  font-size: 30px;
+}
+img.mod {
+  position: relative;
+  margin: 43px 0 0 -30px;
+  left: 50%;
+}
+button.true {
+  outline: none;
+  width: 85px;
+  margin-right: 30px;
+}
+button.flase {
+  outline: none;
+  width: 85px;
+}
+.cibtns {
+  width: 200px;
+  position: relative;
+  left: 50%;
+  margin-left: -100px;
+}

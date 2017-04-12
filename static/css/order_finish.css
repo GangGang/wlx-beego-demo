@@ -1,0 +1,92 @@
+#content_all {
+  background: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+}
+#content_all .head_content {
+  position: relative;
+}
+#content_all .head_content .head_rigth {
+  position: absolute;
+  left: 180px;
+  top: 0;
+}
+#content_all .order_cont {
+  position: relative;
+  border: 1px solid #000;
+  padding: 15px;
+}
+#content_all .order_content .order_cont li {
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+#content_all .order_content .order_cont .center {
+  display: inline-block;
+  margin-left: 30px;
+}
+#content_all .order_content .order_cont .left {
+  display: inline-block;
+  margin-left: 30px;
+}
+#content_all .order_content .order_cont .right {
+  position: absolute;
+  right: 70px;
+  top: 30px;
+}
+.head_content {
+  font-size: 13px;
+}
+.head_content .front {
+  color: #a52a2a;
+}
+.head_content .text {
+  padding-left: 15px;
+}
+.head_content li {
+  padding-bottom: 10px;
+}
+.order_content .order_cont .class_name {
+  font-size: 17px;
+}
+.order_content .order_cont .name {
+  font-size: 17px;
+}
+.order_content .order_cont .price {
+  font-size: 17px;
+}
+.order_content .order_cont .drawing {
+  background: #ff0;
+  height: 25px;
+  width: 55px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 5px;
+}
+.note {
+  padding: 7px;
+}
+.note span {
+  font-size: 12px;
+}
+.qr_code {
+  height: 100px;
+}
+.qr_code .qr_code_imge {
+  float: right;
+  height: 100px;
+}
+#bpttom_print .button_print {
+  height: 25px;
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 25px;
+  float: right;
+}
+#bpttom_print {
+  padding-right: 50px;
+  padding-top: 50px;
+  height: 200px;
+}

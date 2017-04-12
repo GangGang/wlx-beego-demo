@@ -1,0 +1,47 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/school_setting.css")
+
+block script
+    script(src="#{data.cdnUrl}/static/js/orginfo.js")
+
+block content
+    #content
+        -var jsondata = helper.stringify(data)
+        .box.orginfo(orgid='#{data.org_id}' schoolid='#{data.school_id}' jsondata=jsondata)
+            //.title
+            //    h4 校区信息
+            .rightcon
+                .orgcon
+                    .imgl
+                        img(src='#{data.image_url}' style='height:100%;width:100%')
+                    .info
+                        .ti
+                            h4 #{data.school_name}
+                        .inf1
+                            img.l(src='#{data.cdnUrl}/static/images/time.png')
+                            p.buti(data-wlx-end="#{data.end_time}" data-wlx-start="#{data.start_time}")
+                        .inf1
+                            img.l(src='#{data.cdnUrl}/static/images/people.png')
+                            p #{data.contacts_name}  #{data.contacts_phone}
+                        .inf1
+                            img.l(src='#{data.cdnUrl}/static/images/number.png')
+                            p #{data.tel}
+                        .inf1
+                            img.l(src='#{data.cdnUrl}/static/images/placeofresidence.png')
+                            p #{data.address}
+                    .aa(style='clear:both')
+                    a.jump(href='/orgs/#{data.org_id}/schools/#{data.school_id}/school_info/')
+                        img(src="#{data.cdnUrl}/static/images/editthegrid.png")
+            .selection
+                .orgsl
+                    a(href='/orgs/#{data.org_id}/schools/#{data.school_id}/school_settings/officialset/?category=1')
+                        img(src='#{data.cdnUrl}/static/images/campushomepage.png')
+                .coursesl
+                    a(href='/orgs/#{data.org_id}/schools/#{data.school_id}/school_settings/officialset/?category=2')
+                        img(src='#{data.cdnUrl}/static/images/courselist.png')
+                .teachersl
+                    a(href='/orgs/#{data.org_id}/schools/#{data.school_id}/school_settings/officialset/?category=3')
+                        img(src='#{data.cdnUrl}/static/images/teacherlist.png')

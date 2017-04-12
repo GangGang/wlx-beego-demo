@@ -1,0 +1,77 @@
+#content_all
+    .head_content
+        .headleft
+            ul
+                li
+                 span.front(style='color: #999999') 订 单 号 :
+                 span.text #{data.order_number}
+                li
+                  span.front(style='color: #999999') 金&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp额 :
+                  span.text=data.price+"元"
+                li
+                  span.front(style='color: #999999') 付费方式 :
+                  span.text #{data.pay_way}
+                li
+                  span.front(style='color: #999999') 支付单号 :
+                  span.text #{data.order_number}
+                li
+                  span.front(style='color: #999999') 支付时间:
+                  span.text 2187563622
+
+        .head_rigth
+             ul
+                 li
+                     span.front(style='color: #999999') 客户账号 :
+                     span.text #{data.mobile_phone}
+                 li
+                     span.front(style='color: #999999') 学生姓名:
+                     span.text #{data.stu_name}
+                 li
+                     span.front(style='color: #999999') 学生学号 :
+                     span.text #{data.stu_number}
+    .order_content
+        h5 订单内容 :
+        .order_cont
+            img.img(src= data.classimg style='padding-left : 15px;height : 120px; width : 180px')
+            ul.left
+                li
+                    span.clas_name(style='font-size : 18px; color : black') #{ '[' + data.teacher_name + ']' + data.course_name}
+                li
+                    span.name(style='color : black') #{data.teacher_name}
+                li
+                    span.time=data.course_price +"/"+ data.course_time+"分钟"
+                //li
+                //    .drawing #{data.teacher_lv}
+            ul.center
+                li
+                    span=data.grade_info.title+'(' +data.grade_info.capacity+ '人'+')'
+
+                each  schdule_one ,index in  data.grade_info.schdule
+                    li=schdule_one.week_name+":"+schdule_one.start_time +"-" + schdule_one.end_time
+
+
+            ul.right
+                li
+                    span #{data.count + '课时'}
+                li
+                    span.price  #{'￥'+data.price}
+
+    .note
+        span(style='color: #999999') 备注:使用手机号码作为账号,用短信验证码登陆后设置密码,您可以在未来星App上查看课程表,提交作业
+    .qr_code
+        .qr_code_imge
+            img(src= data.cdnUrl+'/static/images/parentsside.png' style='padding-left : 15px')
+            .span_text(style='font-size : 7px') 未来星App家长端下载
+
+#bpttom_print
+
+    .button_print 打印
+
+
+
+
+
+
+
+
+

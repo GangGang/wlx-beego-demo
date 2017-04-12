@@ -1,0 +1,66 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/classroom_list.css")
+    // TODO 这是我封装的选择老师弹框css 
+block script
+    script(src="#{data.cdnUrl}/static/libs/paging.js")
+    script(src="#{data.cdnUrl}/static/js/classroom.js")
+    // TODO 这是我封装的选择老师弹框js
+    //script(src="#{data.cdnUrl}/static/js/chosse_teacher.js")
+
+
+block content
+    .alert.alert-warning.alert-dismissible(role="alert" style="display: none;position: absolute;left: 40%;top: 30px;")
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+            span(aria-hidden="true") &times
+        strong
+    #content
+        //这个两个记录数据
+        .classroom
+            //h4.org_title 机构管理
+            //p.org_title.glyphicon.glyphicon-chevron-right
+            //h4.classroom_list 教室列表
+            //textarea.jsonObject #{jsonObject}
+            .wlzx-nav
+                .wlzx-sort
+                    a.wlzx-category.all_class(href='/orgs/#{data.org_id}/schools/#{data.school_id}/classroom/') 全部
+                    a.wlzx-category.collective(href='/orgs/#{data.org_id}/schools/#{data.school_id}/classroom/?type=0') 集体课
+                    a.wlzx-category.only(href='/orgs/#{data.org_id}/schools/#{data.school_id}/classroom/?type=1') 一对一
+                span.search_back
+                    input.search_input(placeholder='搜索' value="#{data.search}")
+                button.add_teacher(type="button" data-toggle="modal" data-target="#myModal")
+                    img(style='vertical-align: middle;width:110%;height:110%', src='#{data.cdnUrl}/static/images/addacell.png', alt='')
+                // TODO 这是我封装的选择老师弹框
+                //block teacher_chosse
+                //    include ./chosse_teacher
+                //模态弹框
+                include ./modals/classroom
+
+            .allClass
+                each teacher_info,index in data.classroom_list
+                    a(href='/orgs/#{data.org_id}/schools/#{data.school_id}/classroom/#{teacher_info.id}/')
+                        .class_item
+                            .class_name
+                                span #{teacher_info.title}
+                            .class_cum
+                                img.classroom_logo(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/comments.png', alt='')
+                                span #{teacher_info.gradeCount + '个班级' + teacher_info.courseCount + '个课次'}
+            if data.total>1
+                .foot_page
+            textarea.cdnUrl #{data.cdnUrl}
+            textarea.data_type #{data.type}
+            textarea.data_page #{data.current}
+            textarea.total_page #{data.total}
+            textarea.search #{data.search}
+            textarea.org_id #{data.org_id}
+            textarea.school_id #{data.school_id}
+            .href
+                a
+        - var temp_list = data.classroom_list
+        - var count = temp_list.size()
+        if count == 0
+            img(src='#{data.cdnUrl}/static/images/noclassroom.png',style="display:block;margin:-50px auto" alt='')
+            .nomanner(style="text-align:center;margin-top:80px") 暂无教室
+

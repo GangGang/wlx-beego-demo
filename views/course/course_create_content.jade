@@ -1,0 +1,70 @@
+#add_class_content
+
+    h5.head_title 新建课程
+    .isshopping_warning 上架
+    .btn-group_warning(data-toggle="buttons")
+        label.btn.isshopping.active
+            input(type="radio" name="options" id="option1" autocomplete="off" value="0")
+        label.btn.isnotshopping
+            input(type="radio" name="options" id="option2" autocomplete="off" value="1")
+    hr
+    .text_content
+            .left_span
+                span.light_text 课程名称
+                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/info.png')
+                span.light_text 课程分类
+                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/info.png')
+                span.light_text 课程类型
+                img(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/info.png')
+                span.light_text 老师名称
+                span.light_text 课次单价
+                // TODO 这是我封装的选择老师弹框
+                block teacher_chosse
+            include ../modals/create_course
+            .middle_input
+                .course_name_input
+                    input(placeholder='请输入课程名称',maxlength='20')
+                    span *请给课程起个响当当的名字吧
+                .chosse_topskill
+                    input(placeholder='课程大类',value='',disabled=true)
+                    button.chosse_topskill_btn.btn-group(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
+                        img(style='vertical-align: text-top', src='#{data.cdnUrl}/static/images/down.png')
+                    ul.dropdown-menu(role="menu")
+                        each drop_first_li,drop_index in data.course_first_type_list
+                            li(wlx-topskill = drop_index,wlx-code = drop_first_li.code) #{drop_first_li.name}
+
+                .chosse_skill
+                    input(placeholder='课程小类',disabled=true)
+                    button.chosse_skill_btn.btn-group.disabled(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
+                        img(style='vertical-align: text-top', src='#{data.cdnUrl}/static/images/down.png')
+                    ul.dropdown-menu(role="menu")
+
+                .chosse_issingle
+                    input(placeholder='集体课',value='',disabled=true)
+                    button.chosse_issingle_btn.btn-group.disabled(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
+                        img(style='vertical-align: text-top', src='#{data.cdnUrl}/static/images/down.png')
+                    ul.dropdown-menu(role="menu")
+                        li(wlx-class-type="more" course_duration="90" wlx-baseprice="30") 集体课
+                        li(wlx-class-type="one" course_duration="45" wlx-baseprice="80") 一对一
+
+                    span.course_length_warming
+                .chosse_teacher_input
+                    input(placeholder='请选择老师',value='',disabled=true)
+                    button.delete_teacher_button
+                        img(style='vertical-align: middle' src='#{data.cdnUrl}/static/images/delete.png')
+                    button.chosse_teacher_btn.btn-group.btn.disabled.dropdown-toggle
+                        img(style='vertical-align: top;left:-5px;position:relative' ,src='#{data.cdnUrl}/static/images/addBtn.png')
+                    span *请先选择一个老师
+                .class_price
+                    input(type="number" autocomplete="off",placeholder='价格',value='')
+                    span.course_price_warming
+            .upload_file
+                img.img_fire.loading(src='#{data.cdnUrl}/static/images/loading2.gif' style='display:none;position:absolute;left:0px; width:100% ;height:100%')
+                label(for='UpLoadFile',style='width:100%;height:100%;display:block;position:absolute;top:0;left:0') 上传课程缩略图
+                input#UpLoadFile.uploadimg(type="file",name="uploadzl1",style="width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none;")
+            .warmiming_img_explain
+                span.warmiming_zhu(style="color:#333333") 注:&nbsp&nbsp&nbsp&nbsp
+                img.warmiming_imgimg(style='vertical-align: middle', src='#{data.cdnUrl}/static/images/info.png')
+                span.warmiming_explain(style="color:#333333") &nbsp为不可修改项,提交前请审查
+             button.disabled.btn.btn-group.submit_btn.dropdown-toggle(type="button",style="width:79px;height:29px;font-size:11px")  提交
+

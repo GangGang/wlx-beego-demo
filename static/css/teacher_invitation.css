@@ -1,0 +1,155 @@
+body {
+  background-color: #f0f0f0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #999;
+}
+a:hover {
+  text-decoration: none;
+}
+.display_none {
+  display: none;
+  height: 1px;
+  width: 1px;
+}
+#content {
+  background-color: #f0f0f0;
+}
+.wlx-btn:hover {
+  background-color: #373e4a !important;
+  color: #fff;
+}
+.wlx-btn:focus {
+  background-color: #373e4a !important;
+  color: #fff;
+}
+.wlx-btn:active {
+  background-color: #373e4a !important;
+  color: #fff;
+}
+.invitation_background {
+  background-color: #fff;
+  border-radius: 8px;
+  position: relative;
+  left: 10px;
+  top: 10px;
+  border-radius: 8px;
+  min-height: 700px;
+}
+.invitation_title {
+  position: absolute;
+  left: 32px;
+  top: 48px;
+  color: #222;
+}
+.invitation_input {
+  resize: none;
+  display: block;
+  position: absolute;
+  padding: 10px;
+  left: 103px;
+  top: 36px;
+  width: 482px;
+  height: 95px;
+  border: 1px solid #ddd;
+}
+.warming {
+  position: relative;
+  left: 104px;
+  top: 140px;
+  height: 20px;
+  color: #ff6054;
+  font-size: 14px;
+}
+.invitation_btn {
+  position: relative;
+  left: 104px;
+  top: 155px;
+  width: 68px;
+  height: 29px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  background-color: #373e4a;
+}
+.btn-default:hover {
+  background-color: #373e4a;
+  color: #fff;
+}
+.btn-default:focus {
+  background-color: #373e4a;
+  color: #fff;
+}
+.btn-default:active {
+  background-color: #373e4a;
+  color: #fff;
+}
+.line {
+  position: relative;
+  top: 190px;
+  background-color: #ccc;
+  height: 2px;
+}
+.invitation_table {
+  position: relative;
+  top: 230px;
+  left: 31px;
+}
+.invitation_cell {
+  height: 50px;
+  position: relative;
+}
+.invitation_cell .teacher_phone {
+  position: absolute;
+  left: 0px;
+  height: 50px;
+  line-height: 50px;
+}
+.invitation_cell .teacher_status {
+  position: absolute;
+  left: 137px;
+  height: 50px;
+  line-height: 50px;
+}
+.invitation_cell .invitation_again {
+  position: absolute;
+  left: 222px;
+  top: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  height: 30px;
+  width: 82px;
+  line-height: 30px;
+}
+.invitation_refuse {
+  position: absolute;
+  left: 222px;
+  top: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  height: 30px;
+  width: 82px;
+  line-height: 30px;
+}
+.invitation_cell .invitation_delete {
+  position: absolute;
+  left: 310px;
+  height: 20px;
+  top: 15px;
+  width: 20px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #ff6054;
+  border-radius: 10px;
+}
+.red {
+  color: #ff6054;
+}

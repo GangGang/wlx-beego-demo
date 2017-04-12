@@ -1,0 +1,82 @@
+
+extends common/main
+
+block style
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/tooltip.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/order_submit.css")
+
+block script
+    script(src="#{data.cdnUrl}/static/libs/tooltip.js")
+    script(src="#{data.cdnUrl}/static/js/order_submit.js")
+
+block content
+    #content
+        textarea #{helper.stringify(data)}
+        textarea.org_id #{data.org_id}
+        textarea.school_id #{data.school_id}
+        .alert.alert-warning.alert-dismissible(role="alert" style="display: none;position: absolute;left: 40%;top: 30px;")
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                span(aria-hidden="true") &times
+            strong
+        .content_box
+
+            if (data.student_parent)
+                div
+                    span.light_text.user_light_text 用户账户
+                    .user_box_input
+                        input(value='#{data.student_parent.parent_user_name}' wlx-user-id ='#{data.student_parent.parent_user_id}' disabled=true)
+                div
+                    span.light_text.child_name_light_text 学生姓名
+                    .child_box_input
+                        input(value='#{data.student_parent.student_name}' disabled=true wlx-student-id='#{data.student_parent.student_id}')
+                div
+                    span.light_text.child_id_light_text 学&nbsp&nbsp&nbsp&nbsp号
+                    span.child_student_num #{data.student_parent.student_num}
+            else
+                div
+                    span.light_text.user_light_text 用户账户
+                    .user_box_input
+                        input(placeholder='请输入账号')
+                    button.user_sure_btn 确定
+                div
+                    span.light_text.child_name_light_text 学生姓名
+                    .child_box_input
+                        input(placeholder='请选择孩子' disabled=true)
+                        button.disabled.btn.chosse_child_btn.glyphicon.glyphicon-chevron-down.btn-group(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
+                        ul.dropdown-menu(role="menu")
+                div
+                    span.light_text.child_id_light_text 学&nbsp&nbsp&nbsp&nbsp号
+                    span.child_student_num
+            div.chenage
+                span.light_text.chosse_btn_light_text 订单内容
+                .chosse_class_btn(type="button" data-toggle="modal" data-target="#teacher_alert")
+                    img(src='#{data.cdnUrl}/static/images/addpictures.png',style="width:100%;height:100%")
+                    span.light_text 添加班级
+                        //TODO 这个是第一次隐藏   选完所有东西后便会回来点击后买
+                .chosse_order_class_info
+                    .chosse_class_img
+                        img
+                    span.chosse_class_name
+                    span.chosse_class_teacher
+                    //span.chosse_class_teacher_lv
+                    span.chosse_class_price
+                    span.chosse_class_detail_info
+                    .chosse_class_cum
+                        button.btn.Subtract_chosse_class_btn ➖
+                        input(type="number" maxlength=10 min=1 value='1')
+                        button.btn.add_chosse_class_btn ➕
+                        span.keshi 课时
+                        span.chosse_class_totail_price
+
+                include order/chosse_class
+            div
+            button.submit_order_btn 提交
+            //button.cancel 取消
+
+    //div(style="display: none")
+    div.all_class_course_detail#sub1(data-spy="scroll")
+
+
+
+
+

@@ -1,0 +1,350 @@
+
+extends common/main
+
+block style
+    link(rel='stylesheet', href='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.css')
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/alert.css")
+    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/school_detail.css")
+
+block script
+    -var ali = "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"
+    script(src="#{ali}")
+    script(src="#{data.cdnUrl}/static/libs/ali-oss.js")
+    script(src="#{data.cdnUrl}/static/libs/city2.js")
+    script(src="#{data.cdnUrl}/static/libs/citySelect2.js")
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.min.js')
+    script(type='text/javascript', src='#{data.cdnUrl}/static/libs/bootstrap-datetimepicker.zh-CN.js')
+    script(src="#{data.cdnUrl}/static/libs/alert.js")
+    script(src="#{data.cdnUrl}/static/js/create_school.js")
+
+block content
+    #content
+        .box.create-org(orgid='#{data.org_id}')
+            .leftbcon
+                .bcontainer
+                    h4.ti 新建校区
+                    ul
+                        li.name
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 校区名称:
+                            .input-group
+                                input.form-control.sctitle(type='text',name='title' placeholder="例:华侨城校区")
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                p.testing *请输入校区名称
+                        li.name
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 校区负责人:
+                            .input-group
+                                input.form-control.contact(type='text',name='contact' placeholder="例:张兰兰")
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                p.testing *请输入校区负责人真实姓名
+                        li.name
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 负责人电话:
+                            .input-group
+                                input.form-control.mobile(type='text',name='mobile' placeholder="11位手机号")
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                p.testing *请输入负责人电话
+                        li.address
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 详细地址:
+                            .thaddress
+                                .inaddre
+                                    select#prov4.prov(date-code="220000",style="outline:none")
+                                    span &nbsp
+                                .inaddre
+                                    select#city4.city(date-code="220100",style="outline:none")
+                                    span &nbsp
+                                .inaddre
+                                    select#area4.dist(date-code="220104",style="outline:none")
+                                    span &nbsp
+                            .input-group.int
+                                input.form-control.inprov.address(type='text',name='prov' placeholder="请填写学校详细地址")
+                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                p.testing *请输入详细地址
+                        li
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 建校时间:
+                            .container.obs
+                                .row(style='width:100%')
+                                    .col-sm-6(style='width:100%;padding:0;float:none')
+                                        .form-group
+                                            .input-group.date#datetimepicker1
+                                                input.form-control.decoration_date(type='text' style="width:100%;outline:none;color:#666666" readonly='yes' placeholder="点击选择")
+                                                //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="right:45px;display:none")
+                                                span.input-group-addon
+                                                    span.glyphicon.glyphicon-calendar
+                                                p.testing.decoration_date *请选择建校时间
+                        li.upp
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 房屋租赁合同:
+                            .upl
+                                .imgl
+                                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif')
+                                    img.double.zulinimgs(src='#{data.cdnUrl}/static/images/addpictures.png' style="width:100%;height:100%")
+                                    label(for='uploadzl1',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                    input#uploadzl1.uploadimg(type="file",name="uploadzl1",style="width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none;")
+                                    p.testing(style="left:55px;top:135px") *请上传照片
+                                .imgr
+                                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif' )
+                                    img.double.zulinimgs(src='#{data.cdnUrl}/static/images/addpictures.png' style="width:100%;height:100%")
+                                    label(for='uploadzl2',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                    input#uploadzl2.uploadimg(type='file',name='uploadzl2',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                    p.testing(style="left:55px;top:135px") *请上传照片
+                        li.upp
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 从属机构证明:
+                            .upl
+                                .imgl
+                                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif' )
+                                    img.double.congshuimgs(src='#{data.cdnUrl}/static/images/addpictures.png' style="width:100%;height:100%")
+                                    label(for='uploadcs1',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                    input#uploadcs1.uploadimg(type='file',name='uploadcs1',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                    p.testing(style="left:55px;top:135px") *请上传照片
+                                .imgr
+                                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif' )
+                                    img.double.congshuimgs(src='#{data.cdnUrl}/static/images/addpictures.png' style="width:100%;height:100%")
+                                    label(for='uploadcs2',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                    input#uploadcs2.uploadimg(type='file',name='uploadcs2',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                    p.testing(style="left:55px;top:135px") *请上传照片
+                        li.upimg
+                            p.sp 校区展示图:
+                            span.schoolsp 请上传学校门口或前台的照片,将在官网展示
+                            .upl
+                                .imgl
+                                    img.loading(src='#{data.cdnUrl}/static/images/loading2.gif' )
+                                    img.double.schoolimg(src='#{data.cdnUrl}/static/images/addpictures.png' style="width:100%;height:100%")
+                                    label(for='uploadzs',style='width:195px;height:128px;display:block;position:absolute;top:0;left:0')
+                                    input#uploadzs.uploadimg(type='file',name='uploadzs',style='width:1px;height:1px;display:block;position:absolute;top:0;left:0;outline:none')
+                                    p.testing(style="left:55px;top:135px") *请上传照片
+                        li.time
+                            img.tfi(src="#{data.cdnUrl}/static/images/info.png")
+                            p.sp 营业时间:
+                            .tim
+                                .start
+                                    .input-group
+                                        input.form-control.ins(type='text',name='starttime',readonly='yes',style="outline:none" placeholder="点击选择")
+                                        span.times.input-group-addon
+                                            span.glyphicon.glyphicon-chevron-down
+                                    #selectti
+                                        div(style="position: absolute;top:50%;margin-top:-9px;width: 200px")
+                                            span 时 &nbsp
+                                            select#hour
+                                                option 00
+                                                option 01
+                                                option 02
+                                                option 03
+                                                option 04
+                                                option 05
+                                                option 06
+                                                option 07
+                                                option 08
+                                                option 09
+                                                option 10
+                                                option 11
+                                                option 12
+                                                option 13
+                                                option 14
+                                                option 15
+                                                option 16
+                                                option 17
+                                                option 18
+                                                option 19
+                                                option 20
+                                                option 21
+                                                option 22
+                                                option 23
+                                            span 分 &nbsp
+                                            select#minute
+                                                option 00
+                                                option 01
+                                                option 02
+                                                option 03
+                                                option 04
+                                                option 05
+                                                option 06
+                                                option 07
+                                                option 08
+                                                option 09
+                                                option 10
+                                                option 11
+                                                option 12
+                                                option 13
+                                                option 14
+                                                option 15
+                                                option 16
+                                                option 17
+                                                option 18
+                                                option 19
+                                                option 20
+                                                option 21
+                                                option 22
+                                                option 23
+                                                option 24
+                                                option 25
+                                                option 26
+                                                option 27
+                                                option 28
+                                                option 29
+                                                option 30
+                                                option 31
+                                                option 32
+                                                option 33
+                                                option 34
+                                                option 35
+                                                option 36
+                                                option 37
+                                                option 38
+                                                option 39
+                                                option 40
+                                                option 41
+                                                option 42
+                                                option 43
+                                                option 44
+                                                option 45
+                                                option 46
+                                                option 47
+                                                option 48
+                                                option 49
+                                                option 50
+                                                option 51
+                                                option 52
+                                                option 53
+                                                option 54
+                                                option 55
+                                                option 56
+                                                option 57
+                                                option 58
+                                                option 59
+                                        button.btn.btn-info#turestart 确定
+                                .mi
+                                .end
+                                    .input-group
+                                        input.form-control.ine(type='text',name='endtime',readonly='yes',style="outline:none" placeholder="点击选择")
+                                        span.timee.input-group-addon
+                                            span.glyphicon.glyphicon-chevron-down
+                                    #selecttie
+                                        div(style="position: absolute;top:50%;margin-top:-9px;width: 200px")
+                                            span 时 &nbsp
+                                            select#houre
+                                                option 00
+                                                option 01
+                                                option 02
+                                                option 03
+                                                option 04
+                                                option 05
+                                                option 06
+                                                option 07
+                                                option 08
+                                                option 09
+                                                option 10
+                                                option 11
+                                                option 12
+                                                option 13
+                                                option 14
+                                                option 15
+                                                option 16
+                                                option 17
+                                                option 18
+                                                option 19
+                                                option 20
+                                                option 21
+                                                option 22
+                                                option 23
+                                            span 分 &nbsp
+                                            select#minutee
+                                                option 00
+                                                option 01
+                                                option 02
+                                                option 03
+                                                option 04
+                                                option 05
+                                                option 06
+                                                option 07
+                                                option 08
+                                                option 09
+                                                option 10
+                                                option 11
+                                                option 12
+                                                option 13
+                                                option 14
+                                                option 15
+                                                option 16
+                                                option 17
+                                                option 18
+                                                option 19
+                                                option 20
+                                                option 21
+                                                option 22
+                                                option 23
+                                                option 24
+                                                option 25
+                                                option 26
+                                                option 27
+                                                option 28
+                                                option 29
+                                                option 30
+                                                option 31
+                                                option 32
+                                                option 33
+                                                option 34
+                                                option 35
+                                                option 36
+                                                option 37
+                                                option 38
+                                                option 39
+                                                option 40
+                                                option 41
+                                                option 42
+                                                option 43
+                                                option 44
+                                                option 45
+                                                option 46
+                                                option 47
+                                                option 48
+                                                option 49
+                                                option 50
+                                                option 51
+                                                option 52
+                                                option 53
+                                                option 54
+                                                option 55
+                                                option 56
+                                                option 57
+                                                option 58
+                                                option 59
+                                        button.btn.btn-info#turestarte 确定
+                            p.sp.zhu 注:营业时间自动关联排课的时间
+                            p.testing.times(style="left:590px;top:10px") *请选择营业时间
+                        li.name.hotline
+                            p.sp 咨询电话:
+                            .choose
+                                button.btn.btn-success.numtype(style='outline:none') 手机
+                                button.btn.btn-default.numtype(style='outline:none') 固话
+                            .hotmob
+                                .input-group
+                                    input.form-control.support_hotline(type='text',name='consultatephone' placeholder="请输入咨询电话")
+                                    //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none")
+                                    p.testing *请输入咨询电话
+                            .hottel
+                                .input-group.tel1
+                                    input.form-control.support_hotline1(type='text',name='consultatephone' placeholder="区号")
+                                p.j -
+                                .input-group.tel2
+                                    input.form-control.support_hotline2(type='text',name='consultatephone' placeholder="号码")
+                                    //span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true" style="display:none;top:-15px")
+                                    p.testing(style="top:-10px") *请输入咨询电话
+                    button#createorg.subm.btn.btn-info(style="outline:none") 提交
+                    .zhue
+                        span(style="color:#999999") 注:&nbsp
+                        img(src="#{data.cdnUrl}/static/images/info.png")
+                        span(style="color:#999999") &nbsp为无法修改项,提交前请审查
+
+                    //button.canc.btn.btn-warning(style="outline:none") 终止创建
+                    .xx(style='clear:both')
+                        a
+
+
+
+//script(src="#{data.cdnUrl}/static/libs/laydate.dev.js")
+//script(src="#{data.cdnUrl}/static/js/school.js")

@@ -1,0 +1,31 @@
+
+
+.nav-Top
+    .sort
+        .category.all(cat='all')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=all&stusize="+data.stusize+"&page = 0").headN 全部
+        .category(cat='music')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=music&stusize="+data.stusize+"&page = 0").headN 器乐
+        .category(cat='dance')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=dance&stusize="+data.stusize+"&page = 0").headN 舞蹈
+        .category(cat='art')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=art&stusize="+data.stusize+"&page = 0").headN 美术
+        .category(cat='media_art')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=media_art&stusize="+data.stusize+"&page = 0").headN 媒体艺术
+        .category(cat='wushu')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=wushu&stusize="+data.stusize+ "&page = 0").headN 武术
+        .category.chess(style='border-right: none' cat='chess')
+            a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/?type=chess&stusize="+data.stusize+ "&page= 0").headN 棋艺
+
+
+    .vg_end
+        .search
+            input.search_input(placeholder='搜索' value="#{data.student_name}")
+
+        //a.add(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/operate_student/") +
+        a(href="/orgs/#{data.org_id}/schools/#{data.school_id}/stuparents/operate_student/")
+           img(src='#{data.cdnUrl}/static/images/addacell.png', alt='')
+
+
+
+

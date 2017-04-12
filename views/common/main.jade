@@ -1,0 +1,31 @@
+
+- var dropui = 'http://www.jq22.com/jquery/jquery-ui-1.11.0.js'
+doctype html
+html(lang="zh-CN")
+    head
+        meta(charset="utf-8")
+        block viewport
+            <meta name="viewport", content="width=1024, initial-scale=1">
+        block title
+            title 未来星—后台管理
+
+        block description
+        link(rel="icon", href="#{data.cdnUrl}/static/images/FutureStarLOGO.png", type="image/x-icon")
+        link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/bootstrap.min.css")
+        link(rel="stylesheet", href="#{data.cdnUrl}/static/libs/alert.css")
+        link(rel="stylesheet", href="#{data.cdnUrl}/static/css/wlxmain.css")
+        block style
+    body
+        block left
+           include left_main
+        block header
+           include head_main
+        block content
+
+        script(src="#{data.cdnUrl}/static/libs/jquery-2.2.2.min.js")
+        script(src="#{data.cdnUrl}/static/libs/bootstrap.min.js")
+        script(src="#{data.cdnUrl}/static/libs/common.js")
+        script(src="#{data.cdnUrl}/static/libs/alert.js")
+        block script
+
+
