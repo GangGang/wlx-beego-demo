@@ -35,8 +35,7 @@ block content
                 .head123
                     .h111 学生饱和量
                     .h222 上课率
-                - var temp_list = {{.saturation}}
-                if(temp_list.size() == 0)
+                if .saturation.length
                     .nodata(style="margin-top:20px;display:flex;flex-direction:column;align-items:center;padding-bottom:20px")
                         img(src="{{.cdnUrl}}/static/images/nocourses.png" width=205 height=187)
                         div 暂无数据
