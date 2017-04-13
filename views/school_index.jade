@@ -5,19 +5,17 @@
 extends common/main
 
 block style
-    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/global.css")
-    link(rel="stylesheet", href="#{data.cdnUrl}/static/css/school_index.css")
+    link(rel="stylesheet", href="{{.cdnUrl}}/static/css/global.css")
+    link(rel="stylesheet", href="{{.cdnUrl}}/static/css/school_index.css")
 
 block script
-    script(src="#{data.cdnUrl}/static/js/static.js")
+    script(src="{{.cdnUrl}}/static/js/static.js")
 
 block content
 
     #content
 
-        - var ccc = helper.stringify(data.school_statistics_monthly)
-
-        span.hide3(style='display:none') #{ccc}
+        span.hide3(style='display:none') {{.school_statistics_monthly}}
         .static
             .order
                 .top 订单与金额
@@ -33,83 +31,83 @@ block content
                 #chart3
 
         .bottoms
-                .overview
-                    .head123
-                        .h111 学生饱和量
-                        .h222 上课率
-                    - var temp_list = data.saturation
-                    if(temp_list.size() == 0)
-                        .nodata(style="margin-top:20px;display:flex;flex-direction:column;align-items:center;padding-bottom:20px")
-                           img(src="#{data.cdnUrl}/static/images/nocourses.png" width=205 height=187)
-                           div 暂无数据
+            .overview
+                .head123
+                    .h111 学生饱和量
+                    .h222 上课率
+                - var temp_list = {{.saturation}}
+                if(temp_list.size() == 0)
+                    .nodata(style="margin-top:20px;display:flex;flex-direction:column;align-items:center;padding-bottom:20px")
+                        img(src="{{.cdnUrl}}/static/images/nocourses.png" width=205 height=187)
+                        div 暂无数据
 
 
+                else
+                    each val,index in data.saturation
+                        .progress_line
+                            .left_side
+                                .single_wrapper
+                                    .percent_num=val.rate
+                                    .percent_show
+                                        .course_name=val.childTypeName
+                                        .progress(style="width:80%;height:20px;margin-top:20px;border:2px solid #afd8f0")
+                                            .progress-bar.progress-bar-info(role='progressbar' style='width:#{val.rate};background:#afd8f0' )
+
+                            .right_side
+                                .single_wrapper
+                                    .percent_num=data.class_rate[index].rate
+                                    .percent_show
+                                        .course_name=val.childTypeName
+                                        .progress(style="width:80%;height:20px;margin-top:20px;border:2px solid #f6d97c")
+                                            .progress-bar.progress-bar-success(role='progressbar' style='width:0%;background:#f6d97c')
+
+
+            .rightbar
+                .rate
+                    span.all 校区现有学生
+                    if data.yesterday_new
+                        span.in='+' + data.yesterday_new
+
+                    if data.existing_students
+                        span.num=data.existing_students + '人'
                     else
-                        each val,index in data.saturation
-                                .progress_line
-                                    .left_side
-                                        .single_wrapper
-                                            .percent_num=val.rate
-                                            .percent_show
-                                                 .course_name=val.childTypeName
-                                                 .progress(style="width:80%;height:20px;margin-top:20px;border:2px solid #afd8f0")
-                                                    .progress-bar.progress-bar-info(role='progressbar' style='width:#{val.rate};background:#afd8f0' )
+                        span.num=0 + '人'
 
-                                    .right_side
-                                        .single_wrapper
-                                            .percent_num=data.class_rate[index].rate
-                                            .percent_show
-                                                .course_name=val.childTypeName
-                                                .progress(style="width:80%;height:20px;margin-top:20px;border:2px solid #f6d97c")
-                                                    .progress-bar.progress-bar-success(role='progressbar' style='width:0%;background:#f6d97c')
+                    if data.yesterday_loss
+                        span.out='-' + data.yesterday_loss
 
-
-                .rightbar
-                    .rate
-                        span.all 校区现有学生
-                        if data.yesterday_new
-                            span.in='+'+data.yesterday_new
-
-                        if data.existing_students
-                            span.num=data.existing_students+'人'
-                        else
-                            span.num=0+'人'
-
-                        if data.yesterday_loss
-                            span.out='-'+data.yesterday_loss
-
-                //    .invite
-                //        span.all 我邀请的教师
-                //        span.join 已加入
-                //        span
-                //        span.exit 申请退出
-                //        span
-                //
-                //
-                //    .praise
-                //        span.all 好评度
-                //        if data.ee
-                //            each val in data.ee.comment
-                //                if val.change>0
-                //                    .score.good
-                //                        .top='+'+val.change
-                //                        .center=val.score
-                //                        .bottom=val.index
-                //                else
-                //                    .score.bad
-                //                        .top=val.change
-                //                        .center=val.score
-                //                        .bottom=val.index
-                //        else
-                //            .score
-                //              .center=0
-                //              .bottom 老师
-                //            .score.bad
-                //              .center=0
-                //              .bottom 服务
-                //            .score.good
-                //              .center=0
-                //              .bottom 环境
+            //    .invite
+            //        span.all 我邀请的教师
+            //        span.join 已加入
+            //        span
+            //        span.exit 申请退出
+            //        span
+            //
+            //
+            //    .praise
+            //        span.all 好评度
+            //        if data.ee
+            //            each val in data.ee.comment
+            //                if val.change>0
+            //                    .score.good
+            //                        .top='+'+val.change
+            //                        .center=val.score
+            //                        .bottom=val.index
+            //                else
+            //                    .score.bad
+            //                        .top=val.change
+            //                        .center=val.score
+            //                        .bottom=val.index
+            //        else
+            //            .score
+            //              .center=0
+            //              .bottom 老师
+            //            .score.bad
+            //              .center=0
+            //              .bottom 服务
+            //            .score.good
+            //              .center=0
+            //              .bottom 环境
 
 
 

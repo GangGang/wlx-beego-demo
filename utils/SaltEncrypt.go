@@ -27,13 +27,13 @@ func md5Str(s string) string {
 }
 
 //生成len位的随机字符串
-func getRandomString(len int) string {
+func getRandomString(length int) string {
 	strBytes := []byte(randomSalt)
-	size := Length(randomSalt)
+	size := len(randomSalt)
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	var buffer bytes.Buffer
-	for i := 0; i < len; i++ {
+	for i := 0; i < length; i++ {
 		buffer.WriteByte(strBytes[r.Intn(size)])
 	}
 	return buffer.String()

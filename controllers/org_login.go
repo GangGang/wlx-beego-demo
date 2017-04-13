@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"errors"
 	"strings"
 	"wlx/utils"
 	"wlx/models"
@@ -18,7 +17,7 @@ type LoginController struct {
 
 func (c *LoginController)Get() {
 	c.Data["cdnUrl"] = ""
-	c.Data["error"] = errors.New("")
+	c.Data["error"] = ""
 	c.TplName = "login.jade"
 	return
 }
@@ -65,7 +64,7 @@ func (this *LoginController)Post() {
 				//插入token to db
 				models.InsertUserToken(username, token, userType)
 			}
-			//判断权限
+			//判断权限(role)
 			ok, userinfo := models.FindUserinfo(username)
 			if ok {
 				sess.Set("user" + userType, userinfo)
