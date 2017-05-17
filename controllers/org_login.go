@@ -7,6 +7,8 @@ import (
 	"wlx/models"
 	"wlx/models/enum"
 	"net/http"
+	"time"
+	"github.com/astaxie/beego/orm"
 )
 
 const userType = enum.O
@@ -62,7 +64,12 @@ func (this *LoginController)Post() {
 				//数据库已经有token
 			} else {
 				//插入token to db
-				models.InsertUserToken(username, token, userType)
+				ok, userToken := models.InsertUserToken(username, token, userType)
+				if ok {
+					sess.Set("ExpiredTime", userToken.ExpiredTime)
+				} else {
+					sess.Set("ExpiredTime", time.Now().Add(72 * time.Hour))
+				}
 			}
 			//判断权限(role)
 			ok, userinfo := models.FindUserinfo(username)
@@ -89,4 +96,19 @@ func (this *LoginController)Post() {
 		this.TplName = "login.jade"
 		return
 	}
+}
+
+func (this *LoginController)Logout() {
+	token := this.GetSession("token").(string)
+
+	//删除数据库中userToken
+	ok, userToken := models.FindOneByTokenAndType(token, enum.O)
+	if ok {
+		orm := orm.NewOrm()
+		orm.Delete(userToken)
+	}
+	//删除session
+	this.DestroySession()
+
+	//重定向到登录
 }
