@@ -6,10 +6,6 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 	"strings"
-	"net/http"
-	"wlx/models/enum"
-	"wlx/models"
-	"github.com/astaxie/beego/orm"
 )
 
 var filterWlxHeader = func(ctx *context.Context) {
@@ -22,14 +18,17 @@ var filterWlxHeader = func(ctx *context.Context) {
 
 var filterUser = func(ctx *context.Context) {
 	//检测session是否登录
-	userinfo := ctx.Input.Session("user" + enum.O).(models.Userinfo)
-	if userinfo == nil {
-		ctx.Redirect(http.StatusFound, "/login")
-	} else {
-		//检查角色
-		role := userinfo.Role
-		//get org_id,school_id from the url to check the data permission
-	}
+	//userinfo := ctx.Input.Session("user" + enum.O).(models.Userinfo)
+	//if userinfo {
+	//
+	//}
+	//if userinfo == nil {
+	//	ctx.Redirect(http.StatusFound, "/login")
+	//} else {
+	//	//检查角色
+	//	//role := userinfo.Role
+	//	//get org_id,school_id from the url to check the data permission
+	//}
 }
 
 func init() {

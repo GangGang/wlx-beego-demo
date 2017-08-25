@@ -1,0 +1,16 @@
+package: wlx
+import:
+- package: github.com/Joker/jade
+- package: github.com/astaxie/beego
+  version: v1.9.0
+  subpackages:
+  - context
+  - orm
+  - session/redis
+- package: github.com/go-sql-driver/mysql
+  version: v1.3
+testImport:
+- package: github.com/smartystreets/goconvey
+  version: 1.6.3
+  subpackages:
+  - convey
